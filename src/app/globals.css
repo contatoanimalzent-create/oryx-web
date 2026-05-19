@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+/* ─── ORYX design tokens ──────────────────────────────────────────────
+ * Cores extraídas da logo: preto base, vermelho tático, off-white texto.
+ * Tipografia: Inter (UI) + Geist Mono (códigos/stats) + custom display.
+ * Espaçamento: escala em 4px base, generous whitespace.
+ */
+@theme {
+  /* Base */
+  --color-bg: #0a0a0a;
+  --color-bg-elevated: #141414;
+  --color-surface: #1a1a1a;
+  --color-border: #2a2a2a;
+  --color-border-strong: #3a3a3a;
+
+  /* Texto */
+  --color-text: #f5f5f5;
+  --color-text-muted: #a3a3a3;
+  --color-text-dim: #6b6b6b;
+
+  /* Marca — vermelho tático ORYX */
+  --color-brand: #c8202c;
+  --color-brand-hover: #e02a37;
+  --color-brand-dim: #8c1620;
+  --color-brand-glow: rgba(200, 32, 44, 0.35);
+
+  /* Semantic */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+
+  /* Tactical accents (mesmos do app mobile pra consistência) */
+  --color-faction-ally: #2962ff;
+  --color-faction-enemy: #f59e0b;
+  --color-faction-self: #00e676;
+
+  /* Typography */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-display), var(--font-inter), sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  background: var(--color-bg);
+  color: var(--color-text);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-feature-settings: "cv11", "ss01", "ss03";
+  letter-spacing: -0.005em;
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ─── Tactical effects ─────────────────────────────────────────────── */
+
+/* Grid scanline overlay — sutil, gaming feel */
+.tactical-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Radial vignette pra dar foco no centro */
+.tactical-vignette {
+  background:
+    radial-gradient(ellipse at center top, rgba(200, 32, 44, 0.08), transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(0, 0, 0, 0.6), transparent 60%);
+}
+
+/* Brand glow underline pra CTAs primárias */
+.brand-glow {
+  box-shadow:
+    0 0 0 1px var(--color-brand),
+    0 8px 24px -8px var(--color-brand-glow);
+}
+
+/* Crosshair marker — pra acompanhar headers de seção */
+.tactical-bracket::before {
+  content: "[";
+  color: var(--color-brand);
+  margin-right: 0.4em;
+  font-weight: 700;
+}
+.tactical-bracket::after {
+  content: "]";
+  color: var(--color-brand);
+  margin-left: 0.4em;
+  font-weight: 700;
+}
+
+/* Status indicator (pulsing dot) */
+.status-live {
+  position: relative;
+  padding-left: 1.5rem;
+}
+.status-live::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-faction-self);
+  transform: translateY(-50%);
+  box-shadow: 0 0 12px var(--color-faction-self);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Selection */
+::selection {
+  background: var(--color-brand);
+  color: var(--color-text);
+}
+
+/* Scrollbar (Webkit) */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-brand-dim); }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
