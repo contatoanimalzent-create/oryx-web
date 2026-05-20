@@ -5,6 +5,9 @@ import { HowItWorks } from "@/components/sections/HowItWorks";
 import { ForWho } from "@/components/sections/ForWho";
 import { Stats } from "@/components/sections/Stats";
 import { CTA } from "@/components/sections/CTA";
+import { Comparison } from "@/components/sections/Comparison";
+import { OfflineFeature } from "@/components/sections/OfflineFeature";
+import { MarketplacePreview } from "@/components/sections/MarketplacePreview";
 
 export const metadata: Metadata = {
   title: "ORYX — Comando e controle pra airsoft tático",
@@ -19,7 +22,10 @@ export default function HomePage() {
       <Hero />
       <Stats />
       <Features />
+      <OfflineFeature />
       <HowItWorks />
+      <MarketplacePreview />
+      <Comparison />
       <ForWho />
       <CTA />
     </>

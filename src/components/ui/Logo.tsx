@@ -1,43 +1,45 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 /**
- * Wordmark provisório enquanto SVG vetorizado da logo não está disponível.
+ * Logo ORYX — wordmark com mascote antelope tactical (SVG vetorizado).
  *
- * Quando user fornecer a SVG da logo (oryx antelope tactical), substituir
- * por <Image src="/logo.svg" /> mantendo as mesmas dimensões.
+ * Tamanhos: sm (24px ícone + texto sm) / md (28px + base) / lg (40px + 2xl).
+ * O ícone fica à esquerda. Em mobile podemos esconder o texto via
+ * className="..." se o caller quiser só o mark.
  */
 export function Logo({
   className,
   size = "md",
+  iconOnly,
 }: {
   className?: string;
   size?: "sm" | "md" | "lg";
+  iconOnly?: boolean;
 }) {
   const dims = {
-    sm: { wordmark: "text-base", height: "h-6" },
-    md: { wordmark: "text-lg", height: "h-7" },
-    lg: { wordmark: "text-2xl", height: "h-9" },
+    sm: { icon: 24, text: "text-sm" },
+    md: { icon: 28, text: "text-base" },
+    lg: { icon: 40, text: "text-2xl" },
   }[size];
 
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2.5 font-bold tracking-[0.25em] select-none",
-        dims.wordmark,
+        "inline-flex items-center gap-2.5 font-bold tracking-[0.22em] select-none text-[var(--color-text)]",
+        dims.text,
         className,
       )}
     >
-      <span
-        className={cn(
-          "inline-flex items-center justify-center aspect-square rounded-sm",
-          "bg-[var(--color-brand)] text-white font-black",
-          dims.height,
-        )}
-        aria-hidden
-      >
-        <span className="text-[0.65em] leading-none">▲</span>
-      </span>
-      <span>ORYX</span>
+      <Image
+        src="/logo.svg"
+        alt="ORYX"
+        width={dims.icon}
+        height={dims.icon}
+        priority
+        className="shrink-0"
+      />
+      {!iconOnly && <span>ORYX</span>}
     </span>
   );
 }

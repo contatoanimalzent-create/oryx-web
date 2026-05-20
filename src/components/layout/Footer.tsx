@@ -17,6 +17,7 @@ const COLS: Array<{ title: string; links: Array<{ label: string; href: string }>
     links: [
       { label: "Sobre", href: "/sobre" },
       { label: "Blog", href: "/blog" },
+      { label: "Funciona offline", href: "/#offline-title" },
       { label: "Contato", href: "mailto:contato@oryxcontrol.com" },
     ],
   },

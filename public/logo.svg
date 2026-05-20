@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none">
+  <!-- Outer scope ring -->
+  <circle cx="128" cy="128" r="98" fill="#0a0a0a" stroke="#f5f5f5" stroke-width="3"/>
+  <circle cx="128" cy="128" r="90" fill="none" stroke="#c8202c" stroke-width="2"/>
+
+  <!-- Scope ticks (cardinal markers) -->
+  <line x1="128" y1="38" x2="128" y2="50" stroke="#c8202c" stroke-width="3"/>
+  <line x1="128" y1="206" x2="128" y2="218" stroke="#c8202c" stroke-width="3"/>
+  <line x1="38" y1="128" x2="50" y2="128" stroke="#c8202c" stroke-width="3"/>
+  <line x1="206" y1="128" x2="218" y2="128" stroke="#c8202c" stroke-width="3"/>
+
+  <!-- Center crosshair -->
+  <line x1="118" y1="128" x2="138" y2="128" stroke="#c8202c" stroke-width="1.5"/>
+  <line x1="128" y1="118" x2="128" y2="138" stroke="#c8202c" stroke-width="1.5"/>
+  <circle cx="128" cy="128" r="3" fill="#c8202c"/>
+
+  <!-- Location pin (red drop on crosshair) -->
+  <path d="M128 90 C140 90 148 99 148 112 C148 125 128 142 128 142 C128 142 108 125 108 112 C108 99 116 90 128 90 Z"
+        fill="#c8202c" stroke="#0a0a0a" stroke-width="2"/>
+  <circle cx="128" cy="110" r="6" fill="#0a0a0a"/>
+
+  <!-- Antelope horns — sharp tactical ascender shapes -->
+  <!-- Left horn -->
+  <path d="M88 50 L94 145 L102 145 L96 80 Z" fill="#1a1a1a" stroke="#f5f5f5" stroke-width="1.5"/>
+  <!-- Mid-left horn segments -->
+  <line x1="96" y1="85" x2="102" y2="85" stroke="#f5f5f5" stroke-width="1"/>
+  <line x1="97" y1="100" x2="103" y2="100" stroke="#f5f5f5" stroke-width="1"/>
+  <line x1="98" y1="115" x2="104" y2="115" stroke="#f5f5f5" stroke-width="1"/>
+  <line x1="99" y1="130" x2="105" y2="130" stroke="#f5f5f5" stroke-width="1"/>
+
+  <!-- Right horn -->
+  <path d="M168 50 L162 145 L154 145 L160 80 Z" fill="#1a1a1a" stroke="#f5f5f5" stroke-width="1.5"/>
+  <line x1="154" y1="85" x2="160" y2="85" stroke="#f5f5f5" stroke-width="1"/>
+  <line x1="153" y1="100" x2="159" y2="100" stroke="#f5f5f5" stroke-width="1"/>
+  <line x1="152" y1="115" x2="158" y2="115" stroke="#f5f5f5" stroke-width="1"/>
+  <line x1="151" y1="130" x2="157" y2="130" stroke="#f5f5f5" stroke-width="1"/>
+
+  <!-- Antelope face (geometric V-snout) -->
+  <path d="M98 150 L128 220 L158 150 L142 145 L128 180 L114 145 Z" fill="#1a1a1a" stroke="#f5f5f5" stroke-width="1.5"/>
+
+  <!-- Eye accents (red glints) -->
+  <circle cx="116" cy="160" r="2.5" fill="#c8202c"/>
+  <circle cx="140" cy="160" r="2.5" fill="#c8202c"/>
+</svg>
