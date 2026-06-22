@@ -7,6 +7,7 @@ import {
   Radio,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 const FEATURES: Array<{
   icon: LucideIcon;
@@ -66,7 +67,7 @@ export function Features() {
       className="relative py-24 lg:py-32"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="max-w-3xl">
+        <Reveal className="max-w-3xl">
           <p className="tactical-bracket text-xs font-mono uppercase tracking-widest text-[var(--color-brand)]">
             Capacidades
           </p>
@@ -85,13 +86,17 @@ export function Features() {
             mais de 10 anos. Cada feature resolve uma dor real de campo —
             não é tech por tech.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--color-border)] rounded-xl overflow-hidden border border-[var(--color-border)]">
+        <Reveal
+          className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--color-border)] rounded-xl overflow-hidden border border-[var(--color-border)]"
+          stagger={0.08}
+          y={24}
+        >
           {FEATURES.map((f) => (
             <FeatureCard key={f.title} {...f} />
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

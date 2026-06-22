@@ -1,5 +1,6 @@
 import { ShoppingBag, ArrowRight, Tag } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
+import { Reveal } from "@/components/motion/Reveal";
 
 interface Listing {
   title: string;
@@ -91,11 +92,15 @@ export function MarketplacePreview() {
           </ButtonLink>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <Reveal
+          className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+          stagger={0.07}
+          y={28}
+        >
           {PREVIEW.map((item) => (
             <article
               key={item.title}
-              className="group rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-elevated)] overflow-hidden hover:border-[var(--color-brand)]/40 transition-colors"
+              className="group rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-elevated)] overflow-hidden transition-all duration-300 hover:border-[var(--color-brand)]/50 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-16px_var(--color-brand-glow)]"
             >
               {/* Photo placeholder */}
               <div className="aspect-square bg-[var(--color-surface)] relative overflow-hidden">
@@ -137,7 +142,7 @@ export function MarketplacePreview() {
               </div>
             </article>
           ))}
-        </div>
+        </Reveal>
 
         <p className="mt-6 text-xs text-[var(--color-text-dim)]">
           Pré-visualização. Listings reais aparecem no app a partir da

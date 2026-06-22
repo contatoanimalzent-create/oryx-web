@@ -1,11 +1,12 @@
 import { ArrowRight, Users, Crosshair as CrosshairIcon } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
+import { Reveal } from "@/components/motion/Reveal";
 
 export function ForWho() {
   return (
     <section className="relative py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto">
+        <Reveal className="text-center max-w-3xl mx-auto">
           <p className="tactical-bracket text-xs font-mono uppercase tracking-widest text-[var(--color-brand)]">
             Pra quem é
           </p>
@@ -19,9 +20,13 @@ export function ForWho() {
             <strong className="text-[var(--color-text)]">cosméticos digitais</strong>{" "}
             opcionais.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <Reveal
+          className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-6"
+          stagger={0.12}
+          y={28}
+        >
           <Card
             icon={CrosshairIcon}
             tag="Operador"
@@ -48,7 +53,7 @@ export function ForWho() {
             cta="Quero organizar"
             href="/organizadores"
           />
-        </div>
+        </Reveal>
       </div>
     </section>
   );

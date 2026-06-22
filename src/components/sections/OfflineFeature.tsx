@@ -1,4 +1,5 @@
 import { CloudOff, MapPin, RadioTower, Activity } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 const POINTS = [
   {
@@ -32,7 +33,7 @@ export function OfflineFeature() {
       <div className="absolute inset-0 tactical-grid opacity-30 pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="max-w-3xl">
+        <Reveal className="max-w-3xl">
           <p className="tactical-bracket text-xs font-mono uppercase tracking-widest text-[var(--color-brand)]">
             Offline-first
           </p>
@@ -50,9 +51,13 @@ export function OfflineFeature() {
             pra operar nessas condições — não pra travar numa tela de
             &quot;sem conexão&quot;.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <Reveal
+          className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8"
+          stagger={0.08}
+          y={24}
+        >
           {POINTS.map((p) => {
             const Icon = p.icon;
             return (
@@ -76,7 +81,7 @@ export function OfflineFeature() {
               </article>
             );
           })}
-        </div>
+        </Reveal>
 
         <div className="mt-12 inline-flex items-center gap-2 px-4 py-2.5 rounded-md border border-[var(--color-border-strong)] bg-[var(--color-surface)] text-xs font-mono uppercase tracking-widest text-[var(--color-text-muted)]">
           <CloudOff size={14} className="text-[var(--color-warning)]" />

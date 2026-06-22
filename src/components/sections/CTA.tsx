@@ -1,5 +1,6 @@
 import { Download, ArrowRight } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
+import { Reveal } from "@/components/motion/Reveal";
 
 export function CTA() {
   return (
@@ -7,7 +8,7 @@ export function CTA() {
       <div className="absolute inset-0 tactical-grid pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-brand)]/5 to-transparent pointer-events-none" />
 
-      <div className="relative mx-auto max-w-4xl px-6 lg:px-8 text-center">
+      <Reveal className="relative mx-auto max-w-4xl px-6 lg:px-8 text-center">
         <p className="tactical-bracket text-xs font-mono uppercase tracking-widest text-[var(--color-brand)]">
           Hora de operar
         </p>
@@ -35,7 +36,7 @@ export function CTA() {
         <p className="mt-8 text-xs uppercase tracking-widest text-[var(--color-text-dim)]">
           iOS chegando · TestFlight beta em 2026
         </p>
-      </div>
+      </Reveal>
     </section>
   );
 }

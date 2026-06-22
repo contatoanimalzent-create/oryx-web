@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
+import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/utils";
 import "./globals.css";
 
@@ -100,9 +101,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
     >
       <body className="bg-[var(--color-bg)] text-[var(--color-text)] antialiased">
-        <Nav />
-        <main>{children}</main>
-        <Footer />
+        <SmoothScroll>
+          <Nav />
+          <main>{children}</main>
+          <Footer />
+        </SmoothScroll>
         <StructuredData />
       </body>
     </html>

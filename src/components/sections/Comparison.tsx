@@ -1,5 +1,6 @@
 import { Check, Minus, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/motion/Reveal";
 
 type Cell = true | false | "partial" | string;
 
@@ -33,7 +34,7 @@ export function Comparison() {
       className="relative py-24 lg:py-32 border-t border-[var(--color-border)]"
     >
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <div className="max-w-3xl">
+        <Reveal className="max-w-3xl">
           <p className="tactical-bracket text-xs font-mono uppercase tracking-widest text-[var(--color-brand)]">
             Posicionamento
           </p>
@@ -48,9 +49,13 @@ export function Comparison() {
             disponíveis hoje. Comparação atualizada em maio/2026, baseada em
             sites e blog dos respectivos produtos.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-16 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-elevated)] overflow-hidden">
+        <Reveal
+          as="div"
+          className="mt-16 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-elevated)] overflow-hidden"
+          y={28}
+        >
           <table className="w-full text-sm">
             <thead className="bg-[var(--color-surface)]/60">
               <tr className="text-left">
@@ -93,7 +98,7 @@ export function Comparison() {
               ))}
             </tbody>
           </table>
-        </div>
+        </Reveal>
 
         <p className="mt-6 text-xs text-[var(--color-text-dim)]">
           Sem afiliação. Fontes: ares-alpha.com e warcamp.app/blog (acesso em

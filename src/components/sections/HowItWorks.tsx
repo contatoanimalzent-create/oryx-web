@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/motion/Reveal";
+
 const STEPS = [
   {
     n: "01",
@@ -26,7 +28,7 @@ export function HowItWorks() {
       className="relative py-24 lg:py-32 border-t border-[var(--color-border)] bg-[var(--color-bg-elevated)]/30"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto">
+        <Reveal className="text-center max-w-3xl mx-auto">
           <p className="tactical-bracket text-xs font-mono uppercase tracking-widest text-[var(--color-brand)]">
             Fluxo operacional
           </p>
@@ -36,9 +38,14 @@ export function HowItWorks() {
           >
             Três passos pra estar em ação.
           </h2>
-        </div>
+        </Reveal>
 
-        <ol className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--color-border)] border border-[var(--color-border)] rounded-xl overflow-hidden">
+        <Reveal
+          as="ol"
+          className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--color-border)] border border-[var(--color-border)] rounded-xl overflow-hidden"
+          stagger={0.12}
+          y={28}
+        >
           {STEPS.map((s) => (
             <li
               key={s.n}
@@ -55,7 +62,7 @@ export function HowItWorks() {
               </p>
             </li>
           ))}
-        </ol>
+        </Reveal>
       </div>
     </section>
   );
