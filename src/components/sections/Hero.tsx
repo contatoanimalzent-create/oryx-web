@@ -1,17 +1,15 @@
 import { ArrowRight, Download, Play } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
 import { TiltPhone } from "@/components/ui/TiltPhone";
-import { TacticalHero } from "@/components/three/TacticalHero";
 
 export function Hero() {
   return (
-    <section className="relative isolate min-h-[92vh] flex items-center pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden">
-      {/* Cena WebGL 3D — mesa tática viva ao fundo */}
-      <TacticalHero className="absolute inset-0 z-0" />
+    <section className="hero-aurora relative isolate min-h-[92vh] flex items-center pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden">
+      {/* Blobs de cor animados */}
+      <div className="hero-aurora-blob z-0 hidden md:block" style={{ width: "32vw", height: "32vw", top: "8%", right: "14%", background: "var(--color-brand-glow)" }} />
+      <div className="hero-aurora-blob z-0 hidden md:block" style={{ width: "24vw", height: "24vw", bottom: "6%", left: "8%", background: "rgba(41,98,255,0.22)", animationDelay: "-5s" }} />
 
-      {/* Overlays pra legibilidade da copy sobre o 3D */}
-      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[var(--color-bg)] via-[var(--color-bg)]/65 to-transparent pointer-events-none" />
-      <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[var(--color-bg)] via-transparent to-[var(--color-bg)]/50 pointer-events-none" />
+      {/* Vignette sutil pra foco */}
       <div className="absolute inset-0 z-[1] tactical-vignette pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 w-full">
@@ -67,8 +65,8 @@ export function Hero() {
           </div>
 
           {/* Mockup column */}
-          <div className="relative mx-auto lg:mx-0 max-w-sm lg:max-w-md w-full">
-            <div className="absolute inset-0 -m-8 bg-[var(--color-brand)]/10 rounded-full blur-3xl" />
+          <div className="relative mx-auto lg:mx-0 w-full max-w-[280px] sm:max-w-[300px] lg:max-w-[330px]">
+            <div className="absolute inset-0 -m-10 bg-[var(--color-brand)]/15 rounded-full blur-3xl" />
             <TiltPhone className="relative w-full" />
 
             <div className="absolute -top-2 -left-4 px-3 py-1.5 rounded-md border border-[var(--color-brand)]/40 bg-[var(--color-bg)]/90 backdrop-blur text-[10px] font-mono uppercase tracking-widest text-[var(--color-brand)] hidden md:block">

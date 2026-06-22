@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
-import { PhoneMockup } from "./PhoneMockup";
+import { RealPhone } from "./RealPhone";
 
 /**
  * Envolve o PhoneMockup com tilt 3D reativo ao ponteiro + flutuação
@@ -58,7 +58,7 @@ export function TiltPhone({ className }: { className?: string }) {
       style={{ perspective: "1200px" }}
     >
       <div ref={card} style={{ transformStyle: "preserve-3d" }}>
-        <PhoneMockup className="w-full drop-shadow-[0_40px_80px_rgba(0,0,0,0.6)]" />
+        <RealPhone className="w-full" />
       </div>
     </div>
   );
