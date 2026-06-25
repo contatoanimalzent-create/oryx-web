@@ -4,7 +4,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { ANDROID_APK_URL } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Baixar ORYX — Android grátis (iOS em breve)",
+  title: "Baixar ORYX, Android grátis (iOS em breve)",
   description:
     "Baixe o ORYX pra Android grátis. APK assinado, 64MB, instala em 30 segundos. iOS chegando em 2026 via TestFlight.",
   alternates: { canonical: "/baixar" },
@@ -30,7 +30,7 @@ export default function BaixarPage() {
         </p>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-          {/* Android — ativo */}
+          {/* Android, ativo */}
           <article className="relative rounded-2xl border border-[var(--color-brand)]/30 bg-[var(--color-bg-elevated)] p-8 text-left hover:border-[var(--color-brand)]/60 transition-colors">
             <div className="absolute top-4 right-4 text-[10px] font-mono uppercase tracking-widest text-[var(--color-faction-self)]">
               ● Disponível
@@ -58,7 +58,7 @@ export default function BaixarPage() {
             </p>
           </article>
 
-          {/* iOS — em breve */}
+          {/* iOS, em breve */}
           <article className="relative rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 text-left opacity-70">
             <div className="absolute top-4 right-4 text-[10px] font-mono uppercase tracking-widest text-[var(--color-warning)]">
               Em breve

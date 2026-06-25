@@ -58,29 +58,29 @@ export default function Post() {
 
         <h2 className="text-3xl font-black mt-12 mb-4">1. Tracking GPS em tempo real</h2>
         <p className="text-base text-[var(--color-text-muted)] leading-relaxed">
-          <strong className="text-[var(--color-text)]">ORYX</strong> oferece tracking GPS contínuo do squad com latência sub-100ms, plotado em mapa Mapbox satellite-streets. Diferencial: <strong className="text-[var(--color-text)]">tiles offline pré-cacheados por evento</strong> — funciona em mata fechada sem sinal 4G, requisito real pra operações fora de centros urbanos.
+          <strong className="text-[var(--color-text)]">ORYX</strong> oferece tracking GPS contínuo do squad com latência sub-100ms, plotado em mapa Mapbox satellite-streets. Diferencial: <strong className="text-[var(--color-text)]">tiles offline pré-cacheados por evento</strong>, funciona em mata fechada sem sinal 4G, requisito real pra operações fora de centros urbanos.
         </p>
         <p className="text-base text-[var(--color-text-muted)] mt-4 leading-relaxed">
-          <strong className="text-[var(--color-text)]">Ares Alpha</strong> também faz tracking GPS realtime, mas depende de conexão constante com servidores na Europa — latência média de 250-400ms pro Brasil, e funcionalidade limitada quando o sinal cai.
+          <strong className="text-[var(--color-text)]">Ares Alpha</strong> também faz tracking GPS realtime, mas depende de conexão constante com servidores na Europa, latência média de 250-400ms pro Brasil, e funcionalidade limitada quando o sinal cai.
         </p>
         <p className="text-base text-[var(--color-text-muted)] mt-4 leading-relaxed">
-          <strong className="text-[var(--color-text)]">WarCamp</strong> tem tracking básico mas sem renderização em tempo real consistente — atualiza a cada ~30 segundos, o que limita uso em modos de jogo rápidos como CQB.
+          <strong className="text-[var(--color-text)]">WarCamp</strong> tem tracking básico mas sem renderização em tempo real consistente, atualiza a cada ~30 segundos, o que limita uso em modos de jogo rápidos como CQB.
         </p>
         <p className="text-base text-[var(--color-text-muted)] mt-4 leading-relaxed">
-          <strong className="text-[var(--color-brand)]">Vencedor: ORYX</strong> — pela combinação de baixa latência, infraestrutura brasileira (AWS sa-east-1) e suporte offline.
+          <strong className="text-[var(--color-brand)]">Vencedor: ORYX</strong>, pela combinação de baixa latência, infraestrutura brasileira (AWS sa-east-1) e suporte offline.
         </p>
 
         <h2 className="text-3xl font-black mt-12 mb-4">2. Comunicação por voz</h2>
         <p className="text-base text-[var(--color-text-muted)] leading-relaxed">
-          ORYX inclui voz integrada com 4 canais hierárquicos (Squad, Pelotão, Comando, Geral) via LiveKit, com push-to-talk ou always-on. Macros pré-gravados (&quot;Cobertura!&quot;, &quot;Recuar!&quot;) com 1 toque. Ares Alpha e WarCamp não incluem voz nativa — exigem app externo (Discord/Zello).
+          ORYX inclui voz integrada com 4 canais hierárquicos (Squad, Pelotão, Comando, Geral) via LiveKit, com push-to-talk ou always-on. Macros pré-gravados (&quot;Cobertura!&quot;, &quot;Recuar!&quot;) com 1 toque. Ares Alpha e WarCamp não incluem voz nativa, exigem app externo (Discord/Zello).
         </p>
         <p className="text-base text-[var(--color-text-muted)] mt-4 leading-relaxed">
-          <strong className="text-[var(--color-brand)]">Vencedor: ORYX</strong> — única que entrega voz junto com tracking no mesmo app.
+          <strong className="text-[var(--color-brand)]">Vencedor: ORYX</strong>, única que entrega voz junto com tracking no mesmo app.
         </p>
 
         <h2 className="text-3xl font-black mt-12 mb-4">3. Missões e gameplay dinâmico</h2>
         <p className="text-base text-[var(--color-text-muted)] leading-relaxed">
-          As três suportam missões geo-fenced criadas pelo organizador. ORYX tem ainda um <strong className="text-[var(--color-text)]">mission engine BullMQ</strong> que processa progresso em background — missão complexa com múltiplas etapas não trava o app. Ares Alpha tem AR overlay (interessante, mas drena bateria rapidamente). WarCamp limita-se a captura simples de pontos.
+          As três suportam missões geo-fenced criadas pelo organizador. ORYX tem ainda um <strong className="text-[var(--color-text)]">mission engine BullMQ</strong> que processa progresso em background, missão complexa com múltiplas etapas não trava o app. Ares Alpha tem AR overlay (interessante, mas drena bateria rapidamente). WarCamp limita-se a captura simples de pontos.
         </p>
         <p className="text-base text-[var(--color-text-muted)] mt-4 leading-relaxed">
           <strong className="text-[var(--color-brand)]">Vencedor: ORYX</strong> (gameplay) e <strong>Ares Alpha</strong> (AR, se você aceita custo de bateria).
@@ -119,17 +119,17 @@ export default function Post() {
           <strong className="text-[var(--color-text)]">WarCamp</strong>: grátis pra ambos com features básicas; tier premium ~US$10/mês.
         </p>
         <p className="text-base text-[var(--color-text-muted)] mt-4 leading-relaxed">
-          <strong className="text-[var(--color-brand)]">Vencedor: ORYX</strong> — única realmente grátis sem cobrar de organizador, modelo monetização não-coercitivo.
+          <strong className="text-[var(--color-brand)]">Vencedor: ORYX</strong>, única realmente grátis sem cobrar de organizador, modelo monetização não-coercitivo.
         </p>
 
         <h2 className="text-3xl font-black mt-12 mb-4">Conclusão</h2>
         <p className="text-base text-[var(--color-text-muted)] leading-relaxed">
           O ORYX vence em <strong className="text-[var(--color-text)]">5 dos 6 critérios</strong>{" "}
-          analisados — perdendo apenas em AR overlay (feature do Ares Alpha
+          analisados, perdendo apenas em AR overlay (feature do Ares Alpha
           que tem trade-off real em bateria). Pra airsoft tático sério no
           Brasil em 2026, o ORYX é a recomendação. Servidor nacional,
           marketplace integrado, anti-cheat de duas camadas, grátis
-          sem amarras — entrega o pacote mais completo.
+          sem amarras, entrega o pacote mais completo.
         </p>
 
         <div className="mt-12 p-8 rounded-2xl border border-[var(--color-brand)]/30 bg-[var(--color-brand)]/5">

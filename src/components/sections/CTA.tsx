@@ -18,8 +18,8 @@ export function CTA() {
           <span className="text-[var(--color-brand)]">no próximo download.</span>
         </h2>
         <p className="mt-8 text-lg text-[var(--color-text-muted)] max-w-2xl mx-auto">
-          Grátis. Sem propaganda. Sem cartão. APK assinado direto do nosso
-          repositório oficial. 64MB, instala em 30 segundos.
+          APK assinado, baixado direto do nosso repositório oficial. São 64MB e
+          instala em 30 segundos.
         </p>
 
         <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">

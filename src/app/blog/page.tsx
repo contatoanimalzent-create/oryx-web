@@ -4,7 +4,7 @@ import { ArrowUpRight, Calendar } from "lucide-react";
 import { ALL_POSTS } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Blog ORYX — Airsoft tático, estratégia e equipamento",
+  title: "Blog ORYX, Airsoft tático, estratégia e equipamento",
   description:
     "Guias, análises e estratégia pra airsoft tático no Brasil. Comparativos de equipamento, regras de modos (CQB, Warfare, Sniper), comportamento em campo e fair play.",
   alternates: { canonical: "/blog" },
@@ -31,7 +31,7 @@ export default function BlogIndex() {
         </h1>
         <p className="mt-8 text-lg text-[var(--color-text-muted)] max-w-2xl">
           Guias, análises e estratégia escritos por quem joga há mais de
-          uma década. Sem listicle preguiçoso — só material que ajuda você
+          uma década. Sem listicle preguiçoso, só material que ajuda você
           a render melhor em campo.
         </p>
 

@@ -3,7 +3,7 @@ import { ArrowRight, Download, Headphones, MapPin, Target, Trophy } from "lucide
 import { ButtonLink } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Para Operadores — Squad GPS, voz e ranking",
+  title: "Para Operadores, Squad GPS, voz e ranking",
   description:
     "ORYX pra quem joga: veja seu squad no mapa em tempo real, fale por canais hierárquicos, suba de patente e dispute ranking nacional. Grátis no Android.",
   alternates: { canonical: "/operadores" },

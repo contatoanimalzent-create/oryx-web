@@ -2,11 +2,10 @@
 
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 /**
  * Stats / social proof com count-up disparado por scroll.
- * Números conservadores e autênticos no MVP — trocar por API
+ * Números conservadores e autênticos no MVP, trocar por API
  * `/analytics/overview` quando popular.
  */
 const STATS = [
@@ -34,7 +33,10 @@ export function Stats() {
       return;
     }
 
-    const ctx = gsap.context(() => {
+    let played = false;
+    const run = () => {
+      if (played) return;
+      played = true;
       nums.forEach((n) => {
         const end = Number(n.dataset.val);
         const decimals = (n.dataset.dec ?? "0") === "1";
@@ -43,7 +45,6 @@ export function Stats() {
           v: end,
           duration: 1.6,
           ease: "power2.out",
-          scrollTrigger: { trigger: n, start: "top 90%" },
           onUpdate: () => {
             n.textContent =
               (n.dataset.prefix ?? "") +
@@ -52,19 +53,35 @@ export function Stats() {
           },
         });
       });
-    }, root);
+    };
 
-    return () => ctx.revert();
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          run();
+          io.disconnect();
+        }
+      },
+      { threshold: 0.2 },
+    );
+    io.observe(root);
+    const safety = window.setTimeout(run, 1600);
+
+    return () => {
+      io.disconnect();
+      clearTimeout(safety);
+    };
   }, []);
 
   return (
-    <section className="border-y border-[var(--color-border)] bg-[var(--color-bg-elevated)]/40">
-      <div ref={ref} className="mx-auto max-w-7xl px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+    <section className="relative border-y border-[var(--color-border)] bg-[var(--color-bg-deep)]/60">
+      <div className="absolute inset-x-0 top-0 h-px line-shimmer opacity-60" />
+      <div ref={ref} className="mx-auto max-w-7xl px-6 lg:px-8 py-14">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:divide-x lg:divide-[var(--color-border)]">
           {STATS.map((s) => (
-            <div key={s.label}>
+            <div key={s.label} className="lg:px-8 first:pl-0">
               <div
-                className="text-3xl md:text-4xl font-black text-[var(--color-text)] tabular-nums"
+                className="display-xl text-ember-grad text-5xl md:text-6xl tabular-nums"
                 data-val={s.value}
                 data-dec={Number.isInteger(s.value) ? "0" : "1"}
                 data-prefix={"prefix" in s ? s.prefix : ""}
@@ -72,7 +89,7 @@ export function Stats() {
               >
                 {("prefix" in s ? s.prefix : "") + "0" + s.suffix}
               </div>
-              <div className="mt-2 text-xs uppercase tracking-widest text-[var(--color-text-dim)]">
+              <div className="mt-3 text-xs uppercase tracking-widest text-[var(--color-text-dim)]">
                 {s.label}
               </div>
             </div>

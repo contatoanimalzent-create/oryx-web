@@ -3,7 +3,7 @@ import { ArrowRight, Calendar, ShieldCheck, BarChart3, Users } from "lucide-reac
 import { ButtonLink } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Para Organizadores — Produza operações táticas como profissional",
+  title: "Para Organizadores, Produza operações táticas como profissional",
   description:
     "Dashboard de comando ao vivo, criação de missões em minutos, anti-cheat automático e marketplace de divulgação. Sem custo nenhum.",
   alternates: { canonical: "/organizadores" },
@@ -54,12 +54,12 @@ export default function OrganizadoresPage() {
             <Item
               icon={Users}
               title="Comando ao vivo do dashboard"
-              body="Veja todos os operadores no mapa, em qual zona estão, quantos vivos por squad, missões em andamento. WebSocket realtime — sem refresh, sem delay."
+              body="Veja todos os operadores no mapa, em qual zona estão, quantos vivos por squad, missões em andamento. WebSocket realtime, sem refresh, sem delay."
             />
             <Item
               icon={ShieldCheck}
               title="Anti-cheat automático"
-              body="Detecção de GPS fake, mock location, emulador, velocidade impossível. Suspeitos aparecem no seu dashboard com evidência — você decide banir."
+              body="Detecção de GPS fake, mock location, emulador, velocidade impossível. Suspeitos aparecem no seu dashboard com evidência, você decide banir."
             />
             <Item
               icon={BarChart3}

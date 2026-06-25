@@ -36,7 +36,7 @@ export function PhoneMockup({ className }: { className?: string }) {
       {/* Notch */}
       <rect x="120" y="20" width="80" height="22" rx="11" fill="#0a0a0a" />
 
-      {/* HUD top — status bar */}
+      {/* HUD top, status bar */}
       <g transform="translate(28, 64)">
         <rect width="264" height="46" rx="8" fill="rgba(0,0,0,0.65)" />
         <circle cx="14" cy="23" r="4" fill="#22c55e">
@@ -62,7 +62,7 @@ export function PhoneMockup({ className }: { className?: string }) {
         </text>
       </g>
 
-      {/* Map area — satellite-ish grid */}
+      {/* Map area, satellite-ish grid */}
       <defs>
         <pattern
           id="grid"
@@ -85,7 +85,7 @@ export function PhoneMockup({ className }: { className?: string }) {
       <rect x="14" y="118" width="292" height="378" fill="#1f2521" />
       <rect x="14" y="118" width="292" height="378" fill="url(#grid)" />
 
-      {/* Terrain blobs — fake topology */}
+      {/* Terrain blobs, fake topology */}
       <ellipse cx="80" cy="200" rx="50" ry="30" fill="rgba(60,80,50,0.5)" />
       <ellipse cx="220" cy="280" rx="65" ry="40" fill="rgba(60,80,50,0.4)" />
       <ellipse cx="150" cy="400" rx="80" ry="35" fill="rgba(60,80,50,0.5)" />

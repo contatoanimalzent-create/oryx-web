@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 
 const TacticalScene = dynamic(() => import("./TacticalScene"), {
@@ -9,44 +9,34 @@ const TacticalScene = dynamic(() => import("./TacticalScene"), {
 });
 
 /**
- * Carrega a cena WebGL só quando o hero entra em viewport e só se o
- * device/usuário comporta. Caso contrário mostra um fundo estático
- * elegante (gradiente tático) — zero custo, sem flash de tela preta.
+ * Hero WebGL. Como o hero está sempre no topo (visível no load), montamos
+ * a cena assim que o cliente confirma que comporta, sem IntersectionObserver
+ * (que falhava quando o container ainda media 0px). Reduced-motion, ausência
+ * de WebGL ou device muito fraco caem num fundo atmosférico estático.
  */
 export function TacticalHero({ className }: { className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
   const [mount, setMount] = useState(false);
 
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    // heurística simples de capacidade: memória do device + largura
-    const lowEnd =
-      (navigator as Navigator & { deviceMemory?: number }).deviceMemory != null &&
-      (navigator as Navigator & { deviceMemory?: number }).deviceMemory! <= 4;
-    if (reduce || lowEnd) return;
+    const mem = (navigator as Navigator & { deviceMemory?: number }).deviceMemory;
+    const lowEnd = mem != null && mem <= 2;
 
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) {
-          setMount(true);
-          io.disconnect();
-        }
-      },
-      { rootMargin: "200px" },
-    );
-    io.observe(el);
-    return () => io.disconnect();
+    let webgl = false;
+    try {
+      const c = document.createElement("canvas");
+      webgl = !!(c.getContext("webgl2") || c.getContext("webgl"));
+    } catch {
+      webgl = false;
+    }
+
+    if (reduce || lowEnd || !webgl) return;
+    setMount(true);
   }, []);
 
   return (
-    <div ref={ref} className={className} aria-hidden="true">
-      {mount ? (
-        <TacticalScene />
-      ) : (
-        <div className="h-full w-full tactical-fallback" />
-      )}
+    <div className={className} aria-hidden="true">
+      {mount ? <TacticalScene /> : <div className="h-full w-full tactical-fallback" />}
     </div>
   );
 }

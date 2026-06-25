@@ -48,7 +48,7 @@ export default function TermosPage() {
 
       <h2 className="text-2xl font-bold mt-10">6. Contato</h2>
       <p className="text-[var(--color-text-muted)]">
-        contato@oryxcontrol.com — Animalz Group, Brasília-DF, Brasil.
+        contato@oryxcontrol.com, Animalz Group, Brasília-DF, Brasil.
       </p>
     </section>
   );

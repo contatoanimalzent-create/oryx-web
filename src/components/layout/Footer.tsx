@@ -40,7 +40,7 @@ export function Footer() {
             <Logo size="md" />
             <p className="mt-4 text-sm text-[var(--color-text-muted)] max-w-sm leading-relaxed">
               Comando e controle para airsoft tático no Brasil. Posição em
-              tempo real, voz por squad, missões e ranking nacional — tudo
+              tempo real, voz por squad, missões e ranking nacional, tudo
               num único app.
             </p>
             <div className="mt-6 flex gap-3">
@@ -92,7 +92,7 @@ export function Footer() {
           </div>
           <div className="flex items-center gap-2 text-xs text-[var(--color-text-dim)]">
             <MapPin size={12} />
-            Operando em sa-east-1 — feito no Brasil
+            Operando em sa-east-1, feito no Brasil
           </div>
         </div>
       </div>

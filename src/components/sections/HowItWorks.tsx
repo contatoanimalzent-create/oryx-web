@@ -5,7 +5,7 @@ const STEPS = [
     n: "01",
     title: "Baixe o app",
     body:
-      "Grátis na Play Store ou via APK direto. Instala em 30 segundos. Cadastro com email + callsign (apelido em campo). iOS chegando em 2026.",
+      "Pega na Play Store ou no APK direto. Instala em 30 segundos. Você cria a conta com email e seu callsign (o apelido que usa em campo). iOS chega em 2026.",
   },
   {
     n: "02",

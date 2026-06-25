@@ -13,7 +13,7 @@ interface BaseProps {
 
 const VARIANT: Record<Variant, string> = {
   primary:
-    "bg-[var(--color-brand)] text-white hover:bg-[var(--color-brand-hover)] " +
+    "bg-[var(--color-brand)] text-[#0c100e] hover:bg-[var(--color-brand-hover)] " +
     "shadow-[0_8px_24px_-8px_var(--color-brand-glow)] " +
     "active:translate-y-px",
   secondary:
@@ -54,7 +54,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   );
 });
 
-// ButtonLink (as <Link>) — used pra CTAs internas/externas
+// ButtonLink (as <Link>), usado pra CTAs internas e externas
 interface ButtonLinkProps extends BaseProps {
   href: string;
   external?: boolean;

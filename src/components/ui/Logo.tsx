@@ -2,7 +2,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 /**
- * Logo ORYX — wordmark com mascote antelope tactical (SVG vetorizado).
+ * Logo ORYX, wordmark com mascote antelope tactical (SVG vetorizado).
  *
  * Tamanhos: sm (24px ícone + texto sm) / md (28px + base) / lg (40px + 2xl).
  * O ícone fica à esquerda. Em mobile podemos esconder o texto via
@@ -32,7 +32,7 @@ export function Logo({
       )}
     >
       <Image
-        src="/logo.svg"
+        src="/oryx-logo.png"
         alt="ORYX"
         width={dims.icon}
         height={dims.icon}

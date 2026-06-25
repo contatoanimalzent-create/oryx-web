@@ -3,7 +3,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { ArrowRight, MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Sobre o ORYX — Comando e controle de airsoft no Brasil",
+  title: "Sobre o ORYX, Comando e controle de airsoft no Brasil",
   description:
     "Construído por quem joga airsoft tático há mais de uma década. ORYX é uma plataforma da Animalz Group, sediada em Brasília.",
   alternates: { canonical: "/sobre" },
@@ -36,7 +36,7 @@ export default function SobrePage() {
               ORYX é desenvolvido pela <strong className="text-[var(--color-text)]">Animalz Group</strong>{" "}
               em Brasília. A primeira versão saiu em 2026 e roda sobre AWS
               em São Paulo, com a mesma stack que apps de delivery e mobilidade
-              brasileiros usam — porque infraestrutura é o que faz GPS
+              brasileiros usam, porque infraestrutura é o que faz GPS
               funcionar sem travar quando 100 operadores tão no campo.
             </p>
             <p className="mt-6 text-lg text-[var(--color-text-muted)] leading-relaxed">

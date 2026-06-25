@@ -14,7 +14,7 @@ interface Listing {
 
 const PREVIEW: Listing[] = [
   {
-    title: "Rifle AEG M4A1 Custom — Madbull externo",
+    title: "Rifle AEG M4A1 Custom, Madbull externo",
     category: "Réplica",
     condition: "Como Novo",
     priceCents: 285000,
@@ -82,8 +82,8 @@ export function MarketplacePreview() {
             </h2>
             <p className="mt-6 text-lg text-[var(--color-text-muted)] leading-relaxed">
               Réplicas, gear, ammo, patches. Comprador e vendedor são
-              operadores verificados pelo ORYX. Categoria, condição, cidade
-              e reputação no perfil — modelo Steam Market adaptado.
+              operadores verificados pelo ORYX. Você vê categoria, condição,
+              cidade e reputação no perfil, tipo um Steam Market do airsoft.
             </p>
           </div>
           <ButtonLink href="/baixar" variant="outline" size="lg">

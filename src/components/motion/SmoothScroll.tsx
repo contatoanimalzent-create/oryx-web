@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 /**
  * Smooth scroll premium (Lenis) sincronizado com o ticker do GSAP.
- * Tudo que usa ScrollTrigger no site herda essa timeline única — sem
+ * Tudo que usa ScrollTrigger no site herda essa timeline única, sem
  * brigas entre o RAF do Lenis e o do GSAP, sem jank.
  *
  * Respeita prefers-reduced-motion: desliga o smoothing e cai no scroll

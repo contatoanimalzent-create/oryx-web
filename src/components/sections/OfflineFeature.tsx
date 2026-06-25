@@ -10,17 +10,17 @@ const POINTS = [
   {
     icon: Activity,
     title: "GPS sem pausa, mesmo sem sinal",
-    body: "Posição continua sendo gravada e fica em fila local. Quando volta a ter rede, sincroniza com timestamps reais — o ranking nunca te penaliza por área remota.",
+    body: "A posição continua sendo gravada e fica numa fila local. Quando a rede volta, sincroniza com os timestamps reais, então o ranking nunca te penaliza por estar em área remota.",
   },
   {
     icon: RadioTower,
     title: "Voz P2P em rede local",
-    body: "Sem cobertura? Operadores em raio Wi-Fi/Bluetooth montam mesh entre si. Voz continua funcionando entre quem tá próximo — sem depender de servidor externo.",
+    body: "Sem cobertura? Os operadores dentro do raio de Wi-Fi e Bluetooth montam uma mesh entre eles. A voz continua rolando entre quem tá perto, sem precisar de servidor externo.",
   },
   {
     icon: Activity,
     title: "Heatmap de tráfego de pessoas",
-    body: "Backend agrega posições anonimizadas em grid de 50m × 50m. Você vê onde concentrou movimento na operação — útil pra organizador planejar a próxima.",
+    body: "O backend junta as posições anonimizadas num grid de 50m por 50m. Você enxerga onde o movimento concentrou na operação, e isso ajuda o organizador a planejar a próxima.",
   },
 ];
 
@@ -47,8 +47,8 @@ export function OfflineFeature() {
           </h2>
           <p className="mt-6 text-lg text-[var(--color-text-muted)] max-w-2xl leading-relaxed">
             Airsoft tático sério rola em mata fechada, fazenda, campo
-            descampado. Sem 4G. Sem Wi-Fi do organizador. ORYX foi desenhado
-            pra operar nessas condições — não pra travar numa tela de
+            descampado. Sem 4G. Sem Wi-Fi do organizador. A gente desenhou o ORYX
+            pra operar nessas condições, não pra travar numa tela de
             &quot;sem conexão&quot;.
           </p>
         </Reveal>

@@ -11,14 +11,12 @@ export function ForWho() {
             Pra quem é
           </p>
           <h2 className="mt-4 text-4xl md:text-6xl font-black tracking-tight leading-[1.05]">
-            Operador ou organizador. <span className="text-[var(--color-text-muted)]">Sempre grátis.</span>
+            Operador ou organizador. <span className="text-[var(--color-text-muted)]">Feito pra você.</span>
           </h2>
           <p className="mt-6 text-lg text-[var(--color-text-muted)]">
-            ORYX não cobra de ninguém pra usar. Nossa receita vem do{" "}
-            <strong className="text-[var(--color-text)]">Battle Pass premium</strong>,{" "}
-            <strong className="text-[var(--color-text)]">marketplace</strong> e{" "}
-            <strong className="text-[var(--color-text)]">cosméticos digitais</strong>{" "}
-            opcionais.
+            Se você joga, o ORYX te dá o mapa, a voz do squad e o ranking. Se você
+            organiza, te dá controle total da operação na palma da mão. Cada lado
+            tem a ferramenta que precisa.
           </p>
         </Reveal>
 

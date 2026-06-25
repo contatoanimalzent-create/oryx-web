@@ -15,7 +15,7 @@ export default function PrivacidadePage() {
       <h2 className="text-2xl font-bold mt-10">Dados que coletamos</h2>
       <ul className="text-[var(--color-text-muted)]">
         <li>Identificação: email, callsign, foto de perfil</li>
-        <li>Localização GPS — apenas durante eventos ativos com seu consentimento</li>
+        <li>Localização GPS, apenas durante eventos ativos com seu consentimento</li>
         <li>Posição, velocidade, accuracy do GPS durante partidas</li>
         <li>Eventos de uso (sign-up, match joined, eliminações) via Mixpanel</li>
         <li>Crash reports técnicos via Sentry (sem PII)</li>
@@ -45,7 +45,7 @@ export default function PrivacidadePage() {
 
       <h2 className="text-2xl font-bold mt-10">Encarregado (DPO)</h2>
       <p className="text-[var(--color-text-muted)]">
-        Animalz Group — privacidade@oryxcontrol.com — Brasília-DF, Brasil.
+        Animalz Group, privacidade@oryxcontrol.com, Brasília-DF, Brasil.
       </p>
     </section>
   );

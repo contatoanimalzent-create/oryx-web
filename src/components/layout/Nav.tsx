@@ -38,7 +38,7 @@ export function Nav() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link
           href="/"
-          aria-label="ORYX — página inicial"
+          aria-label="ORYX, página inicial"
           className="hover:opacity-90 transition-opacity"
         >
           <Logo />

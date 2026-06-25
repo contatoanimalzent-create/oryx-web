@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Geist_Mono } from "next/font/google";
+import { Inter, Geist_Mono, Oswald } from "next/font/google";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
@@ -18,6 +18,13 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+const oswald = Oswald({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
 export const viewport: Viewport = {
   themeColor: "#0A0A0A",
   width: "device-width",
@@ -29,7 +36,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    default: `${SITE_NAME}, ${SITE_TAGLINE}`,
     template: `%s · ${SITE_NAME}`,
   },
   description:
@@ -55,7 +62,7 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    title: `${SITE_NAME}, ${SITE_TAGLINE}`,
     description:
       "Tracking GPS, voz por squad, missões dinâmicas e ranking nacional. Grátis no Android.",
     images: [
@@ -63,13 +70,13 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: `${SITE_NAME} — Comando e controle pra airsoft tático`,
+        alt: `${SITE_NAME}, Comando e controle pra airsoft tático`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    title: `${SITE_NAME}, ${SITE_TAGLINE}`,
     description:
       "Tracking GPS, voz por squad e ranking nacional pra airsoft tático.",
     images: ["/og.png"],
@@ -97,7 +104,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="pt-BR"
-      className={`${inter.variable} ${geistMono.variable} dark`}
+      className={`${inter.variable} ${geistMono.variable} ${oswald.variable} dark`}
       suppressHydrationWarning
     >
       <body className="bg-[var(--color-bg)] text-[var(--color-text)] antialiased">

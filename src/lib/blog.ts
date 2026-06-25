@@ -1,6 +1,6 @@
 /**
  * Inventário de posts do blog. Cada post vive em src/app/blog/[slug]/page.tsx
- * (server component) — esse arquivo só agrega metadata.
+ * (server component), esse arquivo só agrega metadata.
  *
  * Quando o blog crescer pra ~20 posts, migramos pra MDX em /content/blog/*.mdx
  * com leitura via fs no build time. Até lá, hard-coded resolve.
@@ -22,7 +22,7 @@ export const ALL_POSTS: BlogPostMeta[] = [
     title:
       "Melhor app pra airsoft tático em 2026: ORYX vs Ares Alpha vs WarCamp",
     excerpt:
-      "Comparativo direto entre as 3 plataformas de comando e controle pra airsoft tático disponíveis no Brasil. Tracking GPS, voz, anti-cheat, marketplace e preço — quem ganha em cada categoria.",
+      "Comparativo direto entre as 3 plataformas de comando e controle pra airsoft tático disponíveis no Brasil. Tracking GPS, voz, anti-cheat, marketplace e preço, quem ganha em cada categoria.",
     category: "Comparativo",
     publishedAt: "2026-05-20",
     readingMinutes: 9,

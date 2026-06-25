@@ -5,14 +5,13 @@ import { HowItWorks } from "@/components/sections/HowItWorks";
 import { ForWho } from "@/components/sections/ForWho";
 import { Stats } from "@/components/sections/Stats";
 import { CTA } from "@/components/sections/CTA";
-import { Comparison } from "@/components/sections/Comparison";
 import { OfflineFeature } from "@/components/sections/OfflineFeature";
 import { MarketplacePreview } from "@/components/sections/MarketplacePreview";
 
 export const metadata: Metadata = {
-  title: "ORYX — Comando e controle pra airsoft tático",
+  title: "ORYX, Comando e controle pra airsoft tático",
   description:
-    "App grátis pra operadores e organizadores. Tracking GPS em tempo real do seu squad, comunicação por voz, missões dinâmicas e ranking nacional. Baixe agora.",
+    "Comando e controle pra airsoft tático. Você vê a posição do seu squad no mapa em tempo real, fala por canais de voz, cumpre missões e sobe no ranking nacional. Baixe e leve pro próximo jogo.",
   alternates: { canonical: "/" },
 };
 
@@ -25,7 +24,6 @@ export default function HomePage() {
       <OfflineFeature />
       <HowItWorks />
       <MarketplacePreview />
-      <Comparison />
       <ForWho />
       <CTA />
     </>
