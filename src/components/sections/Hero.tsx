@@ -75,7 +75,7 @@ export function Hero() {
               className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4"
             >
               <ButtonLink href="/baixar" variant="primary" size="xl">
-                Baixar pra Android
+                Baixar pra iPhone e Android
                 <ArrowRight size={18} />
               </ButtonLink>
               <button

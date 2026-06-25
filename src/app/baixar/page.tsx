@@ -1,14 +1,20 @@
 import type { Metadata } from "next";
-import { Download, Smartphone, Apple, ExternalLink } from "lucide-react";
-import { ButtonLink } from "@/components/ui/Button";
-import { ANDROID_APK_URL } from "@/lib/utils";
+import { Apple, Play, Check } from "lucide-react";
+import { APP_STORE_URL, PLAY_STORE_URL } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Baixar ORYX, Android grátis (iOS em breve)",
+  title: "Baixar ORYX — iPhone e Android",
   description:
-    "Baixe o ORYX pra Android grátis. APK assinado, 64MB, instala em 30 segundos. iOS chegando em 2026 via TestFlight.",
+    "O ORYX já está na App Store e no Google Play. Baixe pra iPhone ou Android, crie sua conta com o callsign e entre no próximo jogo.",
   alternates: { canonical: "/baixar" },
 };
+
+const PERKS = [
+  "Mapa do squad em tempo real",
+  "Canais de voz por equipe e esquadrão",
+  "Missões, zonas e objetivos do organizador",
+  "Replay e debrief depois do jogo",
+];
 
 export default function BaixarPage() {
   return (
@@ -18,83 +24,79 @@ export default function BaixarPage() {
 
       <div className="relative mx-auto max-w-3xl px-6 lg:px-8 text-center">
         <p className="tactical-bracket text-xs font-mono uppercase tracking-widest text-[var(--color-brand)]">
-          Download
+          Disponível agora
         </p>
         <h1 className="mt-4 text-5xl md:text-7xl font-black tracking-tight leading-[0.95]">
           ORYX no <br />
           <span className="text-[var(--color-brand)]">seu bolso.</span>
         </h1>
         <p className="mt-8 text-lg text-[var(--color-text-muted)] max-w-xl mx-auto leading-relaxed">
-          Grátis, sem propaganda, sem cartão. APK assinado direto do nosso
-          repositório oficial.
+          Já está no ar pra iPhone e Android. Baixa na sua loja, cria a conta com
+          o callsign e entra no próximo jogo. Sem cartão.
         </p>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-          {/* Android, ativo */}
-          <article className="relative rounded-2xl border border-[var(--color-brand)]/30 bg-[var(--color-bg-elevated)] p-8 text-left hover:border-[var(--color-brand)]/60 transition-colors">
+          {/* iOS, ativo */}
+          <a
+            href={APP_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-elevated)] p-8 text-left transition-colors hover:border-[var(--color-brand)]/60"
+          >
             <div className="absolute top-4 right-4 text-[10px] font-mono uppercase tracking-widest text-[var(--color-faction-self)]">
               ● Disponível
             </div>
-            <Smartphone size={28} className="text-[var(--color-brand)]" />
+            <Apple size={28} className="text-[var(--color-text)]" />
+            <h2 className="mt-4 text-2xl font-bold">iPhone</h2>
+            <p className="mt-2 text-sm text-[var(--color-text-muted)]">
+              App Store · iOS 15.0+
+            </p>
+            <span className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--color-text)] text-[var(--color-bg)] h-12 font-semibold transition-transform group-hover:-translate-y-0.5">
+              <Apple size={18} />
+              Baixar na App Store
+            </span>
+          </a>
+
+          {/* Android, ativo */}
+          <a
+            href={PLAY_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative rounded-2xl border border-[var(--color-brand)]/30 bg-[var(--color-bg-elevated)] p-8 text-left transition-colors hover:border-[var(--color-brand)]/60"
+          >
+            <div className="absolute top-4 right-4 text-[10px] font-mono uppercase tracking-widest text-[var(--color-faction-self)]">
+              ● Disponível
+            </div>
+            <Play
+              size={28}
+              className="fill-[var(--color-brand)] text-[var(--color-brand)]"
+            />
             <h2 className="mt-4 text-2xl font-bold">Android</h2>
             <p className="mt-2 text-sm text-[var(--color-text-muted)]">
-              APK assinado · 64MB · Android 7.0+ (API 24+)
+              Google Play · Android 7.0+
             </p>
-            <div className="mt-6">
-              <ButtonLink
-                href={ANDROID_APK_URL}
-                external
-                variant="primary"
-                size="lg"
-                className="w-full justify-center"
-              >
-                <Download size={16} />
-                Baixar APK
-              </ButtonLink>
-            </div>
-            <p className="mt-4 text-xs text-[var(--color-text-dim)] leading-relaxed">
-              Após o download, abra o arquivo e permita instalação de fontes
-              externas quando solicitado. Em breve no Google Play.
-            </p>
-          </article>
-
-          {/* iOS, em breve */}
-          <article className="relative rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 text-left opacity-70">
-            <div className="absolute top-4 right-4 text-[10px] font-mono uppercase tracking-widest text-[var(--color-warning)]">
-              Em breve
-            </div>
-            <Apple size={28} className="text-[var(--color-text-muted)]" />
-            <h2 className="mt-4 text-2xl font-bold">iOS</h2>
-            <p className="mt-2 text-sm text-[var(--color-text-muted)]">
-              TestFlight beta · 2026 · iOS 15.0+
-            </p>
-            <div className="mt-6">
-              <ButtonLink
-                href="mailto:contato@oryxcontrol.com?subject=Aviso%20ORYX%20iOS"
-                variant="outline"
-                size="lg"
-                className="w-full justify-center"
-              >
-                Me avise
-                <ExternalLink size={14} />
-              </ButtonLink>
-            </div>
-            <p className="mt-4 text-xs text-[var(--color-text-dim)]">
-              Te mandamos um email no dia que sair pra TestFlight.
-            </p>
-          </article>
+            <span className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--color-brand)] text-[#0c100e] h-12 font-semibold transition-transform group-hover:-translate-y-0.5">
+              <Play size={16} className="fill-current" />
+              Baixar no Google Play
+            </span>
+          </a>
         </div>
 
         <div className="mt-16 pt-10 border-t border-[var(--color-border)] text-left max-w-2xl mx-auto">
           <h3 className="text-xs font-mono uppercase tracking-widest text-[var(--color-text-dim)]">
-            Como instalar APK no Android
+            O que vem no app
           </h3>
-          <ol className="mt-4 space-y-3 text-sm text-[var(--color-text-muted)] leading-relaxed">
-            <li><strong className="text-[var(--color-text)]">1.</strong> Toque em &quot;Baixar APK&quot; acima</li>
-            <li><strong className="text-[var(--color-text)]">2.</strong> Abra o arquivo baixado (notificação ou pasta Downloads)</li>
-            <li><strong className="text-[var(--color-text)]">3.</strong> Se aparecer aviso de fonte desconhecida, toque em &quot;Permitir desta fonte&quot;</li>
-            <li><strong className="text-[var(--color-text)]">4.</strong> Toque em &quot;Instalar&quot;. Pronto. Abra o app e crie sua conta.</li>
-          </ol>
+          <ul className="mt-4 grid sm:grid-cols-2 gap-3">
+            {PERKS.map((perk) => (
+              <li
+                key={perk}
+                className="flex items-center gap-3 text-sm text-[var(--color-text-muted)]"
+              >
+                <Check size={16} className="text-[var(--color-brand)] shrink-0" />
+                {perk}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

@@ -8,4 +8,8 @@ export function cn(...inputs: ClassValue[]): string {
 export const SITE_URL = "https://oryxcontrol.com";
 export const SITE_NAME = "ORYX";
 export const SITE_TAGLINE = "Comando e controle pra airsoft tático";
-export const ANDROID_APK_URL = "https://github.com/contatoanimalzent-create/oryx-mobile1/releases/latest/download/ORYX-release.apk";
+
+// Lojas oficiais — app já publicado pra iOS e Android.
+export const APP_STORE_URL = "https://apps.apple.com/app/oryx-control/id6504000000";
+export const PLAY_STORE_URL =
+  "https://play.google.com/store/apps/details?id=com.oryxcontrol.mobile";

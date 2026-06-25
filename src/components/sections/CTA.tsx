@@ -1,5 +1,5 @@
-import { Download, ArrowRight } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
+import { StoreButtons } from "@/components/ui/StoreButtons";
 import { Reveal } from "@/components/motion/Reveal";
 
 export function CTA() {
@@ -15,26 +15,22 @@ export function CTA() {
         <h2 className="mt-4 text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05]">
           Sua operação começa
           <br />
-          <span className="text-[var(--color-brand)]">no próximo download.</span>
+          <span className="text-[var(--color-brand)]">agora mesmo.</span>
         </h2>
         <p className="mt-8 text-lg text-[var(--color-text-muted)] max-w-2xl mx-auto">
-          APK assinado, baixado direto do nosso repositório oficial. São 64MB e
-          instala em 30 segundos.
+          O ORYX já está no ar pra iPhone e Android. Baixa na loja, cria sua
+          conta com o callsign e entra no próximo jogo.
         </p>
 
-        <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
-          <ButtonLink href="/baixar" variant="primary" size="xl">
-            <Download size={18} />
-            Baixar agora pra Android
-            <ArrowRight size={18} />
-          </ButtonLink>
-          <ButtonLink href="/eventos" variant="outline" size="xl">
+        <div className="mt-12 flex flex-col items-center gap-6">
+          <StoreButtons className="justify-center" />
+          <ButtonLink href="/eventos" variant="outline" size="lg">
             Ver eventos abertos
           </ButtonLink>
         </div>
 
         <p className="mt-8 text-xs uppercase tracking-widest text-[var(--color-text-dim)]">
-          iOS chegando · TestFlight beta em 2026
+          iOS e Android · sem cartão · pronto pra operar
         </p>
       </Reveal>
     </section>
