@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Instagram, Mail, MapPin } from "lucide-react";
+import { Instagram, Mail, MapPin } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 
 const COLS: Array<{ title: string; links: Array<{ label: string; href: string }> }> = [
@@ -49,12 +49,6 @@ export function Footer() {
                 aria-label="ORYX no Instagram"
               >
                 <Instagram size={16} />
-              </SocialLink>
-              <SocialLink
-                href="https://github.com/contatoanimalzent-create"
-                aria-label="ORYX no GitHub"
-              >
-                <Github size={16} />
               </SocialLink>
               <SocialLink
                 href="mailto:contato@oryxcontrol.com"
