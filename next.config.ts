@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const config: NextConfig = {
-  reactStrictMode: true,
+  // R3F/WebGL: o double-mount do Strict Mode em dev descarta o contexto GL
+  // e o canvas fica em branco. Desligado pra o WebGL pintar tambem em dev.
+  reactStrictMode: false,
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [

@@ -2,9 +2,17 @@
 
 import { useRef } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
+
+// Camada WebGL (shader de displacement/chromatic/grain) POR CIMA da foto.
+// Canvas transparente: se o WebGL pintar, cobre a foto; se falhar, a foto
+// base aparece. O hero nunca quebra.
+const HeroImage = dynamic(() => import("@/components/three/HeroImage"), {
+  ssr: false,
+});
 
 const ease = [0.22, 1, 0.36, 1] as const;
 const WORDS = ["Airsoft", "tático."];
@@ -17,7 +25,7 @@ export function Hero() {
     target: ref,
     offset: ["start start", "end start"],
   });
-  const photoY = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
+  const photoY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
   const photoScale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-18%"]);
   const cardY = useTransform(scrollYProgress, [0, 1], ["0%", "-42%"]);
@@ -52,11 +60,15 @@ export function Hero() {
               className="object-cover object-[60%_center]"
             />
           </motion.div>
+          {/* Realce WebGL por cima da foto (transparente se falhar) */}
+          <div className="absolute inset-0">
+            <HeroImage />
+          </div>
         </motion.div>
 
         {/* Legibilidade: escurece a base e o canto inferior esquerdo */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/35" />
-        <div className="absolute inset-0 bg-[radial-gradient(140%_120%_at_0%_100%,rgba(0,0,0,0.92),transparent_58%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/35" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(140%_120%_at_0%_100%,rgba(0,0,0,0.92),transparent_58%)]" />
 
         {/* Barra superior dentro do card: só o contador */}
         <motion.div
