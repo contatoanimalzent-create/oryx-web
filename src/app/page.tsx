@@ -12,7 +12,7 @@ import { FinalCTA } from "@/components/sections/FinalCTA";
 export const metadata: Metadata = {
   title: "ORYX, Comando e controle pra airsoft tático",
   description:
-    "O ORYX transforma o airsoft em operação de verdade: squad no mapa ao vivo por GPS, missões, zonas, hierarquia e ranking. Jogue agora no navegador em app.oryxcontrol.com.",
+    "O ORYX transforma o airsoft em operação de verdade: squad no mapa ao vivo por GPS, missões, zonas e patentes de Recruta a Marechal. Baixe na App Store ou no Google Play.",
   alternates: { canonical: "/" },
 };
 

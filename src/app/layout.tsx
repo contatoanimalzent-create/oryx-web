@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     template: `%s · ${SITE_NAME}`,
   },
   description:
-    "ORYX é o app de comando e controle para airsoft tático no Brasil. Tracking GPS em tempo real do seu squad, voz por squad, missões, zonas e ranking. Jogue agora no navegador.",
+    "ORYX é o app de comando e controle para airsoft tático no Brasil. Tracking GPS em tempo real do seu squad, voz por squad, missões, zonas e patentes. Baixe na App Store ou no Google Play.",
   applicationName: SITE_NAME,
   authors: [{ name: "Animalz Group" }],
   generator: "Next.js",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: `${SITE_NAME}, ${SITE_TAGLINE}`,
     description:
-      "Tracking GPS, voz por squad, missões, zonas e ranking. Jogue agora no navegador.",
+      "Tracking GPS, voz por squad, missões, zonas e patentes. Baixe na App Store ou no Google Play.",
     images: [
       {
         url: "/og.png",
@@ -125,10 +125,10 @@ function StructuredData() {
     "@context": "https://schema.org",
     "@type": "MobileApplication",
     name: "ORYX",
-    operatingSystem: "Web",
+    operatingSystem: "Android, iOS",
     applicationCategory: "GameApplication",
     description:
-      "Comando e controle pra airsoft tático: GPS, voz por squad, missões, zonas e ranking.",
+      "Comando e controle pra airsoft tático: GPS, voz por squad, missões, zonas e patentes.",
     offers: { "@type": "Offer", price: "0", priceCurrency: "BRL" },
     publisher: { "@type": "Organization", name: "Animalz Group", url: SITE_URL },
   };

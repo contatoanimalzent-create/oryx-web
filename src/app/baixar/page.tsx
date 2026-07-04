@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Globe2, Apple, Play, Check, ArrowUpRight } from "lucide-react";
-import { WEB_APP_URL } from "@/lib/utils";
+import { Apple, Play, Check } from "lucide-react";
+import { APP_STORE_URL, PLAY_STORE_URL } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Acessar o ORYX — jogue agora no navegador",
+  title: "Baixar ORYX — iPhone e Android",
   description:
-    "O ORYX roda agora no navegador, em app.oryxcontrol.com. Crie sua conta, entre no squad e apareça no mapa. Os apps de iOS e Android chegam em breve nas lojas.",
+    "Baixe o ORYX na App Store ou no Google Play, crie sua conta com o callsign e entre no próximo jogo.",
   alternates: { canonical: "/baixar" },
 };
 
@@ -13,7 +13,7 @@ const PERKS = [
   "Mapa do squad em tempo real",
   "Canais de voz por squad, facção e comando",
   "Missões, zonas e objetivos do organizador",
-  "Replay e debrief depois do jogo",
+  "Patentes de Recruta a Marechal",
 ];
 
 export default function BaixarPage() {
@@ -24,54 +24,48 @@ export default function BaixarPage() {
 
       <div className="relative mx-auto max-w-3xl px-6 lg:px-8 text-center">
         <p className="tactical-bracket text-xs font-mono uppercase tracking-widest text-[var(--color-brand)]">
-          No ar agora
+          Nas lojas oficiais
         </p>
         <h1 className="display-xl mt-4 text-5xl md:text-7xl">
-          Jogue <span className="volt-mark">agora</span>,<br />
-          sem esperar loja
+          ORYX no <span className="volt-mark">seu bolso</span>
         </h1>
         <p className="mt-8 text-lg text-[var(--color-text-muted)] max-w-xl mx-auto leading-relaxed">
-          O ORYX roda direto no navegador do seu celular. Cria a conta, entra
-          no squad e aparece no mapa. Sem cartão.
+          Baixa na sua loja, cria a conta com o callsign e entra no próximo
+          jogo. Sem cartão.
         </p>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-          {/* Web, ao vivo */}
+          {/* iOS */}
           <a
-            href={WEB_APP_URL}
+            href={APP_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="group relative rounded-2xl ink-panel p-8 text-left transition-transform hover:-translate-y-0.5"
           >
-            <div className="absolute top-4 right-4 text-[10px] font-mono uppercase tracking-widest text-[var(--color-volt)]">
-              ● Ao vivo
-            </div>
-            <Globe2 size={28} className="text-[var(--color-volt)]" />
-            <h2 className="mt-4 text-2xl font-bold text-white">Navegador</h2>
-            <p className="mt-2 text-sm text-white/60">
-              app.oryxcontrol.com · celular ou desktop
-            </p>
+            <Apple size={28} className="text-white" />
+            <h2 className="mt-4 text-2xl font-bold text-white">iPhone</h2>
+            <p className="mt-2 text-sm text-white/60">App Store · iOS 15.0+</p>
             <span className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--color-volt)] text-[var(--color-ink)] h-12 font-semibold">
-              Abrir o ORYX
-              <ArrowUpRight size={17} />
+              <Apple size={18} />
+              Baixar na App Store
             </span>
           </a>
 
-          {/* Lojas, em breve (sem link falso) */}
-          <div className="relative rounded-2xl border border-[var(--color-border-strong)] bg-[var(--color-surface)] p-8 text-left">
-            <div className="absolute top-4 right-4 text-[10px] font-mono uppercase tracking-widest text-[var(--color-text-dim)]">
-              ○ Em breve
-            </div>
-            <span className="flex items-center gap-3">
-              <Apple size={26} className="text-[var(--color-text)]" />
-              <Play size={22} className="text-[var(--color-text)]" />
+          {/* Android */}
+          <a
+            href={PLAY_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative rounded-2xl ink-panel p-8 text-left transition-transform hover:-translate-y-0.5"
+          >
+            <Play size={26} className="fill-[var(--color-volt)] text-[var(--color-volt)]" />
+            <h2 className="mt-4 text-2xl font-bold text-white">Android</h2>
+            <p className="mt-2 text-sm text-white/60">Google Play · Android 7.0+</p>
+            <span className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--color-volt)] text-[var(--color-ink)] h-12 font-semibold">
+              <Play size={16} className="fill-current" />
+              Baixar no Google Play
             </span>
-            <h2 className="mt-4 text-2xl font-bold">iPhone e Android</h2>
-            <p className="mt-2 text-sm text-[var(--color-text-muted)]">
-              Os apps nativos estão a caminho da App Store e do Google Play.
-              Enquanto isso, a versão web é a oficial.
-            </p>
-          </div>
+          </a>
         </div>
 
         <div className="mt-16 pt-10 border-t border-[var(--color-border)] text-left max-w-2xl mx-auto">

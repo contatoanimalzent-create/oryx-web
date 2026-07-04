@@ -135,7 +135,7 @@ export default function Post() {
         <div className="mt-12 p-8 rounded-2xl border border-[var(--color-brand)]/30 bg-[var(--color-brand)]/5">
           <h3 className="text-2xl font-black">Quer testar?</h3>
           <p className="mt-3 text-[var(--color-text-muted)]">
-            O ORYX roda agora no navegador, em app.oryxcontrol.com. Cria a conta e entra no próximo jogo; os apps de iOS e Android chegam em breve nas lojas. Sem cartão.
+            Baixa na App Store ou no Google Play, cria a conta e entra no próximo jogo. Sem cartão.
           </p>
           <div className="mt-6">
             <ButtonLink href="/baixar" variant="primary" size="lg">

@@ -8,11 +8,12 @@ import { ArrowRight, Check } from "lucide-react";
  * mapa em tempo real com filtros, alertas automáticos e replay.
  */
 const PANEL = [
-  "Crie a operação: evento, facções, squads e área de jogo",
-  "Desenhe missões e zonas direto no mapa (captura, defesa, checkpoint)",
-  "Veja todo mundo em tempo real, com filtro por facção, squad e status",
-  "Alertas automáticos de inatividade e perda de sinal",
-  "Replay completo do evento pra debrief e transmissão",
+  "Custo do evento: gratuito, pago, com doação ou misto",
+  "Exércitos do seu jeito: 2 a 8, cores e nomes livres",
+  "Tamanho e duração: de 50v50 a 250v250 ou livre, de 2h a 24h+",
+  "Missões e zonas direto no mapa, próprias ou da biblioteca",
+  "Pontuação e respawn: padrão ORYX ou regras customizadas",
+  "Tempo real com filtros, alertas automáticos e replay pra debrief",
 ];
 
 export function Organizer() {
@@ -25,12 +26,12 @@ export function Organizer() {
               [ Pra quem organiza ]
             </p>
             <h2 className="display-xl mt-4 text-5xl text-white sm:text-6xl">
-              Você no <span className="volt-mark">comando</span> de tudo
+              O organizador <span className="volt-mark">decide tudo</span>
             </h2>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
-              Enquanto os operadores jogam, o organizador enxerga a operação
-              inteira no painel de comando: cada squad no mapa, cada missão,
-              cada zona contestada.
+              Cada evento é do jeito que o organizador quiser, e o painel de
+              comando mostra a operação inteira ao vivo: cada squad no mapa,
+              cada missão, cada zona contestada.
             </p>
             <Link
               href="/organizadores"

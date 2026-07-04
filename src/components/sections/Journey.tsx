@@ -31,8 +31,8 @@ const STEPS = [
   },
   {
     n: "04",
-    title: "Suba no ranking",
-    body: "Cada missão vale pontos. O sistema soma seu desempenho por evento e monta o ranking por operador, por squad e por facção, com MVP da partida e histórico acumulado.",
+    title: "Suba de patente",
+    body: "Cada missão vale pontos, e ponto vira patente na tabela oficial: são 18 níveis, de Recruta a Marechal. No caminho, ranking por operador, squad e facção, com MVP da partida.",
     screen: null,
     alt: "",
   },
@@ -121,9 +121,9 @@ export function Journey() {
 function RankingPanel() {
   const rows = [
     ["Pontuação", "por missão e por evento"],
+    ["Patente", "18 níveis, de Recruta a Marechal"],
     ["Ranking", "por operador, squad e facção"],
     ["MVP", "destaque da partida nos modos competitivos"],
-    ["Histórico", "desempenho acumulado, jogo após jogo"],
   ];
   return (
     <div className="ink-panel rounded-2xl p-6 sm:p-8">

@@ -6,7 +6,7 @@ const COLS: Array<{ title: string; links: Array<{ label: string; href: string }>
   {
     title: "Produto",
     links: [
-      { label: "Acessar o app", href: "/baixar" },
+      { label: "Baixar o app", href: "/baixar" },
       { label: "Para operadores", href: "/operadores" },
       { label: "Para organizadores", href: "/organizadores" },
       { label: "Eventos ativos", href: "/eventos" },

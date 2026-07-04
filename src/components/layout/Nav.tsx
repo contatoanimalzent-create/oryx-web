@@ -61,7 +61,7 @@ export function Nav() {
 
         <div className="hidden md:flex items-center gap-3">
           <ButtonLink href="/baixar" variant="primary" size="sm">
-            Jogar agora
+            Baixar app
             <ArrowUpRight size={14} />
           </ButtonLink>
         </div>
@@ -97,7 +97,7 @@ export function Nav() {
               size="lg"
               className="mt-4 justify-center"
             >
-              Jogar agora
+              Baixar app
               <ArrowUpRight size={16} />
             </ButtonLink>
           </nav>

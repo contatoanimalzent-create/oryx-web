@@ -8,8 +8,8 @@ import { Reveal } from "@/components/motion/Reveal";
 const MODES = [
   {
     name: "Warfare",
-    scale: "100 a 500 operadores",
-    desc: "Grande escala: facções, missões simultâneas e persistência longa. A guerra que dura o evento inteiro.",
+    scale: "50v50 a 250v250 ou livre",
+    desc: "Grande escala: de 2 a 8 exércitos, missões simultâneas e operações de 2h a 24h ou mais. A guerra que dura o evento inteiro.",
     featured: true,
   },
   {
@@ -18,14 +18,14 @@ const MODES = [
     desc: "Sistema de rounds com eliminação, scoreboard em tempo real e MVP da partida.",
   },
   {
-    name: "Challenger 3x3",
-    scale: "Partidas rápidas",
-    desc: "Entra, joga, sobe: ranking direto a cada partida.",
-  },
-  {
     name: "Sniper",
     scale: "Precisão pura",
     desc: "Pontuação por eliminação, tempo e precisão.",
+  },
+  {
+    name: "Especial",
+    scale: "Modo do organizador",
+    desc: "Regras, pontuação e respawn customizados: o organizador desenha o jogo do jeito que quiser.",
   },
 ];
 

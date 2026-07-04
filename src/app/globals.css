@@ -102,13 +102,23 @@ body > * { position: relative; z-index: 2; }
   letter-spacing: -0.015em;
   /* Oswald estoura acima da caixa com line-height 1 (verificado no
      preview): < 1.1 decapita a primeira linha e os acentos */
-  line-height: 1.12;
+  line-height: 1.16;
   text-transform: uppercase;
 }
 
-/* Marca-texto volt (o "amarelo do Lando" do ORYX) */
+/* Marca-texto volt (o "amarelo do Lando" do ORYX).
+ * O fundo de um inline cobre a CONTENT AREA da fonte (no Oswald, ~1.46em,
+ * bem maior que a line-height), então fundo chapado pinta POR CIMA da
+ * linha de texto acima. O gradiente inseta o fundo no topo/baixo pra
+ * nunca engolir a linha vizinha. */
 .volt-mark {
-  background: var(--color-volt);
+  background: linear-gradient(
+    to bottom,
+    transparent 0.18em,
+    var(--color-volt) 0.18em,
+    var(--color-volt) calc(100% - 0.06em),
+    transparent calc(100% - 0.06em)
+  );
   color: var(--color-ink);
   padding: 0 0.14em;
   box-decoration-break: clone;

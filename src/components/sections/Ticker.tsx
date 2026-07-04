@@ -7,6 +7,7 @@ const ITEMS = [
   "Missões",
   "Squads",
   "Zonas",
+  "Patentes",
   "Ranking",
   "Warfare",
   "Competitivo 5x5",

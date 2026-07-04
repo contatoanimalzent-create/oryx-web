@@ -3,8 +3,7 @@ import { StoreButtons } from "@/components/ui/StoreButtons";
 
 /**
  * Fechamento: bloco de cor chapada volt (o "amarelo do Lando" do ORYX).
- * CTA honesto: o app web está no ar agora; as lojas entram quando os
- * links forem reais.
+ * CTA: App Store e Google Play (única distribuição oficial).
  */
 export function FinalCTA() {
   return (
@@ -17,8 +16,7 @@ export function FinalCTA() {
             operação
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-lg text-[var(--color-ink)]/70">
-            O ORYX roda no navegador agora mesmo. Crie sua conta, entre no
-            squad e apareça no mapa.
+            Baixe o ORYX, crie sua conta, entre no squad e apareça no mapa.
           </p>
         </Reveal>
         <Reveal delay={0.1}>

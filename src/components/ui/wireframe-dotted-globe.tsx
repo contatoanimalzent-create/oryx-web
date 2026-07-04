@@ -8,6 +8,8 @@ export interface GlobeMarker {
   label: string;
   lng: number;
   lat: number;
+  /** marcador principal (maior, com etiqueta permanente) */
+  featured?: boolean;
 }
 
 interface RotatingEarthProps {
@@ -204,44 +206,51 @@ export default function RotatingEarth({
         }
         context.globalAlpha = 1;
 
-        // marcadores (cidades com operação)
+        // marcadores (cidades da rede)
         for (const m of markersRef.current) {
           const gd = d3.geoDistance([m.lng, m.lat], center);
           if (gd >= Math.PI / 2) continue;
           const p = projection([m.lng, m.lat]);
           if (!p) continue;
-          const pulse = ((time / 1500) % 1 + 1) % 1;
+          const isHover = hoverMarker?.id === m.id;
+          const isFocused = focused?.id === m.id;
+          const big = !!m.featured;
+          const pulse = (((time + (big ? 0 : 700)) / 1500) % 1 + 1) % 1;
 
           // anel de ping
           context.beginPath();
-          context.arc(p[0], p[1], (6 + pulse * 16) * sf, 0, 2 * Math.PI);
+          context.arc(p[0], p[1], ((big ? 6 : 3.5) + pulse * (big ? 16 : 10)) * sf, 0, 2 * Math.PI);
           context.strokeStyle = VOLT;
-          context.globalAlpha = (1 - pulse) * 0.9;
-          context.lineWidth = 1.6 * sf;
+          context.globalAlpha = (1 - pulse) * (big ? 0.9 : 0.55);
+          context.lineWidth = (big ? 1.6 : 1.1) * sf;
           context.stroke();
           context.globalAlpha = 1;
 
           // núcleo
-          const isHover = hoverMarker?.id === m.id;
           context.beginPath();
-          context.arc(p[0], p[1], (isHover ? 6.5 : 5) * sf, 0, 2 * Math.PI);
+          context.arc(p[0], p[1], ((big ? 5 : 3.2) + (isHover ? 1.5 : 0)) * sf, 0, 2 * Math.PI);
           context.fillStyle = VOLT;
           context.fill();
-          context.beginPath();
-          context.arc(p[0], p[1], 2.1 * sf, 0, 2 * Math.PI);
-          context.fillStyle = INK;
-          context.fill();
+          if (big) {
+            context.beginPath();
+            context.arc(p[0], p[1], 2.1 * sf, 0, 2 * Math.PI);
+            context.fillStyle = INK;
+            context.fill();
+          }
 
-          // etiqueta
-          const label = m.label.toUpperCase();
-          context.font = `600 ${11 * Math.min(sf, 1.4)}px ui-monospace, SFMono-Regular, Menlo, monospace`;
-          const tw = context.measureText(label).width;
-          const lx = p[0] + 14 * sf;
-          const ly = p[1] - 10 * sf;
-          context.fillStyle = VOLT;
-          context.fillRect(lx - 4, ly - 12, tw + 8, 17);
-          context.fillStyle = INK;
-          context.fillText(label, lx, ly);
+          // etiqueta (permanente pro destaque; hover/foco pros demais)
+          if (big || isHover || isFocused) {
+            const label = m.label.toUpperCase();
+            const fpx = (big ? 11 : 10) * Math.min(sf, 1.4);
+            context.font = `600 ${fpx}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+            const tw = context.measureText(label).width;
+            const lx = p[0] + 12 * sf;
+            const ly = p[1] - 9 * sf;
+            context.fillStyle = big ? VOLT : "rgba(198, 242, 33, 0.92)";
+            context.fillRect(lx - 4, ly - fpx - 2, tw + 8, fpx + 6);
+            context.fillStyle = INK;
+            context.fillText(label, lx, ly);
+          }
         }
       }
     };
