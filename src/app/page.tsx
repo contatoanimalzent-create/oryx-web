@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
-import { Marquee } from "@/components/sections/Marquee";
-import { Features } from "@/components/sections/Features";
-import { HowItWorks } from "@/components/sections/HowItWorks";
-import { ForWho } from "@/components/sections/ForWho";
-import { Stats } from "@/components/sections/Stats";
-import { CTA } from "@/components/sections/CTA";
-import { OfflineFeature } from "@/components/sections/OfflineFeature";
-import { MarketplacePreview } from "@/components/sections/MarketplacePreview";
+import { Ticker } from "@/components/sections/Ticker";
+import { Manifesto } from "@/components/sections/Manifesto";
+import { Journey } from "@/components/sections/Journey";
+import { Hierarchy } from "@/components/sections/Hierarchy";
+import { Modes } from "@/components/sections/Modes";
+import { FieldTech } from "@/components/sections/FieldTech";
+import { Organizer } from "@/components/sections/Organizer";
+import { FinalCTA } from "@/components/sections/FinalCTA";
 
 export const metadata: Metadata = {
   title: "ORYX, Comando e controle pra airsoft tático",
   description:
-    "Comando e controle pra airsoft tático. Você vê a posição do seu squad no mapa em tempo real, fala por canais de voz, cumpre missões e sobe no ranking nacional. Baixe e leve pro próximo jogo.",
+    "O ORYX transforma o airsoft em operação de verdade: squad no mapa ao vivo por GPS, missões, zonas, hierarquia e ranking. Jogue agora no navegador em app.oryxcontrol.com.",
   alternates: { canonical: "/" },
 };
 
@@ -20,14 +20,14 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Marquee />
-      <Stats />
-      <Features />
-      <OfflineFeature />
-      <HowItWorks />
-      <MarketplacePreview />
-      <ForWho />
-      <CTA />
+      <Ticker />
+      <Manifesto />
+      <Journey />
+      <Hierarchy />
+      <Modes />
+      <FieldTech />
+      <Organizer />
+      <FinalCTA />
     </>
   );
 }

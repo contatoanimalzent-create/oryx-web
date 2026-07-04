@@ -13,8 +13,8 @@ interface BaseProps {
 
 const VARIANT: Record<Variant, string> = {
   primary:
-    "bg-[var(--color-brand)] text-[#0c100e] hover:bg-[var(--color-brand-hover)] " +
-    "shadow-[0_8px_24px_-8px_var(--color-brand-glow)] " +
+    "bg-[var(--color-ink)] text-[var(--color-volt)] hover:bg-[var(--color-ink-2)] " +
+    "shadow-[0_8px_24px_-8px_rgba(21,24,15,0.5)] " +
     "active:translate-y-px",
   secondary:
     "bg-[var(--color-surface)] text-[var(--color-text)] border border-[var(--color-border-strong)] " +

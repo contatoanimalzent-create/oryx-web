@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import { ButtonLink } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
@@ -61,8 +61,8 @@ export function Nav() {
 
         <div className="hidden md:flex items-center gap-3">
           <ButtonLink href="/baixar" variant="primary" size="sm">
-            <Download size={14} />
-            Baixar app
+            Jogar agora
+            <ArrowUpRight size={14} />
           </ButtonLink>
         </div>
 
@@ -97,8 +97,8 @@ export function Nav() {
               size="lg"
               className="mt-4 justify-center"
             >
-              <Download size={16} />
-              Baixar app
+              Jogar agora
+              <ArrowUpRight size={16} />
             </ButtonLink>
           </nav>
         </div>

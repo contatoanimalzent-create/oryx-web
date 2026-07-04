@@ -1,47 +1,52 @@
 @import "tailwindcss";
 
-/* ─── ORYX design tokens · "épico/game" (KAMUI-grade) ─────────────────
- * Atmosfera de campo de batalha ao entardecer: base gunmetal-teal (NÃO
- * preto chapado), ember/âmbar quente, vermelho tático ORYX e ciano de HUD.
- * Profundidade por luz volumétrica, film grain e vignette cinematográfica.
+/* ─── ORYX design tokens · "campo aberto" (gelo + verde-lima volt) ─────
+ * Base clara e viva: branco gelo de papel, tinta quase-preta com fundo
+ * verde-oliva, e verde-lima volt como única cor de assinatura. O globo e
+ * as telas do app entram como objetos escuros sobre a página clara.
  */
 @theme {
-  /* Base, Dark Gray #171717 (Combo 01), com variações de profundidade */
-  --color-bg: #171717;
-  --color-bg-deep: #0f0f0f;
-  --color-bg-elevated: #1d1d1d;
-  --color-surface: #1c1c1c;
-  --color-surface-2: #242424;
-  --color-border: #2b2b2b;
-  --color-border-strong: #3a3a3a;
+  /* Base clara */
+  --color-bg: #f4f5ef;
+  --color-bg-deep: #ebeee2;
+  --color-bg-elevated: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-2: #eef0e6;
+  --color-border: #dcdfd0;
+  --color-border-strong: #c3c8b2;
 
-  /* Texto */
-  --color-text: #f4f5f4;
-  --color-text-muted: #a8aba8;
-  --color-text-dim: #6f736f;
+  /* Tinta */
+  --color-text: #15180f;
+  --color-text-muted: #565c49;
+  --color-text-dim: #8b9078;
 
-  /* Marca, Tiffany #21F1A8 (Combo 01), acento único do site */
-  --color-brand: #21f1a8;
-  --color-brand-hover: #51f6bd;
-  --color-brand-dim: #12b07a;
-  --color-brand-glow: rgba(33, 241, 168, 0.42);
+  /* Marca, verde-lima volt. --color-brand é o tom LEGÍVEL sobre o gelo
+     (labels, links); --color-volt é o tom puro pra fills e marca-texto. */
+  --color-brand: #5f8f00;
+  --color-brand-hover: #4d7500;
+  --color-brand-dim: #86b32d;
+  --color-brand-glow: rgba(178, 230, 46, 0.55);
+  --color-volt: #c6f221;
+  --color-volt-soft: #e2fa8f;
 
-  /* Acento secundário, derivado do tiffany pra manter a paleta limpa */
-  --color-ember: #21f1a8;
-  --color-ember-soft: #7ef7cb;
-  --color-ember-glow: rgba(33, 241, 168, 0.34);
+  /* Tinta escura pra blocos/objetos escuros (globo, cards pretos) */
+  --color-ink: #15180f;
+  --color-ink-2: #21251a;
 
-  /* HUD, mesmo tiffany, coeso */
-  --color-hud: #21f1a8;
-  --color-hud-glow: rgba(33, 241, 168, 0.40);
+  /* Aliases herdados (seções antigas referenciam) */
+  --color-ember: #5f8f00;
+  --color-ember-soft: #86b32d;
+  --color-ember-glow: rgba(178, 230, 46, 0.4);
+  --color-hud: #5f8f00;
+  --color-hud-glow: rgba(178, 230, 46, 0.4);
 
-  /* Semantic / facções (só pra leitura de dados no mapa) */
-  --color-success: #21f1a8;
-  --color-warning: #ffce5c;
-  --color-danger: #ff5a5a;
-  --color-faction-ally: #4aa8ff;
-  --color-faction-enemy: #ff9a4a;
-  --color-faction-self: #21f1a8;
+  /* Semantic / facções (leitura de dados no mapa) */
+  --color-success: #4d7500;
+  --color-warning: #b07d10;
+  --color-danger: #cf3b2f;
+  --color-faction-ally: #2f6fc4;
+  --color-faction-enemy: #d06a1f;
+  --color-faction-self: #5f8f00;
 
   /* Typography */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -55,7 +60,7 @@
 }
 
 html {
-  background: var(--color-bg-deep);
+  background: var(--color-bg);
   color: var(--color-text);
   scroll-behavior: smooth;
 }
@@ -68,28 +73,21 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
-  /* Atmosfera cinematográfica global, o site inteiro senta sobre isso */
-  background:
-    radial-gradient(120% 90% at 78% -8%, rgba(33, 241, 168, 0.10), transparent 55%),
-    radial-gradient(100% 80% at 12% 6%, rgba(33, 241, 168, 0.06), transparent 52%),
-    radial-gradient(110% 100% at 50% 108%, rgba(33, 241, 168, 0.05), transparent 60%),
-    linear-gradient(180deg, #171717 0%, #131313 55%, #0f0f0f 100%);
-  background-attachment: fixed;
+  background: var(--color-bg);
 }
 
-/* Film grain global, textura que tira o aspecto "chapado" de tela morta */
+/* Linhas topográficas sutis por trás de tudo (textura de mapa, não grid) */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.05;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420' viewBox='0 0 420 420'%3E%3Cg fill='none' stroke='%2315180f' stroke-opacity='0.045' stroke-width='1'%3E%3Cpath d='M60 210c0-83 67-150 150-150s150 67 150 150-67 150-150 150S60 293 60 210z'/%3E%3Cpath d='M100 210c0-61 49-110 110-110s110 49 110 110-49 110-110 110-110-49-110-110z'/%3E%3Cpath d='M140 210c0-39 31-70 70-70s70 31 70 70-31 70-70 70-70-31-70-70z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 420px 420px;
 }
 
-/* Tudo que é conteúdo fica acima do grain */
 body > * { position: relative; z-index: 2; }
 
 /* ─── Tipografia display ──────────────────────────────────────────────── */
@@ -100,43 +98,56 @@ body > * { position: relative; z-index: 2; }
 }
 .display-xl {
   font-family: var(--font-display);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 0.9;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  /* Oswald estoura acima da caixa com line-height 1 (verificado no
+     preview): < 1.1 decapita a primeira linha e os acentos */
+  line-height: 1.12;
   text-transform: uppercase;
 }
 
-/* Gradiente de texto ember→vermelho pra headlines de impacto */
+/* Marca-texto volt (o "amarelo do Lando" do ORYX) */
+.volt-mark {
+  background: var(--color-volt);
+  color: var(--color-ink);
+  padding: 0 0.14em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Gradiente de texto lima pra headlines de impacto */
 .text-ember-grad {
-  background: linear-gradient(95deg, #7ef7cb 0%, #21f1a8 45%, #12b07a 100%);
+  background: linear-gradient(95deg, #86b32d 0%, #5f8f00 55%, #3f6300 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
 }
 .text-hud-grad {
-  background: linear-gradient(95deg, #6bfff0 0%, #2ce6d0 60%, #14b9c9 100%);
+  background: linear-gradient(95deg, #86b32d 0%, #5f8f00 55%, #3f6300 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
 }
 
-/* ─── Superfícies / painéis de HUD ────────────────────────────────────── */
+/* ─── Superfícies / painéis ───────────────────────────────────────────── */
 .holo-panel {
-  background:
-    linear-gradient(180deg, rgba(22, 34, 40, 0.72), rgba(13, 20, 23, 0.62));
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
-  backdrop-filter: blur(10px);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.05),
-    0 24px 60px -30px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 18px 40px -28px rgba(21, 24, 15, 0.35);
 }
 .holo-panel:hover {
   border-color: var(--color-border-strong);
 }
 
-/* Card com glow de acento na borda superior */
+/* Painel escuro (objeto de tinta sobre a página clara) */
+.ink-panel {
+  background: var(--color-ink);
+  color: #f4f5ef;
+  border: 1px solid #2b2f21;
+}
+
 .edge-glow-top {
   position: relative;
 }
@@ -144,35 +155,33 @@ body > * { position: relative; z-index: 2; }
   content: "";
   position: absolute;
   inset: 0 0 auto 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent, var(--color-brand)), transparent);
-  opacity: 0.7;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent, var(--color-volt)), transparent);
+  opacity: 0.9;
 }
 
 /* ─── Efeitos táticos ─────────────────────────────────────────────────── */
 .tactical-grid {
   background-image:
-    linear-gradient(to right, rgba(120, 200, 200, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(120, 200, 200, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(21, 24, 15, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(21, 24, 15, 0.05) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 
 .tactical-vignette {
   background:
-    radial-gradient(ellipse at center top, rgba(255, 46, 63, 0.10), transparent 50%),
-    radial-gradient(ellipse at bottom, rgba(4, 7, 10, 0.7), transparent 60%);
+    radial-gradient(ellipse at center top, rgba(198, 242, 33, 0.14), transparent 55%),
+    radial-gradient(ellipse at bottom, rgba(235, 238, 226, 0.8), transparent 60%);
 }
 
-/* Vignette cinematográfica forte pras bordas (foco no centro) */
 .cine-vignette::after {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(ellipse 75% 65% at 50% 45%, transparent 40%, rgba(2, 4, 6, 0.55) 100%);
+  background: radial-gradient(ellipse 75% 65% at 50% 45%, transparent 55%, rgba(235, 238, 226, 0.5) 100%);
 }
 
-/* Scanlines sutis (CRT/HUD) */
 .scanlines::before {
   content: "";
   position: absolute;
@@ -180,22 +189,20 @@ body > * { position: relative; z-index: 2; }
   pointer-events: none;
   background: repeating-linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0.025) 0px,
-    rgba(255, 255, 255, 0.025) 1px,
+    rgba(21, 24, 15, 0.02) 0px,
+    rgba(21, 24, 15, 0.02) 1px,
     transparent 1px,
     transparent 3px
   );
-  mix-blend-mode: overlay;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .brand-glow {
   box-shadow:
-    0 0 0 1px var(--color-brand),
+    0 0 0 1px var(--color-volt),
     0 8px 30px -6px var(--color-brand-glow);
 }
 
-/* Bracket tático nos headers de seção */
 .tactical-bracket::before {
   content: "[";
   color: var(--color-brand);
@@ -218,8 +225,8 @@ body > * { position: relative; z-index: 2; }
   box-shadow:
     0 2px 2px rgba(255, 255, 255, 0.12) inset,
     0 0 0 2px #0a0a0a,
-    0 50px 90px -30px rgba(0, 0, 0, 0.8),
-    0 30px 70px -34px var(--color-brand-glow);
+    0 40px 80px -30px rgba(21, 24, 15, 0.5),
+    0 24px 60px -30px var(--color-brand-glow);
 }
 .device .screen {
   border-radius: 11.5% / 5.6%;
@@ -240,33 +247,29 @@ body > * { position: relative; z-index: 2; }
 .phone-blink { animation: pulse 1.6s ease-in-out infinite; }
 
 /* ─── Hero ────────────────────────────────────────────────────────────── */
-/* Fallback do hero 3D (reduced-motion / low-end), atmosfera viva */
 .tactical-fallback {
   background:
-    radial-gradient(ellipse 60% 55% at 72% 36%, rgba(33, 241, 168, 0.20), transparent 60%),
-    radial-gradient(ellipse 55% 45% at 24% 62%, rgba(33, 241, 168, 0.12), transparent 60%),
-    radial-gradient(ellipse 50% 50% at 50% 100%, rgba(33, 241, 168, 0.08), transparent 60%),
-    linear-gradient(to bottom, #171717, var(--color-bg-deep));
+    radial-gradient(ellipse 60% 55% at 72% 36%, rgba(198, 242, 33, 0.25), transparent 60%),
+    radial-gradient(ellipse 55% 45% at 24% 62%, rgba(198, 242, 33, 0.12), transparent 60%),
+    linear-gradient(to bottom, var(--color-bg), var(--color-bg-deep));
 }
 .tactical-fallback::before {
   content: "";
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(to right, rgba(120, 200, 200, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(120, 200, 200, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(21, 24, 15, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(21, 24, 15, 0.06) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
 }
 
-/* Scroll cue */
 .scroll-cue { animation: cue-bob 2.4s ease-in-out infinite; }
 @keyframes cue-bob {
   0%, 100% { transform: translate(-50%, 0); opacity: 0.7; }
   50% { transform: translate(-50%, 6px); opacity: 1; }
 }
 
-/* Status indicator (pulsing dot) */
 .status-live { position: relative; padding-left: 1.5rem; }
 .status-live::before {
   content: "";
@@ -276,9 +279,9 @@ body > * { position: relative; z-index: 2; }
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--color-faction-self);
+  background: var(--color-brand);
   transform: translateY(-50%);
-  box-shadow: 0 0 12px var(--color-faction-self);
+  box-shadow: 0 0 12px var(--color-brand-glow);
   animation: pulse 2s ease-in-out infinite;
 }
 @keyframes pulse {
@@ -286,23 +289,32 @@ body > * { position: relative; z-index: 2; }
   50% { opacity: 0.4; }
 }
 
-/* Sweep de radar reutilizável */
 @keyframes radar-sweep { to { transform: rotate(360deg); } }
 .radar-sweep { animation: radar-sweep 4s linear infinite; }
 
-/* Shimmer pra divisores / linhas vivas */
 @keyframes line-shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
 .line-shimmer {
-  background: linear-gradient(90deg, transparent, var(--color-brand), var(--color-ember), transparent);
+  background: linear-gradient(90deg, transparent, var(--color-volt), var(--color-brand-dim), transparent);
   background-size: 200% 100%;
   animation: line-shimmer 5s linear infinite;
 }
 
+/* Letreiro (marquee) */
+@keyframes ticker-kf { to { transform: translateX(-50%); } }
+.ticker-track { animation: ticker-kf 28s linear infinite; }
+
+/* Ping dos marcadores do globo */
+@keyframes globe-ping-kf {
+  0% { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+.globe-ping { animation: globe-ping-kf 1.8s ease-out infinite; }
+
 /* Selection */
-::selection { background: var(--color-brand); color: #fff; }
+::selection { background: var(--color-volt); color: var(--color-ink); }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 10px; height: 10px; }

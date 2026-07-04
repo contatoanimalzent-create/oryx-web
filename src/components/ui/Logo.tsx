@@ -32,7 +32,7 @@ export function Logo({
       )}
     >
       <Image
-        src="/oryx-logo.png"
+        src="/logo.svg"
         alt="ORYX"
         width={dims.icon}
         height={dims.icon}

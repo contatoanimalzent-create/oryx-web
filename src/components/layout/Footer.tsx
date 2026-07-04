@@ -6,7 +6,7 @@ const COLS: Array<{ title: string; links: Array<{ label: string; href: string }>
   {
     title: "Produto",
     links: [
-      { label: "Baixar app", href: "/baixar" },
+      { label: "Acessar o app", href: "/baixar" },
       { label: "Para operadores", href: "/operadores" },
       { label: "Para organizadores", href: "/organizadores" },
       { label: "Eventos ativos", href: "/eventos" },
@@ -17,7 +17,7 @@ const COLS: Array<{ title: string; links: Array<{ label: string; href: string }>
     links: [
       { label: "Sobre", href: "/sobre" },
       { label: "Blog", href: "/blog" },
-      { label: "Funciona offline", href: "/#offline-title" },
+      { label: "Tecnologia", href: "/#tecnologia" },
       { label: "Contato", href: "mailto:contato@oryxcontrol.com" },
     ],
   },
@@ -26,7 +26,6 @@ const COLS: Array<{ title: string; links: Array<{ label: string; href: string }>
     links: [
       { label: "Termos de uso", href: "/termos" },
       { label: "Política de privacidade", href: "/privacidade" },
-      { label: "LGPD", href: "/lgpd" },
     ],
   },
 ];
@@ -40,8 +39,8 @@ export function Footer() {
             <Logo size="md" />
             <p className="mt-4 text-sm text-[var(--color-text-muted)] max-w-sm leading-relaxed">
               Comando e controle para airsoft tático no Brasil. Posição em
-              tempo real, voz por squad, missões e ranking nacional, tudo
-              num único app.
+              tempo real, voz por squad, missões, zonas e ranking, tudo num
+              único app.
             </p>
             <div className="mt-6 flex gap-3">
               <SocialLink

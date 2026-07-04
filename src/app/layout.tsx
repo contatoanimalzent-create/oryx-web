@@ -26,11 +26,11 @@ const oswald = Oswald({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0A0A0A",
+  themeColor: "#f4f5ef",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  colorScheme: "dark",
+  colorScheme: "light",
 };
 
 export const metadata: Metadata = {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     template: `%s · ${SITE_NAME}`,
   },
   description:
-    "ORYX é o app de comando e controle para airsoft tático no Brasil. Tracking GPS em tempo real do seu squad, comunicação por voz, missões dinâmicas e ranking nacional. Grátis pra operadores e organizadores.",
+    "ORYX é o app de comando e controle para airsoft tático no Brasil. Tracking GPS em tempo real do seu squad, voz por squad, missões, zonas e ranking. Jogue agora no navegador.",
   applicationName: SITE_NAME,
   authors: [{ name: "Animalz Group" }],
   generator: "Next.js",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: `${SITE_NAME}, ${SITE_TAGLINE}`,
     description:
-      "Tracking GPS, voz por squad, missões dinâmicas e ranking nacional. Grátis no Android.",
+      "Tracking GPS, voz por squad, missões, zonas e ranking. Jogue agora no navegador.",
     images: [
       {
         url: "/og.png",
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${SITE_NAME}, ${SITE_TAGLINE}`,
     description:
-      "Tracking GPS, voz por squad e ranking nacional pra airsoft tático.",
+      "Tracking GPS, voz por squad, missões e ranking pra airsoft tático.",
     images: ["/og.png"],
   },
   robots: {
@@ -104,7 +104,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="pt-BR"
-      className={`${inter.variable} ${geistMono.variable} ${oswald.variable} dark`}
+      className={`${inter.variable} ${geistMono.variable} ${oswald.variable}`}
       suppressHydrationWarning
     >
       <body className="bg-[var(--color-bg)] text-[var(--color-text)] antialiased">
@@ -125,10 +125,10 @@ function StructuredData() {
     "@context": "https://schema.org",
     "@type": "MobileApplication",
     name: "ORYX",
-    operatingSystem: "Android, iOS",
+    operatingSystem: "Web",
     applicationCategory: "GameApplication",
     description:
-      "Comando e controle pra airsoft tático: GPS, voz por squad, missões e ranking nacional.",
+      "Comando e controle pra airsoft tático: GPS, voz por squad, missões, zonas e ranking.",
     offers: { "@type": "Offer", price: "0", priceCurrency: "BRL" },
     publisher: { "@type": "Organization", name: "Animalz Group", url: SITE_URL },
   };

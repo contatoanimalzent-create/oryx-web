@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Apple, Play, Check } from "lucide-react";
-import { APP_STORE_URL, PLAY_STORE_URL } from "@/lib/utils";
+import { Globe2, Apple, Play, Check, ArrowUpRight } from "lucide-react";
+import { WEB_APP_URL } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Baixar ORYX — iPhone e Android",
+  title: "Acessar o ORYX — jogue agora no navegador",
   description:
-    "O ORYX já está na App Store e no Google Play. Baixe pra iPhone ou Android, crie sua conta com o callsign e entre no próximo jogo.",
+    "O ORYX roda agora no navegador, em app.oryxcontrol.com. Crie sua conta, entre no squad e apareça no mapa. Os apps de iOS e Android chegam em breve nas lojas.",
   alternates: { canonical: "/baixar" },
 };
 
 const PERKS = [
   "Mapa do squad em tempo real",
-  "Canais de voz por equipe e esquadrão",
+  "Canais de voz por squad, facção e comando",
   "Missões, zonas e objetivos do organizador",
   "Replay e debrief depois do jogo",
 ];
@@ -24,62 +24,54 @@ export default function BaixarPage() {
 
       <div className="relative mx-auto max-w-3xl px-6 lg:px-8 text-center">
         <p className="tactical-bracket text-xs font-mono uppercase tracking-widest text-[var(--color-brand)]">
-          Disponível agora
+          No ar agora
         </p>
-        <h1 className="mt-4 text-5xl md:text-7xl font-black tracking-tight leading-[0.95]">
-          ORYX no <br />
-          <span className="text-[var(--color-brand)]">seu bolso.</span>
+        <h1 className="display-xl mt-4 text-5xl md:text-7xl">
+          Jogue <span className="volt-mark">agora</span>,<br />
+          sem esperar loja
         </h1>
         <p className="mt-8 text-lg text-[var(--color-text-muted)] max-w-xl mx-auto leading-relaxed">
-          Já está no ar pra iPhone e Android. Baixa na sua loja, cria a conta com
-          o callsign e entra no próximo jogo. Sem cartão.
+          O ORYX roda direto no navegador do seu celular. Cria a conta, entra
+          no squad e aparece no mapa. Sem cartão.
         </p>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-          {/* iOS, ativo */}
+          {/* Web, ao vivo */}
           <a
-            href={APP_STORE_URL}
+            href={WEB_APP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-elevated)] p-8 text-left transition-colors hover:border-[var(--color-brand)]/60"
+            className="group relative rounded-2xl ink-panel p-8 text-left transition-transform hover:-translate-y-0.5"
           >
-            <div className="absolute top-4 right-4 text-[10px] font-mono uppercase tracking-widest text-[var(--color-faction-self)]">
-              ● Disponível
+            <div className="absolute top-4 right-4 text-[10px] font-mono uppercase tracking-widest text-[var(--color-volt)]">
+              ● Ao vivo
             </div>
-            <Apple size={28} className="text-[var(--color-text)]" />
-            <h2 className="mt-4 text-2xl font-bold">iPhone</h2>
-            <p className="mt-2 text-sm text-[var(--color-text-muted)]">
-              App Store · iOS 15.0+
+            <Globe2 size={28} className="text-[var(--color-volt)]" />
+            <h2 className="mt-4 text-2xl font-bold text-white">Navegador</h2>
+            <p className="mt-2 text-sm text-white/60">
+              app.oryxcontrol.com · celular ou desktop
             </p>
-            <span className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--color-text)] text-[var(--color-bg)] h-12 font-semibold transition-transform group-hover:-translate-y-0.5">
-              <Apple size={18} />
-              Baixar na App Store
+            <span className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--color-volt)] text-[var(--color-ink)] h-12 font-semibold">
+              Abrir o ORYX
+              <ArrowUpRight size={17} />
             </span>
           </a>
 
-          {/* Android, ativo */}
-          <a
-            href={PLAY_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative rounded-2xl border border-[var(--color-brand)]/30 bg-[var(--color-bg-elevated)] p-8 text-left transition-colors hover:border-[var(--color-brand)]/60"
-          >
-            <div className="absolute top-4 right-4 text-[10px] font-mono uppercase tracking-widest text-[var(--color-faction-self)]">
-              ● Disponível
+          {/* Lojas, em breve (sem link falso) */}
+          <div className="relative rounded-2xl border border-[var(--color-border-strong)] bg-[var(--color-surface)] p-8 text-left">
+            <div className="absolute top-4 right-4 text-[10px] font-mono uppercase tracking-widest text-[var(--color-text-dim)]">
+              ○ Em breve
             </div>
-            <Play
-              size={28}
-              className="fill-[var(--color-brand)] text-[var(--color-brand)]"
-            />
-            <h2 className="mt-4 text-2xl font-bold">Android</h2>
-            <p className="mt-2 text-sm text-[var(--color-text-muted)]">
-              Google Play · Android 7.0+
-            </p>
-            <span className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--color-brand)] text-[#0c100e] h-12 font-semibold transition-transform group-hover:-translate-y-0.5">
-              <Play size={16} className="fill-current" />
-              Baixar no Google Play
+            <span className="flex items-center gap-3">
+              <Apple size={26} className="text-[var(--color-text)]" />
+              <Play size={22} className="text-[var(--color-text)]" />
             </span>
-          </a>
+            <h2 className="mt-4 text-2xl font-bold">iPhone e Android</h2>
+            <p className="mt-2 text-sm text-[var(--color-text-muted)]">
+              Os apps nativos estão a caminho da App Store e do Google Play.
+              Enquanto isso, a versão web é a oficial.
+            </p>
+          </div>
         </div>
 
         <div className="mt-16 pt-10 border-t border-[var(--color-border)] text-left max-w-2xl mx-auto">

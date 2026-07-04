@@ -30,7 +30,7 @@ export default function OperadoresPage() {
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
             <ButtonLink href="/baixar" variant="primary" size="xl">
               <Download size={18} />
-              Baixar pra iPhone ou Android
+              Jogar agora no navegador
               <ArrowRight size={18} />
             </ButtonLink>
           </div>

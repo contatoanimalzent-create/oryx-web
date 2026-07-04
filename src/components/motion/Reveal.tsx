@@ -88,7 +88,6 @@ export function Reveal({
   }, [delay, y, stagger, rootMargin]);
 
   return (
-    // @ts-expect-error, ref polimórfico é seguro aqui
     <Tag ref={ref} className={className}>
       {children}
     </Tag>

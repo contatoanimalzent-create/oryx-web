@@ -9,7 +9,8 @@ export const SITE_URL = "https://oryxcontrol.com";
 export const SITE_NAME = "ORYX";
 export const SITE_TAGLINE = "Comando e controle pra airsoft tático";
 
-// Lojas oficiais — app já publicado pra iOS e Android.
-export const APP_STORE_URL = "https://apps.apple.com/app/oryx-control/id6504000000";
-export const PLAY_STORE_URL =
-  "https://play.google.com/store/apps/details?id=com.oryxcontrol.mobile";
+// O que está no ar HOJE: o app web em app.oryxcontrol.com (verificado).
+// As lojas ainda não têm o app publicado, então o site não aponta pra
+// elas até os links existirem de verdade.
+export const WEB_APP_URL = "https://app.oryxcontrol.com";
+export const STORES_LIVE = false;

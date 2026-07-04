@@ -1,5 +1,5 @@
-import { Apple, Play } from "lucide-react";
-import { APP_STORE_URL, PLAY_STORE_URL, cn } from "@/lib/utils";
+import { Globe2, Apple, Play } from "lucide-react";
+import { WEB_APP_URL, cn } from "@/lib/utils";
 
 type StoreButtonsProps = {
   className?: string;
@@ -7,58 +7,53 @@ type StoreButtonsProps = {
 };
 
 /**
- * Botões das lojas oficiais. O app já está publicado pra iOS e Android,
- * então os dois aparecem ativos lado a lado (nada de "APK" ou "em breve").
+ * CTA de acesso ao ORYX. Hoje o que existe publicado é o app web
+ * (app.oryxcontrol.com); as lojas entram quando os links forem reais.
  */
 export function StoreButtons({ className, size = "lg" }: StoreButtonsProps) {
-  const pad = size === "lg" ? "px-5 h-14" : "px-4 h-11";
+  const pad = size === "lg" ? "px-6 h-14" : "px-4 h-11";
   const sub = size === "lg" ? "text-[10px]" : "text-[9px]";
   const main = size === "lg" ? "text-base" : "text-sm";
 
   return (
-    <div className={cn("flex flex-col sm:flex-row gap-3", className)}>
+    <div className={cn("flex flex-col sm:flex-row sm:items-center gap-3", className)}>
       <a
-        href={APP_STORE_URL}
+        href={WEB_APP_URL}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Baixar ORYX na App Store"
+        aria-label="Abrir o ORYX no navegador"
         className={cn(
-          "group inline-flex items-center gap-3 rounded-xl bg-[var(--color-text)] text-[var(--color-bg)]",
+          "group inline-flex items-center gap-3 rounded-xl bg-[var(--color-ink)] text-[var(--color-volt)]",
           "transition-transform hover:-translate-y-0.5",
           pad,
         )}
       >
-        <Apple size={size === "lg" ? 26 : 20} className="shrink-0" />
+        <Globe2 size={size === "lg" ? 24 : 20} className="shrink-0" />
         <span className="flex flex-col items-start leading-none">
           <span className={cn("uppercase tracking-wide opacity-70", sub)}>
-            Baixar na
+            Jogar agora
           </span>
-          <span className={cn("font-semibold", main)}>App Store</span>
+          <span className={cn("font-semibold", main)}>app.oryxcontrol.com</span>
         </span>
       </a>
 
-      <a
-        href={PLAY_STORE_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Baixar ORYX no Google Play"
+      <div
         className={cn(
-          "group inline-flex items-center gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text)]",
-          "transition-transform hover:-translate-y-0.5 hover:border-[var(--color-brand)]/50",
+          "inline-flex items-center gap-3 rounded-xl border border-[var(--color-border-strong)] text-[var(--color-text-muted)]",
           pad,
         )}
       >
-        <Play
-          size={size === "lg" ? 24 : 18}
-          className="shrink-0 fill-[var(--color-brand)] text-[var(--color-brand)]"
-        />
-        <span className="flex flex-col items-start leading-none">
-          <span className={cn("uppercase tracking-wide opacity-60", sub)}>
-            Disponível no
-          </span>
-          <span className={cn("font-semibold", main)}>Google Play</span>
+        <span className="flex items-center gap-2">
+          <Apple size={size === "lg" ? 20 : 16} className="shrink-0" />
+          <Play size={size === "lg" ? 17 : 14} className="shrink-0" />
         </span>
-      </a>
+        <span className="flex flex-col items-start leading-none">
+          <span className={cn("uppercase tracking-wide opacity-70", sub)}>
+            iOS e Android
+          </span>
+          <span className={cn("font-semibold", main)}>Em breve nas lojas</span>
+        </span>
+      </div>
     </div>
   );
 }
