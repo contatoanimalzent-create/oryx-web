@@ -1,5 +1,6 @@
-import Image from "next/image";
 import { Reveal } from "@/components/motion/Reveal";
+import { IPhoneFrame } from "@/components/ui/IPhoneFrame";
+import { ScreenTracking } from "@/components/ui/AppScreens";
 import { Satellite, WifiOff, ShieldCheck, Radio } from "lucide-react";
 
 /**
@@ -66,19 +67,10 @@ export function FieldTech() {
           </div>
 
           <Reveal delay={0.1}>
-            <div className="mx-auto w-full max-w-[280px]">
-              <div className="device">
-                <div className="screen overflow-hidden">
-                  <Image
-                    src="/screens/oryx_t1s.webp"
-                    alt="Tela real do onboarding do ORYX: tracking em tempo real, mesmo com tela bloqueada"
-                    width={640}
-                    height={1423}
-                    unoptimized
-                    className="w-full"
-                  />
-                </div>
-              </div>
+            <div className="phone-scene flex justify-center px-8 py-10">
+              <IPhoneFrame className="w-full max-w-[260px] rotate-2 transition-transform duration-500 hover:rotate-0">
+                <ScreenTracking />
+              </IPhoneFrame>
             </div>
           </Reveal>
         </div>

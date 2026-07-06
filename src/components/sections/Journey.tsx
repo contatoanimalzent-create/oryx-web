@@ -1,40 +1,38 @@
 import Image from "next/image";
 import { Reveal } from "@/components/motion/Reveal";
+import { IPhoneFrame } from "@/components/ui/IPhoneFrame";
+import { ScreenOps, ScreenLobby } from "@/components/ui/AppScreens";
 
 /**
- * A jornada do operador em 4 passos, clara o bastante pra qualquer pessoa
- * entender. Cada passo usa uma TELA REAL do app (nada de mockup inventado);
- * os textos usam os labels exatos que existem no ORYX hoje.
+ * A jornada do operador em 4 passos. As telas são recriações fiéis das
+ * telas reais do app (mesmos títulos, filtros, hierarquia, papéis e
+ * botões), apresentadas vivas num iPhone de marketing; o passo 03 usa o
+ * screenshot real do mapa tático em Brasília.
  */
 const STEPS = [
   {
     n: "01",
     title: "Entre na operação",
     body: "Abra a lista de operações e escolha a sua: tem jogo grátis, Competitivo e Warfare. Quando a tag AO VIVO acende, é porque está acontecendo agora.",
-    screen: "/screens/oryx_ops.webp",
-    alt: "Tela real do ORYX: lista de operações com filtros Todos, Grátis, Competitivo e Warfare, e um evento ao vivo",
+    screen: "ops",
   },
   {
     n: "02",
     title: "Monte o squad e assuma seu papel",
     body: "No lobby você vê sua hierarquia (Comandante, Líder de Pelotão, Líder de Squad) e seu papel no time: Líder, Médico, Atirador ou Operador. Aceitou as regras? CHECK-IN GPS e pra dentro.",
-    screen: "/screens/oryx_tacs.webp",
-    alt: "Tela real do ORYX: lobby da operação com hierarquia, squad com papéis e botão de check-in GPS",
+    screen: "lobby",
   },
   {
     n: "03",
     title: "Domine o mapa",
     body: "Seu squad aparece no mapa tático ao vivo, por GPS de verdade. Marque CONTATO, reporte BAIXA, chame o MÉDICO e fale no canal de voz do squad sem tirar a mão do equipamento.",
-    screen: "/screens/oryx_maps.webp",
-    alt: "Tela real do ORYX: mapa tático ao vivo em Brasília com botões de contato, baixa, voz e médico",
-    wide: true,
+    screen: "map",
   },
   {
     n: "04",
     title: "Suba de patente",
     body: "Cada missão vale pontos, e ponto vira patente na tabela oficial: são 18 níveis, de Recruta a Marechal. No caminho, ranking por operador, squad e facção, com MVP da partida.",
-    screen: null,
-    alt: "",
+    screen: "ranking",
   },
 ] as const;
 
@@ -51,14 +49,12 @@ export function Journey() {
           </h2>
         </Reveal>
 
-        <div className="mt-16 space-y-20 lg:space-y-28">
+        <div className="mt-16 space-y-16 lg:space-y-24">
           {STEPS.map((step, i) => (
             <Reveal key={step.n}>
               <div
-                className={`grid items-center gap-8 lg:gap-16 ${
-                  step.screen && !("wide" in step && step.wide)
-                    ? `lg:grid-cols-2 ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`
-                    : ""
+                className={`grid items-center gap-8 lg:grid-cols-2 lg:gap-16 ${
+                  i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
                 }`}
               >
                 <div>
@@ -73,37 +69,7 @@ export function Journey() {
                   </p>
                 </div>
 
-                {step.screen && ("wide" in step && step.wide ? (
-                  <div className="overflow-hidden rounded-2xl border border-[var(--color-border-strong)] shadow-[0_30px_70px_-40px_rgba(21,24,15,0.6)] lg:col-span-1">
-                    <Image
-                      src={step.screen}
-                      alt={step.alt}
-                      width={1400}
-                      height={630}
-                      unoptimized
-                      className="w-full object-cover"
-                    />
-                  </div>
-                ) : (
-                  <div className="mx-auto w-full max-w-[300px]">
-                    <div className="device">
-                      <div className="screen overflow-hidden">
-                        <Image
-                          src={step.screen}
-                          alt={step.alt}
-                          width={640}
-                          height={1423}
-                          unoptimized
-                          className="w-full"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                ))}
-
-                {!step.screen && (
-                  <RankingPanel />
-                )}
+                <StepVisual screen={step.screen} />
               </div>
             </Reveal>
           ))}
@@ -113,10 +79,43 @@ export function Journey() {
   );
 }
 
+function StepVisual({ screen }: { screen: (typeof STEPS)[number]["screen"] }) {
+  if (screen === "map") {
+    return (
+      <div className="phone-scene p-4 sm:p-6">
+        <div className="overflow-hidden rounded-xl">
+          <Image
+            src="/screens/oryx_maps.webp"
+            alt="Screenshot real do ORYX: mapa tático ao vivo em Brasília com botões de contato, baixa, voz e médico"
+            width={1400}
+            height={630}
+            unoptimized
+            className="w-full object-cover"
+          />
+        </div>
+        <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-widest text-white/40">
+          Tela real · Eixo Monumental, Brasília
+        </p>
+      </div>
+    );
+  }
+
+  if (screen === "ranking") {
+    return <RankingPanel />;
+  }
+
+  return (
+    <div className="phone-scene flex justify-center px-10 py-10 sm:py-14">
+      <IPhoneFrame className="w-full max-w-[270px] -rotate-2 transition-transform duration-500 hover:rotate-0">
+        {screen === "ops" ? <ScreenOps /> : <ScreenLobby />}
+      </IPhoneFrame>
+    </div>
+  );
+}
+
 /**
- * Painel do passo 04 (ranking). Não existe screenshot dessa tela ainda,
- * então mostramos as DIMENSÕES reais do sistema de pontuação (escopo do
- * produto), sem inventar placar nem nomes.
+ * Painel do passo 04 (progressão). Dimensões reais do sistema de
+ * pontuação, sem placar inventado.
  */
 function RankingPanel() {
   const rows = [
@@ -138,6 +137,12 @@ function RankingPanel() {
           </div>
         ))}
       </div>
+      <div className="mt-5 h-1.5 overflow-hidden rounded-full bg-white/10">
+        <div className="app-live-bar h-full w-2/3 rounded-full bg-[var(--color-volt)]" />
+      </div>
+      <p className="mt-2 font-mono text-[10px] uppercase tracking-widest text-white/40">
+        progressão pra próxima patente
+      </p>
     </div>
   );
 }
