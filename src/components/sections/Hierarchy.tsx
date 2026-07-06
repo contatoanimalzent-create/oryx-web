@@ -2,36 +2,36 @@ import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * Vitrine de PATENTES: a tabela oficial do ORYX (18 níveis, de Recruta a
- * Marechal), direto do documento de progressão. Pontuação e tempo mínimo
- * são os valores reais do sistema.
+ * Marechal), direto do documento de progressão. Só nome e pontuação
+ * (tempos ficam fora do site por decisão do Walt).
  */
-type Rank = { name: string; pts: number; time: string };
+type Rank = { name: string; pts: number };
 
 const PRACAS: Rank[] = [
-  { name: "Recruta", pts: 0, time: "imediato" },
-  { name: "Soldado", pts: 1_500, time: "1 semana" },
-  { name: "Cabo", pts: 6_000, time: "1 mês" },
-  { name: "3º Sargento", pts: 18_000, time: "2 meses" },
-  { name: "2º Sargento", pts: 42_000, time: "4 meses" },
-  { name: "1º Sargento", pts: 85_000, time: "6 meses" },
-  { name: "Subtenente", pts: 155_000, time: "9 meses" },
+  { name: "Recruta", pts: 0 },
+  { name: "Soldado", pts: 1_500 },
+  { name: "Cabo", pts: 6_000 },
+  { name: "3º Sargento", pts: 18_000 },
+  { name: "2º Sargento", pts: 42_000 },
+  { name: "1º Sargento", pts: 85_000 },
+  { name: "Subtenente", pts: 155_000 },
 ];
 
 const OFICIAIS: Rank[] = [
-  { name: "Aspirante a Oficial", pts: 260_000, time: "1 ano" },
-  { name: "2º Tenente", pts: 410_000, time: "1,5 ano" },
-  { name: "1º Tenente", pts: 610_000, time: "2 anos" },
-  { name: "Capitão", pts: 880_000, time: "2,5 anos" },
-  { name: "Major", pts: 1_230_000, time: "3 anos" },
-  { name: "Tenente-Coronel", pts: 1_680_000, time: "3,5 anos" },
-  { name: "Coronel", pts: 2_250_000, time: "4 anos" },
+  { name: "Aspirante a Oficial", pts: 260_000 },
+  { name: "2º Tenente", pts: 410_000 },
+  { name: "1º Tenente", pts: 610_000 },
+  { name: "Capitão", pts: 880_000 },
+  { name: "Major", pts: 1_230_000 },
+  { name: "Tenente-Coronel", pts: 1_680_000 },
+  { name: "Coronel", pts: 2_250_000 },
 ];
 
 const GENERAIS: Rank[] = [
-  { name: "General de Brigada", pts: 3_000_000, time: "4,3 anos" },
-  { name: "General de Divisão", pts: 4_000_000, time: "4,6 anos" },
-  { name: "General de Exército", pts: 5_300_000, time: "4,8 anos" },
-  { name: "Marechal", pts: 7_000_000, time: "5 anos" },
+  { name: "General de Brigada", pts: 3_000_000 },
+  { name: "General de Divisão", pts: 4_000_000 },
+  { name: "General de Exército", pts: 5_300_000 },
+  { name: "Marechal", pts: 7_000_000 },
 ];
 
 const fmt = (n: number) => n.toLocaleString("pt-BR");
@@ -50,8 +50,8 @@ export function Hierarchy() {
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
             Cada ponto que você faz em campo conta pra tabela oficial de
             patentes do ORYX. São 18 níveis: o Recruta nasce no dia do
-            cadastro; o Marechal leva anos de operação e 7 milhões de pontos.
-            Não tem atalho, tem campo.
+            cadastro; o Marechal custa 7 milhões de pontos. Não tem atalho,
+            tem campo.
           </p>
         </Reveal>
 
@@ -121,11 +121,11 @@ function RankColumn({
                   {r.name}
                 </span>
                 <span
-                  className={`whitespace-nowrap text-right font-mono text-[11px] ${
-                    isTop ? "text-[var(--color-ink)]/80" : "text-white/45"
+                  className={`whitespace-nowrap text-right font-mono text-xs ${
+                    isTop ? "text-[var(--color-ink)]/80" : "text-white/50"
                   }`}
                 >
-                  {fmt(r.pts)} pts · {r.time}
+                  {fmt(r.pts)} pts
                 </span>
               </li>
             );
