@@ -291,6 +291,16 @@ body > * { position: relative; z-index: 2; }
   100% { box-shadow: 0 0 0 10px rgba(43, 194, 88, 0); }
 }
 .app-ping-green { animation: screen-ping-green 1.8s ease-out infinite; }
+/* Nome de zona sobre o mapa: contorno preto + texto branco (estilo militar) */
+.oryx-stroke {
+  color: #fff;
+  text-shadow:
+    0 0 3px rgba(0, 0, 0, 0.9),
+    1px 1px 0 rgba(0, 0, 0, 0.85),
+    -1px 1px 0 rgba(0, 0, 0, 0.85),
+    1px -1px 0 rgba(0, 0, 0, 0.85),
+    -1px -1px 0 rgba(0, 0, 0, 0.85);
+}
 @keyframes bar-live {
   0%, 100% { transform: scaleX(0.86); opacity: 0.85; }
   50% { transform: scaleX(1); opacity: 1; }
