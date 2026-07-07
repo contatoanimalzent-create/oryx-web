@@ -238,18 +238,35 @@ export default function RotatingEarth({
             context.fill();
           }
 
-          // etiqueta (permanente pro destaque; hover/foco pros demais)
+          // etiquetas:
+          //  - destaque (Brasília) e hover/foco → chip volt sólido
+          //  - demais cidades visíveis na frente do globo → nome com
+          //    contorno (sem bloco), esmaecendo perto do limbo pra não poluir
+          const label = m.label.toUpperCase();
           if (big || isHover || isFocused) {
-            const label = m.label.toUpperCase();
             const fpx = (big ? 11 : 10) * Math.min(sf, 1.4);
             context.font = `600 ${fpx}px ui-monospace, SFMono-Regular, Menlo, monospace`;
             const tw = context.measureText(label).width;
             const lx = p[0] + 12 * sf;
             const ly = p[1] - 9 * sf;
-            context.fillStyle = big ? VOLT : "rgba(198, 242, 33, 0.92)";
+            context.fillStyle = VOLT;
             context.fillRect(lx - 4, ly - fpx - 2, tw + 8, fpx + 6);
             context.fillStyle = INK;
             context.fillText(label, lx, ly);
+          } else if (gd < 1.15) {
+            // atenua conforme se afasta do centro (1 no miolo → 0 no limbo)
+            const fade = Math.max(0, Math.min(1, (1.15 - gd) / 0.55));
+            const fpx = 8.5 * Math.min(sf, 1.4);
+            context.font = `600 ${fpx}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+            const lx = p[0] + 7 * sf;
+            const ly = p[1] + 3 * sf;
+            context.globalAlpha = fade;
+            context.lineWidth = 2.5 * sf;
+            context.strokeStyle = "rgba(10,12,8,0.9)";
+            context.strokeText(label, lx, ly);
+            context.fillStyle = "#e9fbb0";
+            context.fillText(label, lx, ly);
+            context.globalAlpha = 1;
           }
         }
       }
