@@ -38,7 +38,7 @@ const fmt = (n: number) => n.toLocaleString("pt-BR");
 
 export function Hierarchy() {
   return (
-    <section id="patentes" className="bg-[var(--color-ink)] py-20 text-[#f4f5ef] lg:py-32">
+    <section id="patentes" className="bg-[var(--color-ink)] py-16 text-[#f4f5ef] lg:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal>
           <p className="font-mono text-xs uppercase tracking-widest text-[var(--color-volt)]">
@@ -47,7 +47,7 @@ export function Hierarchy() {
           <h2 className="display-xl mt-4 max-w-4xl text-5xl text-white sm:text-6xl">
             De recruta a <span className="volt-mark">marechal</span>
           </h2>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/70">
             Cada ponto que você faz em campo conta pra tabela oficial de
             patentes do ORYX. São 18 níveis: o Recruta nasce no dia do
             cadastro; o Marechal custa 7 milhões de pontos. Não tem atalho,
@@ -56,14 +56,14 @@ export function Hierarchy() {
         </Reveal>
 
         <Reveal delay={0.05}>
-          <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4">
+          <div className="mt-8 flex flex-wrap gap-x-10 gap-y-4">
             <Stat value="18" label="patentes" />
             <Stat value="7.000.000" label="pontos até Marechal" />
             <Stat value="0" label="pontos pra começar" />
           </div>
         </Reveal>
 
-        <div className="mt-12 grid gap-4 lg:grid-cols-3">
+        <div className="mt-9 grid gap-4 lg:grid-cols-3">
           <RankColumn title="Praças" ranks={PRACAS} delay={0} />
           <RankColumn title="Oficiais" ranks={OFICIAIS} delay={0.08} />
           <RankColumn title="Generalato" ranks={GENERAIS} delay={0.16} highlightLast />

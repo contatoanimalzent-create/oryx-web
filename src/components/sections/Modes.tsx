@@ -31,7 +31,7 @@ const MODES = [
 
 export function Modes() {
   return (
-    <section id="modos" className="relative py-20 lg:py-32">
+    <section id="modos" className="relative py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal>
           <p className="tactical-bracket font-mono text-xs uppercase tracking-widest text-[var(--color-brand)]">
@@ -42,11 +42,11 @@ export function Modes() {
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {MODES.map((m, i) => (
             <Reveal key={m.name} delay={i * 0.06}>
               <div
-                className={`group flex h-full flex-col rounded-2xl border p-6 transition-colors ${
+                className={`group flex h-full flex-col rounded-2xl border p-5 transition-colors ${
                   m.featured
                     ? "ink-panel border-transparent"
                     : "holo-panel border-[var(--color-border)] hover:border-[var(--color-brand-dim)]"

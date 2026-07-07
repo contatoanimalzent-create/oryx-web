@@ -93,10 +93,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "16x16 32x32 48x48 64x64" },
+      { url: "/brand/oryx-icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/brand/oryx-icon-512.png", type: "image/png", sizes: "512x512" },
     ],
-    apple: "/apple-icon.png",
+    apple: "/brand/oryx-apple-touch-icon.png",
   },
 };
 

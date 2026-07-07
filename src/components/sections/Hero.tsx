@@ -63,35 +63,35 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden">
-      <div className="mx-auto grid max-w-7xl items-center gap-8 px-6 pb-14 pt-24 lg:grid-cols-[1.05fr_1fr] lg:px-8 lg:pb-20 lg:pt-32">
+      <div className="mx-auto grid max-w-7xl items-center gap-6 px-6 pb-10 pt-20 lg:grid-cols-[1.05fr_1fr] lg:px-8 lg:pb-14 lg:pt-28">
         {/* ── Texto ─────────────────────────────────────────────────── */}
         <div className="relative z-10">
           <p className="status-live font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-brand)]">
             Comando e controle pra airsoft tático
           </p>
 
-          <h1 className="display-xl mt-6 text-[13vw] sm:text-7xl lg:text-[5.2rem]">
+          <h1 className="display-xl mt-5 text-[13vw] sm:text-7xl lg:text-[5.2rem]">
             O mundo é o seu
             <br />
             <span className="volt-mark">campo de jogo</span>
           </h1>
 
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-text-muted)] md:text-xl">
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-[var(--color-text-muted)] md:text-xl">
             O ORYX transforma o airsoft em operação de verdade: seu squad no
             mapa ao vivo por GPS, missões pra cumprir, zonas pra dominar e
             patente pra conquistar.
           </p>
 
-          <StoreButtons className="mt-8" />
+          <StoreButtons className="mt-7" />
 
-          <p className="mt-6 font-mono text-xs uppercase tracking-widest text-[var(--color-text-dim)]">
+          <p className="mt-5 font-mono text-xs uppercase tracking-widest text-[var(--color-text-dim)]">
             <MapPin className="mr-1.5 inline-block" size={13} />
             Base de operações: Brasília · DF
           </p>
         </div>
 
         {/* ── Globo ─────────────────────────────────────────────────── */}
-        <div className="relative -mx-6 h-[420px] sm:h-[520px] lg:mx-0 lg:h-[640px]">
+        <div className="relative -mx-6 h-[390px] sm:h-[500px] lg:mx-0 lg:h-[600px]">
           <RotatingEarth markers={CITIES} onMarkerFocus={setFocused} />
 
           <p className="pointer-events-none absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[11px] uppercase tracking-widest text-[var(--color-text-dim)]">

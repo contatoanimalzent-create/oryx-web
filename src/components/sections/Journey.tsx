@@ -37,7 +37,7 @@ const STEPS = [
 
 export function Journey() {
   return (
-    <section id="como-funciona" className="relative py-20 lg:py-32">
+    <section id="como-funciona" className="relative py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal>
           <p className="tactical-bracket font-mono text-xs uppercase tracking-widest text-[var(--color-brand)]">
@@ -48,11 +48,11 @@ export function Journey() {
           </h2>
         </Reveal>
 
-        <div className="mt-16 space-y-16 lg:space-y-24">
+        <div className="mt-10 space-y-12 lg:space-y-16">
           {STEPS.map((step, i) => (
             <Reveal key={step.n}>
               <div
-                className={`grid items-center gap-8 lg:grid-cols-2 lg:gap-16 ${
+                className={`grid items-center gap-6 lg:grid-cols-2 lg:gap-12 ${
                   i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
                 }`}
               >
@@ -97,7 +97,7 @@ function StepVisual({ screen }: { screen: (typeof STEPS)[number]["screen"] }) {
   }
 
   return (
-    <div className="phone-scene flex justify-center px-10 py-10 sm:py-14">
+    <div className="phone-scene flex justify-center px-8 py-8 sm:py-10">
       <IPhoneFrame className="w-full max-w-[270px] -rotate-2 transition-transform duration-500 hover:rotate-0">
         {screen === "ops" ? <ScreenOps /> : <ScreenLobby />}
       </IPhoneFrame>

@@ -18,9 +18,9 @@ const PANEL = [
 
 export function Organizer() {
   return (
-    <section id="organizadores" className="bg-[var(--color-ink)] py-20 text-[#f4f5ef] lg:py-32">
+    <section id="organizadores" className="bg-[var(--color-ink)] py-16 text-[#f4f5ef] lg:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+        <div className="grid items-center gap-8 lg:grid-cols-2">
           <Reveal>
             <p className="font-mono text-xs uppercase tracking-widest text-[var(--color-volt)]">
               [ Pra quem organiza ]
@@ -28,14 +28,14 @@ export function Organizer() {
             <h2 className="display-xl mt-4 text-5xl text-white sm:text-6xl">
               O organizador <span className="volt-mark">decide tudo</span>
             </h2>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/70">
               Cada evento é do jeito que o organizador quiser, e o painel de
               comando mostra a operação inteira ao vivo: cada squad no mapa,
               cada missão, cada zona contestada.
             </p>
             <Link
               href="/organizadores"
-              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-[var(--color-volt)] px-6 py-3.5 font-semibold text-[var(--color-ink)] transition-transform hover:-translate-y-0.5"
+              className="mt-7 inline-flex items-center gap-2 rounded-xl bg-[var(--color-volt)] px-6 py-3.5 font-semibold text-[var(--color-ink)] transition-transform hover:-translate-y-0.5"
             >
               Quero organizar uma operação
               <ArrowRight size={17} />
@@ -43,11 +43,11 @@ export function Organizer() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5">
               {PANEL.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-5 py-4"
+                  className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-5 py-3.5"
                 >
                   <Check className="mt-0.5 shrink-0 text-[var(--color-volt)]" size={18} />
                   <span className="text-sm leading-relaxed text-white/80">{item}</span>
