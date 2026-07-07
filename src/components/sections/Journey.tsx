@@ -1,7 +1,6 @@
-import Image from "next/image";
 import { Reveal } from "@/components/motion/Reveal";
 import { IPhoneFrame } from "@/components/ui/IPhoneFrame";
-import { ScreenOps, ScreenLobby } from "@/components/ui/AppScreens";
+import { ScreenOps, ScreenLobby, ScreenTrackingWide } from "@/components/ui/AppScreens";
 
 /**
  * A jornada do operador em 4 passos. As telas são recriações fiéis das
@@ -83,18 +82,11 @@ function StepVisual({ screen }: { screen: (typeof STEPS)[number]["screen"] }) {
   if (screen === "map") {
     return (
       <div className="phone-scene p-4 sm:p-6">
-        <div className="overflow-hidden rounded-xl">
-          <Image
-            src="/screens/oryx_maps.webp"
-            alt="Screenshot real do ORYX: mapa tático ao vivo em Brasília com botões de contato, baixa, voz e médico"
-            width={1400}
-            height={630}
-            unoptimized
-            className="w-full object-cover"
-          />
+        <div className="overflow-hidden rounded-2xl shadow-[0_30px_70px_-40px_rgba(21,24,15,0.6)]">
+          <ScreenTrackingWide />
         </div>
         <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-widest text-white/40">
-          Tela real · Eixo Monumental, Brasília
+          Mapa tático ao vivo · Eixo Monumental, Brasília
         </p>
       </div>
     );

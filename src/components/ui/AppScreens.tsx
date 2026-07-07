@@ -413,3 +413,131 @@ function SquadDot({ className, ally, enemy }: { className: string; ally?: boolea
     </span>
   );
 }
+
+/* ── Tela: tracking em campo, LANDSCAPE (passo "Domine o mapa") ───────
+ * Mesma densidade Ares Alpha da versão portrait, adaptada pra tela larga.
+ * Botões CONTATO/BAIXA + COMS/FEED/MÉDICO no RODAPÉ (nunca no meio).
+ */
+export function ScreenTrackingWide() {
+  return (
+    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-[#0a0a0a] text-white">
+      {/* satélite real limpo de Brasília (SESI Lab / Eixo L Sul) */}
+      <div
+        aria-hidden
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url(/screens/oryx_map_wide.webp)",
+          backgroundSize: "cover",
+          backgroundPosition: "center 46%",
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/72" />
+
+      {/* fita de bússola */}
+      <div className="absolute inset-x-0 top-0 h-[13%] overflow-hidden bg-gradient-to-b from-black/70 to-transparent">
+        <div className="relative flex h-full items-start justify-between px-[3%] pt-1">
+          {DEG_CARDINALS.map(([deg, card], i) => (
+            <span key={i} className="flex flex-col items-center">
+              <span className="h-2 w-px bg-white/50" />
+              <span
+                className="mt-0.5 text-[8px] font-bold leading-none"
+                style={{ color: card === "N" ? "#ff5a5a" : "rgba(255,255,255,0.7)" }}
+              >
+                {deg.toString().padStart(3, "0")}
+              </span>
+              <span className="text-[7px] font-semibold leading-none text-white/50">{card}</span>
+            </span>
+          ))}
+        </div>
+        <div
+          className="absolute left-1/2 top-0 flex -translate-x-1/2 flex-col items-center rounded-b px-2 pb-0.5 pt-0.5"
+          style={{ background: ORANGE }}
+        >
+          <span className="text-[11px] font-black leading-none text-black">104</span>
+          <span className="text-[7px] font-bold leading-none text-black/80">LESTE</span>
+        </div>
+      </div>
+
+      {/* timer + placar */}
+      <span className="absolute left-[3%] top-[15%] rounded bg-black/65 px-2 py-1 font-mono text-[12px] font-bold tracking-wider backdrop-blur-sm">
+        00:24:18
+      </span>
+      <div className="absolute right-[3%] top-[15%] flex items-center gap-1.5">
+        <span className="rounded bg-black/65 px-2 py-1 font-mono text-[11px] font-semibold backdrop-blur-sm">
+          <span className="text-[#4a9eff]">12</span>
+          <span className="mx-0.5 text-white/40">/</span>
+          <span style={{ color: ORANGE }}>10</span>
+        </span>
+        <span className="rounded px-2 py-1 font-mono text-[12px] font-black text-black" style={{ background: ORANGE }}>
+          2:1
+        </span>
+      </div>
+
+      {/* kill feed */}
+      <div className="absolute right-[3%] top-[28%] flex flex-col items-end gap-1">
+        <FeedRow shooter="WOLF" victim="ECHO-3" />
+        <FeedRow shooter="RAVEN" victim="KILO-1" />
+      </div>
+
+      {/* zona objetivo */}
+      <span
+        className="app-ping absolute left-[30%] top-[32%] h-[36%] w-[30%] rounded-full border-2 border-dashed"
+        style={{ borderColor: "rgba(255,122,0,0.75)" }}
+      />
+
+      {/* chips de marcação */}
+      <MapChip className="left-[8%] top-[30%]" color="#c62828" icon="⚠" label="Contato inimigo" ttl="0:38" />
+      <MapChip className="left-[11%] top-[54%]" color="#e2691a" icon="✸" label="Armar carga" />
+      <MapChip className="left-[63%] top-[38%]" color="#2456c9" icon="⛑" label="Extração" />
+
+      {/* squad + self */}
+      <SquadDot className="left-[54%] top-[52%]" ally />
+      <SquadDot className="left-[70%] top-[46%]" ally />
+      <SquadDot className="left-[72%] top-[58%]" enemy />
+      <div className="absolute left-[34%] top-[38%] flex flex-col items-center">
+        <span className="app-ping-green flex h-8 w-8 items-center justify-center rounded-full border-2 border-white" style={{ background: "#12331c" }}>
+          <span className="h-4 w-4 rounded-full" style={{ background: GREEN }} />
+        </span>
+        <span className="mt-0.5 rounded bg-black/70 px-1 text-[8px] font-bold" style={{ color: GREEN }}>
+          RAVEN
+        </span>
+      </div>
+
+      {/* nome de zona (faixa livre entre o miolo e o dock) */}
+      <div className="absolute bottom-[24%] left-1/2 -translate-x-1/2 text-center">
+        <p className="oryx-stroke text-[20px] font-black leading-none tracking-[4px]">
+          EIXO MONUMENTAL
+        </p>
+        <p className="oryx-stroke text-[10px] font-black leading-tight tracking-[6px] text-white/70">
+          SETOR CENTRAL
+        </p>
+      </div>
+
+      {/* ── Dock inferior: CONTATO/BAIXA + COMS/FEED/MÉDICO ── */}
+      <div className="absolute inset-x-[3%] bottom-[4%] flex items-center gap-2">
+        <span className="flex flex-1 items-center justify-center gap-1.5 rounded-lg border py-2.5 text-[11px] font-black tracking-widest" style={{ borderColor: "#d4a017", color: "#ffd76a", background: "rgba(70,54,0,0.72)" }}>
+          ⚡ CONTATO
+        </span>
+        <span className="flex flex-1 items-center justify-center gap-1.5 rounded-lg border py-2.5 text-[11px] font-black tracking-widest" style={{ borderColor: "#c0392b", color: "#ff8a80", background: "rgba(70,10,10,0.72)" }}>
+          ✕ BAIXA
+        </span>
+        <span className="flex items-center gap-2 rounded-lg bg-black/55 px-2.5 py-1.5 backdrop-blur-sm">
+          <DockIcon bg="#2456c9" icon="🎧" label="COMS" />
+          <DockIcon bg="#c05a17" icon="🎥" label="FEED" />
+          <DockIcon bg="#1e9e4a" icon="✚" label="MÉDICO" />
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function DockIcon({ bg, icon, label }: { bg: string; icon: string; label: string }) {
+  return (
+    <span className="flex flex-col items-center gap-0.5">
+      <span className="flex h-7 w-7 items-center justify-center rounded-full border border-white/70 text-[12px]" style={{ background: bg }}>
+        {icon}
+      </span>
+      <span className="text-[6px] font-bold text-white/75">{label}</span>
+    </span>
+  );
+}

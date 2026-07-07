@@ -104,13 +104,13 @@ export function Hero() {
                 <>
                   <div className="relative mx-4 overflow-hidden rounded-lg">
                     <Image
-                      src="/screens/oryx_maps.webp"
-                      alt="Mapa tático real do ORYX rodando em Brasília, sobre o Eixo Monumental"
-                      width={1400}
-                      height={630}
+                      src="/screens/oryx_map_wide.webp"
+                      alt="Mapa tático do ORYX rodando em Brasília, sobre o Eixo Monumental"
+                      width={1010}
+                      height={680}
                       unoptimized
                       loading="eager"
-                      className="h-32 w-full object-cover object-center"
+                      className="h-32 w-full object-cover object-[center_40%]"
                     />
                   </div>
                   <div className="px-4 py-4">
