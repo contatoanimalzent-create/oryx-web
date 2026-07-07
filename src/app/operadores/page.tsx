@@ -61,7 +61,7 @@ export default function OperadoresPage() {
             <Item
               icon={Trophy}
               title="Patente que vale algo"
-              body="Hierarquia militar real: Soldado → Cabo → Sargento → Tenente. XP por evento. Battle Pass sazonal com patches e cosméticos exclusivos."
+              body="Progressão por pontos, patentes, ranking por evento e recompensas digitais opcionais para quem quer personalizar a experiência."
             />
           </div>
         </div>
@@ -73,10 +73,9 @@ export default function OperadoresPage() {
             Grátis. Sempre.
           </h2>
           <p className="mt-6 text-lg text-[var(--color-text-muted)] leading-relaxed">
-            Não cobramos nada pra você jogar. Receita vem do{" "}
-            <strong className="text-[var(--color-text)]">Battle Pass premium</strong>{" "}
-            opcional, marketplace de equipamento usado entre operadores
-            (taxa só pra vendedor) e loja de cosméticos digitais.
+            Não cobramos nada pra você jogar. Receita vem de recursos premium
+            opcionais, itens digitais e taxas de transação quando houver compra
+            e venda dentro da plataforma.
           </p>
           <div className="mt-10 flex justify-center">
             <ButtonLink href="/baixar" variant="primary" size="xl">

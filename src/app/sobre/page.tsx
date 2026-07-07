@@ -34,22 +34,22 @@ export default function SobrePage() {
             </p>
             <p className="mt-6 text-lg text-[var(--color-text-muted)] leading-relaxed">
               ORYX é desenvolvido pela <strong className="text-[var(--color-text)]">Animalz Group</strong>{" "}
-              em Brasília. A primeira versão saiu em 2026 e roda sobre AWS
-              em São Paulo, com a mesma stack que apps de delivery e mobilidade
-              brasileiros usam, porque infraestrutura é o que faz GPS
-              funcionar sem travar quando 100 operadores tão no campo.
+              em Brasília. A primeira versão saiu em 2026 e roda em
+              infraestrutura brasileira de baixa latência, pensada para manter
+              GPS, voz e eventos sincronizados quando muitos operadores estão
+              no campo.
             </p>
             <p className="mt-6 text-lg text-[var(--color-text-muted)] leading-relaxed">
               Não cobramos de operador. Não cobramos de organizador. Receita
-              vem do Battle Pass premium, da loja de cosméticos e da taxa
-              do marketplace de equipamento usado entre operadores. Modelo
+              vem de recursos premium opcionais, itens digitais e taxas de
+              transação quando houver compra e venda dentro da plataforma. Modelo
               que cresce com o tamanho da comunidade, não com a sua mensalidade.
             </p>
           </div>
 
           <div className="mt-10 inline-flex items-center gap-2 text-sm text-[var(--color-text-dim)]">
             <MapPin size={14} />
-            Brasília, DF · Operando em sa-east-1 (São Paulo)
+            Brasília, DF · Infraestrutura no Brasil
           </div>
 
           <div className="mt-10">

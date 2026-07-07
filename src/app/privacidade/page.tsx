@@ -17,23 +17,24 @@ export default function PrivacidadePage() {
         <li>Identificação: email, callsign, foto de perfil</li>
         <li>Localização GPS, apenas durante eventos ativos com seu consentimento</li>
         <li>Posição, velocidade, accuracy do GPS durante partidas</li>
-        <li>Eventos de uso (sign-up, match joined, eliminações) via Mixpanel</li>
-        <li>Crash reports técnicos via Sentry (sem PII)</li>
+        <li>Eventos de uso do produto para analytics agregados</li>
+        <li>Relatórios técnicos de erro e estabilidade, sem dados sensíveis</li>
       </ul>
 
       <h2 className="text-2xl font-bold mt-10">Como usamos</h2>
       <ul className="text-[var(--color-text-muted)]">
         <li>Operar o serviço (matching de squad, voz, ranking)</li>
-        <li>Anti-cheat (detectar mock location, padrões suspeitos)</li>
+        <li>Integridade da partida e detecção de padrões suspeitos</li>
         <li>Comunicação (push notification de evento/squad)</li>
         <li>Melhorar o produto (analytics agregado)</li>
       </ul>
 
       <h2 className="text-2xl font-bold mt-10">Compartilhamento</h2>
       <p className="text-[var(--color-text-muted)]">
-        Não vendemos seus dados. Compartilhamos com: AWS (hospedagem),
-        Stripe (pagamentos), Mixpanel (analytics), Sentry (crashes),
-        Firebase (push), LiveKit (voz). Todos com contratos LGPD/DPA.
+        Não vendemos seus dados. Compartilhamos apenas com provedores
+        essenciais para hospedagem, pagamentos, analytics, notificações,
+        comunicação e estabilidade do serviço. Esses provedores operam sob
+        bases contratuais compatíveis com a LGPD.
       </p>
 
       <h2 className="text-2xl font-bold mt-10">Seus direitos (LGPD)</h2>

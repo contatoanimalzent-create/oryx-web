@@ -46,8 +46,8 @@ export function FieldTech() {
               </h2>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-[var(--color-text-muted)]">
                 Campo aberto, internet instável, bateria contada. O ORYX foi
-                desenhado pra esse cenário, rodando em infraestrutura AWS na
-                região de São Paulo.
+                desenhado pra esse cenário, com infraestrutura brasileira de
+                baixa latência.
               </p>
             </Reveal>
 

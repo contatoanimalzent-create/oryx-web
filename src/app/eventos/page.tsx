@@ -25,7 +25,7 @@ export default function EventosPage() {
           <Calendar size={36} className="mx-auto text-[var(--color-text-dim)]" />
           <h2 className="mt-6 text-2xl font-bold">Em breve</h2>
           <p className="mt-3 max-w-md mx-auto text-[var(--color-text-muted)]">
-            A lista pública de eventos vai aparecer aqui em assim que
+            A lista pública de eventos vai aparecer aqui assim que
             organizadores começarem a cadastrar operações no app. Quer ser
             o primeiro?
           </p>

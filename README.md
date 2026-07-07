@@ -9,7 +9,6 @@ Site institucional + marketing do ORYX em [oryxcontrol.com](https://oryxcontrol.
 - **TypeScript strict**
 - **Radix UI** primitives (a11y by default)
 - **GSAP + Lenis** (animações cinemáticas + smooth scroll)
-- **Mixpanel** (mesma conta Oryx — lead capture analytics)
 - **Vercel** hosting (region gru1 São Paulo)
 
 ## Setup local
@@ -47,7 +46,7 @@ src/
 │   ├── layout/           Nav + Footer
 │   ├── sections/         seções da landing
 │   └── ui/               Button, Logo, primitives
-└── lib/                  helpers (utils.ts, analytics)
+└── lib/                  helpers (utils.ts)
 ```
 
 ## SEO

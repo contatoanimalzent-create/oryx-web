@@ -27,7 +27,7 @@ export default function TermosPage() {
 
       <h2 className="text-2xl font-bold mt-10">3. Conduta</h2>
       <p className="text-[var(--color-text-muted)]">
-        Trapaças (GPS spoofing, mock location, etc.) levam a banimento.
+        Trapaças, localização falsa ou manipulação de integridade levam a banimento.
         Comportamento abusivo em chat ou voz idem. Comunique violações
         a contato@oryxcontrol.com.
       </p>

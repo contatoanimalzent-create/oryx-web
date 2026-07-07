@@ -67,12 +67,12 @@ export default function Post() {
           <strong className="text-[var(--color-text)]">WarCamp</strong> tem tracking básico mas sem renderização em tempo real consistente, atualiza a cada ~30 segundos, o que limita uso em modos de jogo rápidos como CQB.
         </p>
         <p className="text-base text-[var(--color-text-muted)] mt-4 leading-relaxed">
-          <strong className="text-[var(--color-brand)]">Vencedor: ORYX</strong>, pela combinação de baixa latência, infraestrutura brasileira (AWS sa-east-1) e suporte offline.
+          <strong className="text-[var(--color-brand)]">Vencedor: ORYX</strong>, pela combinação de baixa latência, infraestrutura nacional e suporte offline.
         </p>
 
         <h2 className="text-3xl font-black mt-12 mb-4">2. Comunicação por voz</h2>
         <p className="text-base text-[var(--color-text-muted)] leading-relaxed">
-          ORYX inclui voz integrada com 4 canais hierárquicos (Squad, Pelotão, Comando, Geral) via LiveKit, com push-to-talk ou always-on. Macros pré-gravados (&quot;Cobertura!&quot;, &quot;Recuar!&quot;) com 1 toque. Ares Alpha e WarCamp não incluem voz nativa, exigem app externo (Discord/Zello).
+          ORYX inclui voz integrada com canais hierárquicos (Squad, Pelotão, Comando, Geral), push-to-talk ou always-on. Macros pré-gravados (&quot;Cobertura!&quot;, &quot;Recuar!&quot;) ficam a um toque. Ares Alpha e WarCamp dependem de app externo em boa parte dos cenários.
         </p>
         <p className="text-base text-[var(--color-text-muted)] mt-4 leading-relaxed">
           <strong className="text-[var(--color-brand)]">Vencedor: ORYX</strong>, única que entrega voz junto com tracking no mesmo app.
@@ -80,7 +80,11 @@ export default function Post() {
 
         <h2 className="text-3xl font-black mt-12 mb-4">3. Missões e gameplay dinâmico</h2>
         <p className="text-base text-[var(--color-text-muted)] leading-relaxed">
-          As três suportam missões geo-fenced criadas pelo organizador. ORYX tem ainda um <strong className="text-[var(--color-text)]">mission engine BullMQ</strong> que processa progresso em background, missão complexa com múltiplas etapas não trava o app. Ares Alpha tem AR overlay (interessante, mas drena bateria rapidamente). WarCamp limita-se a captura simples de pontos.
+          As três suportam missões geo-fenced criadas pelo organizador. ORYX
+          processa progresso em background para que missões complexas, com
+          múltiplas etapas, não travem o app. Ares Alpha tem AR overlay
+          (interessante, mas drena bateria rapidamente). WarCamp limita-se a
+          captura simples de pontos.
         </p>
         <p className="text-base text-[var(--color-text-muted)] mt-4 leading-relaxed">
           <strong className="text-[var(--color-brand)]">Vencedor: ORYX</strong> (gameplay) e <strong>Ares Alpha</strong> (AR, se você aceita custo de bateria).
@@ -88,10 +92,9 @@ export default function Post() {
 
         <h2 className="text-3xl font-black mt-12 mb-4">4. Anti-cheat</h2>
         <p className="text-base text-[var(--color-text-muted)] leading-relaxed">
-          ORYX faz detecção client-side (mock location, emulador, root) +
-          servidor-side (velocidade impossível, jitter excessivo via BullMQ
-          processor). Ares Alpha tem detecção básica de mock location.
-          WarCamp não documenta nenhuma medida anti-cheat ativa.
+          ORYX combina verificações no dispositivo e no servidor para apontar
+          sinais suspeitos de localização, velocidade e integridade do
+          ambiente. A organização recebe evidências para tomar a decisão final.
         </p>
         <p className="text-base text-[var(--color-text-muted)] mt-4 leading-relaxed">
           <strong className="text-[var(--color-brand)]">Vencedor: ORYX</strong>, com camada dupla (cliente + servidor).
@@ -110,7 +113,7 @@ export default function Post() {
 
         <h2 className="text-3xl font-black mt-12 mb-4">6. Preço</h2>
         <p className="text-base text-[var(--color-text-muted)] leading-relaxed">
-          <strong className="text-[var(--color-text)]">ORYX</strong>: grátis pra operador e organizador. Receita vem de Battle Pass premium opcional (R$ 39,90/temporada), marketplace fee (10% só pro vendedor) e loja de cosméticos.
+          <strong className="text-[var(--color-text)]">ORYX</strong>: grátis pra operador e organizador. Receita vem de recursos premium opcionais, itens digitais e taxas de transação dentro da plataforma.
         </p>
         <p className="text-base text-[var(--color-text-muted)] mt-4 leading-relaxed">
           <strong className="text-[var(--color-text)]">Ares Alpha</strong>: grátis pra operador. Organizadores pagam taxa por evento.
@@ -128,7 +131,7 @@ export default function Post() {
           analisados, perdendo apenas em AR overlay (feature do Ares Alpha
           que tem trade-off real em bateria). Pra airsoft tático sério no
           Brasil em 2026, o ORYX é a recomendação. Servidor nacional,
-          marketplace integrado, anti-cheat de duas camadas, grátis
+          marketplace integrado, integridade de partida, grátis
           sem amarras, entrega o pacote mais completo.
         </p>
 

@@ -5,7 +5,7 @@ import { ButtonLink } from "@/components/ui/Button";
 export const metadata: Metadata = {
   title: "Para Organizadores, Produza operações táticas como profissional",
   description:
-    "Dashboard de comando ao vivo, criação de missões em minutos, anti-cheat automático e marketplace de divulgação. Sem custo nenhum.",
+    "Dashboard de comando ao vivo, criação de missões em minutos, integridade de partida e divulgação. Sem custo nenhum.",
   alternates: { canonical: "/organizadores" },
 };
 
@@ -54,12 +54,12 @@ export default function OrganizadoresPage() {
             <Item
               icon={Users}
               title="Comando ao vivo do dashboard"
-              body="Veja todos os operadores no mapa, em qual zona estão, quantos vivos por squad, missões em andamento. WebSocket realtime, sem refresh, sem delay."
+              body="Veja operadores no mapa, zonas em disputa, status por squad e missões em andamento com atualização em tempo real."
             />
             <Item
               icon={ShieldCheck}
-              title="Anti-cheat automático"
-              body="Detecção de GPS fake, mock location, emulador, velocidade impossível. Suspeitos aparecem no seu dashboard com evidência, você decide banir."
+              title="Integridade de partida"
+              body="Sinais suspeitos de localização e comportamento são analisados para apoiar decisões da organização durante o evento."
             />
             <Item
               icon={BarChart3}
@@ -77,7 +77,7 @@ export default function OrganizadoresPage() {
           </h2>
           <p className="mt-6 text-lg text-[var(--color-text-muted)] leading-relaxed">
             Você não paga nada pra usar a plataforma. Pagamentos de ingresso
-            quando você vender pelo ORYX têm taxa padrão de gateway (Stripe/PIX).
+            quando você vender pelo ORYX têm taxa padrão de processamento.
             Sem mensalidade, sem fidelidade, sem letra miúda.
           </p>
           <div className="mt-10 flex justify-center">

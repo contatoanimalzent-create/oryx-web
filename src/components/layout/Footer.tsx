@@ -85,7 +85,7 @@ export function Footer() {
           </div>
           <div className="flex items-center gap-2 text-xs text-[var(--color-text-dim)]">
             <MapPin size={12} />
-            Operando em sa-east-1, feito no Brasil
+            Feito no Brasil
           </div>
         </div>
       </div>
