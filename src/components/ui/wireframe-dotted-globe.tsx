@@ -206,7 +206,8 @@ export default function RotatingEarth({
         }
         context.globalAlpha = 1;
 
-        // marcadores (cidades da rede)
+        // marcadores: um ponto discreto por país (rede mundial), com os 3
+        // destaques (Brasília/Miami/Dubai) rotulados permanentemente.
         for (const m of markersRef.current) {
           const gd = d3.geoDistance([m.lng, m.lat], center);
           if (gd >= Math.PI / 2) continue;
@@ -215,21 +216,33 @@ export default function RotatingEarth({
           const isHover = hoverMarker?.id === m.id;
           const isFocused = focused?.id === m.id;
           const big = !!m.featured;
-          const pulse = (((time + (big ? 0 : 700)) / 1500) % 1 + 1) % 1;
 
-          // anel de ping
-          context.beginPath();
-          context.arc(p[0], p[1], ((big ? 6 : 3.5) + pulse * (big ? 16 : 10)) * sf, 0, 2 * Math.PI);
-          context.strokeStyle = VOLT;
-          context.globalAlpha = (1 - pulse) * (big ? 0.9 : 0.55);
-          context.lineWidth = (big ? 1.6 : 1.1) * sf;
-          context.stroke();
-          context.globalAlpha = 1;
+          // anel de ping: só nos 3 destaques (com ~190 países no globo, um
+          // ping por país vira ruído visual; os demais ficam quietos e só
+          // reagem no hover/foco)
+          if (big) {
+            const pulse = ((time / 1500) % 1 + 1) % 1;
+            context.beginPath();
+            context.arc(p[0], p[1], (6 + pulse * 16) * sf, 0, 2 * Math.PI);
+            context.strokeStyle = VOLT;
+            context.globalAlpha = (1 - pulse) * 0.9;
+            context.lineWidth = 1.6 * sf;
+            context.stroke();
+            context.globalAlpha = 1;
+          } else if (isHover || isFocused) {
+            context.beginPath();
+            context.arc(p[0], p[1], 7 * sf, 0, 2 * Math.PI);
+            context.strokeStyle = VOLT;
+            context.globalAlpha = 0.7;
+            context.lineWidth = 1.2 * sf;
+            context.stroke();
+            context.globalAlpha = 1;
+          }
 
           // núcleo
           context.beginPath();
-          context.arc(p[0], p[1], ((big ? 5 : 3.2) + (isHover ? 1.5 : 0)) * sf, 0, 2 * Math.PI);
-          context.fillStyle = VOLT;
+          context.arc(p[0], p[1], ((big ? 5 : 2.4) + (isHover ? 1.3 : 0)) * sf, 0, 2 * Math.PI);
+          context.fillStyle = big ? VOLT : "rgba(198, 242, 33, 0.8)";
           context.fill();
           if (big) {
             context.beginPath();
@@ -238,12 +251,11 @@ export default function RotatingEarth({
             context.fill();
           }
 
-          // etiquetas:
-          //  - destaque (Brasília) e hover/foco → chip volt sólido
-          //  - demais cidades visíveis na frente do globo → nome com
-          //    contorno (sem bloco), esmaecendo perto do limbo pra não poluir
-          const label = m.label.toUpperCase();
+          // etiquetas: os 3 destaques têm chip volt permanente; os ~190
+          // países ficam quietos (só o ponto) e só mostram nome no
+          // hover/foco, pra não virar sopa de texto no globo inteiro.
           if (big || isHover || isFocused) {
+            const label = m.label.toUpperCase();
             const fpx = (big ? 11 : 10) * Math.min(sf, 1.4);
             context.font = `600 ${fpx}px ui-monospace, SFMono-Regular, Menlo, monospace`;
             const tw = context.measureText(label).width;
@@ -253,20 +265,6 @@ export default function RotatingEarth({
             context.fillRect(lx - 4, ly - fpx - 2, tw + 8, fpx + 6);
             context.fillStyle = INK;
             context.fillText(label, lx, ly);
-          } else if (gd < 1.15) {
-            // atenua conforme se afasta do centro (1 no miolo → 0 no limbo)
-            const fade = Math.max(0, Math.min(1, (1.15 - gd) / 0.55));
-            const fpx = 8.5 * Math.min(sf, 1.4);
-            context.font = `600 ${fpx}px ui-monospace, SFMono-Regular, Menlo, monospace`;
-            const lx = p[0] + 7 * sf;
-            const ly = p[1] + 3 * sf;
-            context.globalAlpha = fade;
-            context.lineWidth = 2.5 * sf;
-            context.strokeStyle = "rgba(10,12,8,0.9)";
-            context.strokeText(label, lx, ly);
-            context.fillStyle = "#e9fbb0";
-            context.fillText(label, lx, ly);
-            context.globalAlpha = 1;
           }
         }
       }

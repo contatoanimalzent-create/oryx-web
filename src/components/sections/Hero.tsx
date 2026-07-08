@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import { X, MapPin, ArrowUpRight, ArrowRight } from "lucide-react";
 import { StoreButtons } from "@/components/ui/StoreButtons";
 import { flyGlobeHome, type GlobeMarker } from "@/components/ui/wireframe-dotted-globe";
+import { COUNTRIES } from "@/lib/countries";
 
 const RotatingEarth = dynamic(
   () => import("@/components/ui/wireframe-dotted-globe"),
@@ -14,49 +15,16 @@ const RotatingEarth = dynamic(
 );
 
 /**
- * Cidades no globo. Brasília é a base (destaque, com o mapa real do app);
- * as demais são a rede onde o ORYX quer acender as próximas zonas.
+ * O globo representa alcance mundial: um ponto discreto por país (ver
+ * src/lib/countries.ts), mais 3 marcadores em destaque — a base de
+ * operações e as duas praças-âncora fora do Brasil.
  */
-const CITIES: GlobeMarker[] = [
-  // Base de operações (destaque)
+const FEATURED: GlobeMarker[] = [
   { id: "bsb", label: "Brasília", lng: -47.8828, lat: -15.7939, featured: true },
-  // Brasil
-  { id: "sp", label: "São Paulo", lng: -46.6333, lat: -23.5505 },
-  { id: "rio", label: "Rio de Janeiro", lng: -43.1729, lat: -22.9068 },
-  { id: "gyn", label: "Goiânia", lng: -49.2648, lat: -16.6869 },
-  { id: "rec", label: "Recife", lng: -34.877, lat: -8.0476 },
-  { id: "bh", label: "Belo Horizonte", lng: -43.9345, lat: -19.9167 },
-  { id: "poa", label: "Porto Alegre", lng: -51.2177, lat: -30.0346 },
-  { id: "mao", label: "Manaus", lng: -60.0217, lat: -3.1019 },
-  // Américas
-  { id: "bsas", label: "Buenos Aires", lng: -58.3816, lat: -34.6037 },
-  { id: "scl", label: "Santiago", lng: -70.6693, lat: -33.4489 },
-  { id: "bog", label: "Bogotá", lng: -74.0721, lat: 4.711 },
-  { id: "mia", label: "Miami", lng: -80.1918, lat: 25.7617 },
-  { id: "cdmx", label: "Cidade do México", lng: -99.1332, lat: 19.4326 },
-  { id: "nyc", label: "Nova York", lng: -74.006, lat: 40.7128 },
-  { id: "yto", label: "Toronto", lng: -79.3832, lat: 43.6532 },
-  // Europa
-  { id: "lis", label: "Lisboa", lng: -9.1393, lat: 38.7223 },
-  { id: "mad", label: "Madri", lng: -3.7038, lat: 40.4168 },
-  { id: "lon", label: "Londres", lng: -0.1276, lat: 51.5072 },
-  { id: "par", label: "Paris", lng: 2.3522, lat: 48.8566 },
-  { id: "ber", label: "Berlim", lng: 13.405, lat: 52.52 },
-  { id: "rom", label: "Roma", lng: 12.4964, lat: 41.9028 },
-  // África / Oriente Médio
-  { id: "lad", label: "Lagos", lng: 3.3792, lat: 6.5244 },
-  { id: "cai", label: "Cairo", lng: 31.2357, lat: 30.0444 },
-  { id: "jnb", label: "Joanesburgo", lng: 28.0473, lat: -26.2041 },
-  { id: "ist", label: "Istambul", lng: 28.9784, lat: 41.0082 },
-  { id: "dxb", label: "Dubai", lng: 55.2708, lat: 25.2048 },
-  // Ásia / Oceania
-  { id: "bom", label: "Mumbai", lng: 72.8777, lat: 19.076 },
-  { id: "sin", label: "Singapura", lng: 103.8198, lat: 1.3521 },
-  { id: "bkk", label: "Bangkok", lng: 100.5018, lat: 13.7563 },
-  { id: "sel", label: "Seul", lng: 126.978, lat: 37.5665 },
-  { id: "tyo", label: "Tóquio", lng: 139.6917, lat: 35.6895 },
-  { id: "syd", label: "Sydney", lng: 151.2093, lat: -33.8688 },
+  { id: "mia", label: "Miami", lng: -80.1918, lat: 25.7617, featured: true },
+  { id: "dxb", label: "Dubai", lng: 55.2708, lat: 25.2048, featured: true },
 ];
+const CITIES: GlobeMarker[] = [...FEATURED, ...COUNTRIES];
 
 export function Hero() {
   const [focused, setFocused] = useState<GlobeMarker | null>(null);
@@ -95,7 +63,7 @@ export function Hero() {
           <RotatingEarth markers={CITIES} onMarkerFocus={setFocused} />
 
           <p className="pointer-events-none absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[11px] uppercase tracking-widest text-[var(--color-text-dim)]">
-            {focused ? "clique fora pra voltar" : "gire o globo · clique numa cidade"}
+            {focused ? "clique fora pra voltar" : "gire o globo · clique num país"}
           </p>
 
           {/* Card da cidade (aparece no fly-to) */}
@@ -110,7 +78,11 @@ export function Hero() {
               <div className="flex items-center justify-between px-4 py-3">
                 <p className="font-mono text-xs uppercase tracking-widest text-[var(--color-volt)]">
                   <span className="mr-2 inline-block h-2 w-2 animate-pulse rounded-full bg-[var(--color-volt)]" />
-                  {focused?.id === "bsb" ? "Base de operações" : "Rede ORYX"}
+                  {focused?.id === "bsb"
+                    ? "Base de operações"
+                    : focused?.featured
+                      ? "Praça-âncora"
+                      : "Rede ORYX"}
                 </p>
                 <button
                   type="button"
@@ -156,14 +128,31 @@ export function Hero() {
                     </Link>
                   </div>
                 </>
+              ) : focused?.featured ? (
+                <div className="px-4 pb-4 pt-1">
+                  <p className="font-display text-2xl uppercase leading-none text-white">
+                    {focused.label}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-white/70">
+                    Próxima praça-âncora da rede ORYX, ao lado de Brasília.
+                    Fala com a gente pra levar a primeira operação até lá.
+                  </p>
+                  <Link
+                    href="/organizadores"
+                    className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-[var(--color-volt)] px-4 py-2 text-sm font-semibold text-[var(--color-ink)] transition-transform hover:-translate-y-0.5"
+                  >
+                    Levar o ORYX pra {focused.label}
+                    <ArrowRight size={15} />
+                  </Link>
+                </div>
               ) : (
                 <div className="px-4 pb-4 pt-1">
                   <p className="font-display text-2xl uppercase leading-none text-white">
                     {focused?.label}
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-white/70">
-                    Próxima zona da rede ORYX. Toda cidade do mapa pode acender:
-                    basta um organizador criar a primeira operação.
+                    Todo país do mapa pode virar a próxima zona ORYX: basta um
+                    organizador criar a primeira operação por lá.
                   </p>
                   <Link
                     href="/organizadores"
