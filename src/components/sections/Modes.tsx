@@ -77,7 +77,68 @@ export function Modes() {
             </Reveal>
           ))}
         </div>
+
+        <ScaleOfPlay />
       </div>
     </section>
+  );
+}
+
+/**
+ * Escala de participação (estrutura real do sistema: Facção → Squad →
+ * Operador, ver escopo seção 6-8 e ranking seção 13). Explicado do jeito
+ * mais simples possível, com caixas aninhadas mostrando visualmente que
+ * o operador está dentro do squad, que está dentro da facção.
+ */
+function ScaleOfPlay() {
+  return (
+    <Reveal delay={0.2}>
+      <div className="mt-14">
+        <p className="text-center font-mono text-[11px] uppercase tracking-widest text-[var(--color-text-dim)]">
+          Você escolhe o tamanho do seu time
+        </p>
+
+        <div className="mt-6 overflow-hidden rounded-2xl border-2 border-[var(--color-ink)] bg-[var(--color-ink)] p-5 sm:p-7">
+          <p className="font-display text-xl uppercase tracking-wide text-[var(--color-volt)]">
+            Facção
+          </p>
+          <p className="mt-1 text-sm text-white/60">
+            Seu exército. Uma cor, um nome, todo mundo do seu lado na
+            operação.
+          </p>
+
+          <div className="mt-5 grid gap-3 sm:grid-cols-2">
+            {["Squad Alfa", "Squad Bravo"].map((squad) => (
+              <div
+                key={squad}
+                className="rounded-xl border border-white/15 bg-white/[0.04] p-4"
+              >
+                <p className="font-display text-base uppercase tracking-wide text-white">
+                  {squad}
+                </p>
+                <p className="mt-1 text-xs text-white/50">
+                  Seu grupo. Tem líder e um papel pra cada um.
+                </p>
+                <div className="mt-3 flex flex-wrap gap-1.5">
+                  {["Líder", "Médico", "Atirador", "Operador"].map((role) => (
+                    <span
+                      key={role}
+                      className="rounded-full bg-[var(--color-volt)]/15 px-2.5 py-1 text-[10px] font-semibold text-[var(--color-volt)]"
+                    >
+                      {role}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p className="mx-auto mt-5 max-w-xl text-center text-sm leading-relaxed text-[var(--color-text-muted)]">
+          Ranking pra cada nível: o seu (individual), o do seu squad, e o da
+          sua facção inteira. Todo mundo aparece em algum ranking.
+        </p>
+      </div>
+    </Reveal>
   );
 }
