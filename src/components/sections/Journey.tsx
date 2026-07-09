@@ -11,14 +11,14 @@ import { ScreenOps, ScreenLobby, ScreenTrackingWide } from "@/components/ui/AppS
 const STEPS = [
   {
     n: "01",
-    title: "Entre na operação",
-    body: "Abra a lista de operações e escolha a sua: tem jogo grátis, Competitivo e Warfare. Quando a tag AO VIVO acende, é porque está acontecendo agora.",
+    title: "Escolha sua operação",
+    body: "Abra a lista e escolha: tem jogo grátis, Competitivo, Warfare. A tag AO VIVO acende quando tá rolando agora, na hora.",
     screen: "ops",
   },
   {
     n: "02",
-    title: "Monte o squad e assuma seu papel",
-    body: "No lobby você vê sua hierarquia (Comandante, Líder de Pelotão, Líder de Squad) e seu papel no time: Líder, Médico, Atirador ou Operador. Aceitou as regras? CHECK-IN GPS e pra dentro.",
+    title: "Assuma seu posto",
+    body: "No lobby aparece sua hierarquia (Comandante, Líder de Pelotão, Líder de Squad) e você escolhe seu papel: Líder, Médico, Atirador ou Operador. Aceitou as regras? CHECK-IN GPS e pra dentro.",
     screen: "lobby",
   },
   {

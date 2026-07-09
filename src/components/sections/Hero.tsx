@@ -45,9 +45,10 @@ export function Hero() {
           </h1>
 
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-[var(--color-text-muted)] md:text-xl">
-            O ORYX transforma o airsoft em operação de verdade: seu squad no
-            mapa ao vivo por GPS, missões pra cumprir, zonas pra dominar e
-            patente pra conquistar.
+            Rádio que falha, mapa de papel, ranking que não existe: fica pra
+            trás. No ORYX seu squad aparece no mapa ao vivo por GPS, cada
+            missão vale ponto, cada zona se conquista e cada patente se ganha
+            em campo.
           </p>
 
           <StoreButtons className="mt-7" />

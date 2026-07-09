@@ -54,7 +54,7 @@ export default function SobrePage() {
 
           <div className="mt-10">
             <ButtonLink href="/baixar" variant="primary" size="lg">
-              Baixar o app
+              Baixar o ORYX
               <ArrowRight size={16} />
             </ButtonLink>
           </div>

@@ -19,7 +19,7 @@ export default function OrganizadoresPage() {
             Para Organizadores
           </p>
           <h1 className="mt-4 text-5xl md:text-7xl font-black tracking-tight leading-[0.95] max-w-4xl">
-            Produza operações <br />
+            Organize <br />
             <span className="text-[var(--color-brand)]">como profissional.</span>
           </h1>
           <p className="mt-8 max-w-2xl text-lg text-[var(--color-text-muted)] leading-relaxed">
@@ -30,7 +30,7 @@ export default function OrganizadoresPage() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
             <ButtonLink href="mailto:contato@oryxcontrol.com?subject=Quero%20organizar%20com%20ORYX" variant="primary" size="xl">
-              Falar com a gente
+              Quero organizar com o ORYX
               <ArrowRight size={18} />
             </ButtonLink>
             <ButtonLink href="/eventos" variant="outline" size="xl">
@@ -43,7 +43,7 @@ export default function OrganizadoresPage() {
       <section className="py-24 lg:py-32 border-t border-[var(--color-border)]">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <h2 className="text-3xl md:text-5xl font-black tracking-tight max-w-3xl">
-            Tudo que produzir uma operação séria precisa
+            Tudo que uma operação séria precisa pra sair do papel
           </h2>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
             <Item
@@ -82,7 +82,7 @@ export default function OrganizadoresPage() {
           </p>
           <div className="mt-10 flex justify-center">
             <ButtonLink href="mailto:contato@oryxcontrol.com?subject=Quero%20organizar%20com%20ORYX" variant="primary" size="xl">
-              Começar onboarding
+              Começar minha operação
               <ArrowRight size={18} />
             </ButtonLink>
           </div>

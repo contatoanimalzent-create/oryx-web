@@ -37,7 +37,7 @@ export function Organizer() {
               href="/organizadores"
               className="mt-7 inline-flex items-center gap-2 rounded-xl bg-[var(--color-volt)] px-6 py-3.5 font-semibold text-[var(--color-ink)] transition-transform hover:-translate-y-0.5"
             >
-              Quero organizar uma operação
+              Quero criar minha operação
               <ArrowRight size={17} />
             </Link>
           </Reveal>
