@@ -35,7 +35,7 @@ export function Hero() {
         {/* ── Texto ─────────────────────────────────────────────────── */}
         <div className="relative z-10">
           <p className="status-live font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-brand)]">
-            Comando e controle pra airsoft tático
+            Comando tático pro seu airsoft
           </p>
 
           <h1 className="display-xl mt-5 text-[13vw] sm:text-7xl lg:text-[5.2rem]">
