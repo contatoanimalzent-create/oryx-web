@@ -73,6 +73,11 @@ export default function RotatingEarth({
     }
     let dots: Dot[] = [];
     let land: GeoJSON.FeatureCollection | null = null;
+    let brazil: GeoJSON.Feature | null = null;
+    // índices de `dots` que caem dentro da fronteira do Brasil, pra dar
+    // um tom volt aos pontos do país (fica claro que é só o Brasil, não
+    // a América Latina inteira)
+    let brazilDotIdx: Set<number> = new Set();
     let disposed = false;
 
     const sizeToWrap = () => {
@@ -189,22 +194,37 @@ export default function RotatingEarth({
         context.stroke();
         context.globalAlpha = 1;
 
-        // malha halftone dos continentes, com volume no limbo
-        context.fillStyle = "#b9bdae";
+        // malha halftone dos continentes, com volume no limbo. Os pontos
+        // dentro da fronteira do Brasil saem em volt (demarcação real do
+        // país, não um blob genérico cobrindo a América do Sul).
         for (let i = 0; i < dots.length; i++) {
           const d = dots[i];
           const gd = d3.geoDistance([d.lng, d.lat], center);
           if (gd >= 1.5) continue; // atrás do horizonte
           const p = projection([d.lng, d.lat]);
           if (!p) continue;
+          const isBrazil = brazilDotIdx.has(i);
           const vol = Math.cos(Math.min(gd, Math.PI / 2)); // 1 no centro, 0 no limbo
-          const r = (0.55 + 1.05 * vol) * sf;
-          context.globalAlpha = 0.35 + 0.65 * vol;
+          const r = (isBrazil ? 0.7 : 0.55) + 1.05 * vol;
+          context.globalAlpha = (isBrazil ? 0.55 : 0.35) + 0.65 * vol;
+          context.fillStyle = isBrazil ? VOLT : "#b9bdae";
           context.beginPath();
-          context.arc(p[0], p[1], r, 0, 2 * Math.PI);
+          context.arc(p[0], p[1], r * sf, 0, 2 * Math.PI);
           context.fill();
         }
         context.globalAlpha = 1;
+
+        // fronteira real do Brasil por cima da malha, pra ficar nítido
+        // onde o país termina (em vez de parecer a América Latina toda)
+        if (brazil) {
+          context.beginPath();
+          path(brazil as d3.GeoPermissibleObjects);
+          context.strokeStyle = VOLT;
+          context.lineWidth = 1.1 * sf;
+          context.globalAlpha = 0.85;
+          context.stroke();
+          context.globalAlpha = 1;
+        }
 
         // marcadores: um ponto discreto por país (rede mundial), com os 3
         // destaques (Brasília/Miami/Dubai) rotulados permanentemente.
@@ -426,15 +446,28 @@ export default function RotatingEarth({
     ro.observe(wrap);
     sizeToWrap();
 
-    fetch("/geo/land-50m.json")
-      .then((r) => {
+    Promise.all([
+      fetch("/geo/land-50m.json").then((r) => {
         if (!r.ok) throw new Error("land geojson não carregou");
-        return r.json();
-      })
-      .then((fc: GeoJSON.FeatureCollection) => {
+        return r.json() as Promise<GeoJSON.FeatureCollection>;
+      }),
+      fetch("/geo/brazil-border.json")
+        .then((r) => (r.ok ? (r.json() as Promise<GeoJSON.FeatureCollection>) : null))
+        .catch(() => null),
+    ])
+      .then(([landFc, brazilFc]) => {
         if (disposed) return;
-        land = fc;
-        dots = generateDots(fc, 1.05);
+        land = landFc;
+        dots = generateDots(landFc, 1.05);
+        if (brazilFc?.features?.[0]) {
+          brazil = brazilFc.features[0];
+          const idx = new Set<number>();
+          for (let i = 0; i < dots.length; i++) {
+            const d = dots[i];
+            if (d3.geoContains(brazil, [d.lng, d.lat])) idx.add(i);
+          }
+          brazilDotIdx = idx;
+        }
         setReady(true);
       })
       .catch(() => setError("Falha ao carregar o mapa do globo"));
