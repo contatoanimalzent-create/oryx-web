@@ -2,14 +2,18 @@ import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * Modos de operação da plataforma, direto do escopo do sistema (cada modo
- * tem regras e lógica independentes). Warfare e Competitivo já aparecem
- * como filtros na lista de operações do app.
+ * tem regras e lógica independentes). Guerra Total e Competitivo já
+ * aparecem como filtros na lista de operações do app.
+ *
+ * Escala sem teto: já rodamos operação real com 600 operadores de cada
+ * lado, e o próximo passo é maior ainda. Não colocamos número de cima
+ * (2 a 8 exércitos, 250v250 etc.) porque isso já foi superado em campo.
  */
 const MODES = [
   {
-    name: "Warfare",
-    scale: "50v50 a 250v250 ou livre",
-    desc: "Grande escala: de 2 a 8 exércitos, missões simultâneas e operações de 2h a 24h ou mais. A guerra que dura o evento inteiro.",
+    name: "Guerra Total",
+    scale: "Sem limite de operadores",
+    desc: "Já rodamos 600 de cada lado numa operação real, e o próximo é maior. Quantos exércitos você quiser, do tamanho que você quiser, de 2h a 24h ou mais.",
     featured: true,
   },
   {
@@ -38,7 +42,7 @@ export function Modes() {
             Modos de operação
           </p>
           <h2 className="display-xl mt-4 max-w-3xl text-5xl sm:text-6xl">
-            Do treino de squad à <span className="volt-mark">guerra total</span>
+            Sua guerra, <span className="volt-mark">sem teto</span>
           </h2>
         </Reveal>
 
@@ -86,57 +90,47 @@ export function Modes() {
 
 /**
  * Escala de participação (estrutura real do sistema: Facção → Squad →
- * Operador, ver escopo seção 6-8 e ranking seção 13). Explicado do jeito
- * mais simples possível, com caixas aninhadas mostrando visualmente que
- * o operador está dentro do squad, que está dentro da facção.
+ * Operador, ver escopo seção 6-8 e ranking seção 13). O EXÉRCITO é a
+ * estrela (é o que dá a sensação de escala: já rodamos 600 de cada lado,
+ * sem teto pra crescer). O squad é só a subdivisão tática fixa de 5
+ * pessoas dentro dele — uma linha, não o destaque.
  */
 function ScaleOfPlay() {
   return (
     <Reveal delay={0.2}>
       <div className="mt-14">
         <p className="text-center font-mono text-[11px] uppercase tracking-widest text-[var(--color-text-dim)]">
-          Você escolhe o tamanho do seu time
+          Sem teto pro tamanho do seu exército
         </p>
 
-        <div className="mt-6 overflow-hidden rounded-2xl border-2 border-[var(--color-ink)] bg-[var(--color-ink)] p-5 sm:p-7">
-          <p className="font-display text-xl uppercase tracking-wide text-[var(--color-volt)]">
-            Facção
-          </p>
-          <p className="mt-1 text-sm text-white/60">
-            Seu exército. Uma cor, um nome, todo mundo do seu lado na
-            operação.
+        <div className="mx-auto mt-6 max-w-3xl overflow-hidden rounded-2xl border-2 border-[var(--color-ink)] bg-[var(--color-ink)] p-6 sm:p-8">
+          <div className="flex flex-wrap items-baseline justify-between gap-3">
+            <p className="font-display text-2xl uppercase tracking-wide text-[var(--color-volt)]">
+              Exército
+            </p>
+            <p className="font-mono text-xs uppercase tracking-widest text-white/50">
+              já testado: 600 de cada lado
+            </p>
+          </div>
+          <p className="mt-2 text-sm leading-relaxed text-white/65">
+            Uma cor, um nome, todo mundo do seu lado na operação. Sem limite
+            de operadores — o tamanho é o que a sua operação aguentar.
           </p>
 
-          <div className="mt-5 grid gap-3 sm:grid-cols-2">
-            {["Squad Alfa", "Squad Bravo"].map((squad) => (
-              <div
-                key={squad}
-                className="rounded-xl border border-white/15 bg-white/[0.04] p-4"
-              >
-                <p className="font-display text-base uppercase tracking-wide text-white">
-                  {squad}
-                </p>
-                <p className="mt-1 text-xs text-white/50">
-                  Seu grupo. Tem líder e um papel pra cada um.
-                </p>
-                <div className="mt-3 flex flex-wrap gap-1.5">
-                  {["Líder", "Médico", "Atirador", "Operador"].map((role) => (
-                    <span
-                      key={role}
-                      className="rounded-full bg-[var(--color-volt)]/15 px-2.5 py-1 text-[10px] font-semibold text-[var(--color-volt)]"
-                    >
-                      {role}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
+          <div className="mt-5 flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3.5">
+            <span className="mt-0.5 shrink-0 rounded-full bg-[var(--color-volt)]/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-[var(--color-volt)]">
+              Squad
+            </span>
+            <p className="text-sm leading-relaxed text-white/70">
+              Dentro do exército, cada squad tem 5 operadores: Líder, Médico,
+              Atirador e mais dois na função que a operação pedir.
+            </p>
           </div>
         </div>
 
         <p className="mx-auto mt-5 max-w-xl text-center text-sm leading-relaxed text-[var(--color-text-muted)]">
-          Ranking pra cada nível: o seu (individual), o do seu squad, e o da
-          sua facção inteira. Todo mundo aparece em algum ranking.
+          Ranking pra cada nível: o seu (individual), o do seu squad, e o do
+          seu exército inteiro. Todo mundo aparece em algum ranking.
         </p>
       </div>
     </Reveal>

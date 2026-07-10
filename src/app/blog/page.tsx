@@ -6,7 +6,7 @@ import { ALL_POSTS } from "@/lib/blog";
 export const metadata: Metadata = {
   title: "Blog ORYX, Airsoft tático, estratégia e equipamento",
   description:
-    "Guias, análises e estratégia pra airsoft tático no Brasil. Comparativos de equipamento, regras de modos (CQB, Warfare, Sniper), comportamento em campo e fair play.",
+    "Guias, análises e estratégia pra airsoft tático no Brasil. Comparativos de equipamento, regras de modos (CQB, Guerra Total, Sniper), comportamento em campo e fair play.",
   alternates: { canonical: "/blog" },
   keywords: [
     "blog airsoft",

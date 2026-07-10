@@ -4,7 +4,7 @@ import { Calendar, MapPin } from "lucide-react";
 export const metadata: Metadata = {
   title: "Eventos de airsoft tático no Brasil",
   description:
-    "Operações de airsoft tático abertas pra inscrição no Brasil. Veja eventos por região, modo (CQB/Warfare/Sniper) e nível.",
+    "Operações de airsoft tático abertas pra inscrição no Brasil. Veja eventos por região, modo (CQB/Guerra Total/Sniper) e nível.",
   alternates: { canonical: "/eventos" },
 };
 

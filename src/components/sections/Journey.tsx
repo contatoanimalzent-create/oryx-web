@@ -12,7 +12,7 @@ const STEPS = [
   {
     n: "01",
     title: "Escolha sua operação",
-    body: "Abra a lista e escolha: tem jogo grátis, Competitivo, Warfare. A tag AO VIVO acende quando tá rolando agora, na hora.",
+    body: "Abra a lista e escolha: tem jogo grátis, Competitivo, Guerra Total. A tag AO VIVO acende quando tá rolando agora, na hora.",
     screen: "ops",
   },
   {

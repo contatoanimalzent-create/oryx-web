@@ -49,7 +49,7 @@ export default function OrganizadoresPage() {
             <Item
               icon={Calendar}
               title="Criação de evento em minutos"
-              body="Setup completo (mapa, briefing, regras, lotes de ingresso, atribuição de squads) em menos de 30min. Modelos prontos pra CQB, Warfare e Sniper-only."
+              body="Setup completo (mapa, briefing, regras, lotes de ingresso, atribuição de squads) em menos de 30min. Modelos prontos pra CQB, Guerra Total e Sniper-only."
             />
             <Item
               icon={Users}

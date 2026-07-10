@@ -9,8 +9,8 @@ import { ArrowRight, Check } from "lucide-react";
  */
 const PANEL = [
   "Custo do evento: gratuito, pago, com doação ou misto",
-  "Exércitos do seu jeito: 2 a 8, cores e nomes livres",
-  "Tamanho e duração: de 50v50 a 250v250 ou livre, de 2h a 24h+",
+  "Quantos exércitos você quiser, cada um com cor e nome livre",
+  "Sem limite de tamanho (já rodamos 600 de cada lado), de 2h a 24h+",
   "Missões e zonas direto no mapa, próprias ou da biblioteca",
   "Pontuação e respawn: padrão ORYX ou regras customizadas",
   "Tempo real com filtros, alertas automáticos e replay pra debrief",

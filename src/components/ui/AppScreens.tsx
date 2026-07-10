@@ -23,13 +23,13 @@ export function ScreenOps() {
         </span>
         <span className="rounded-full border border-white/20 px-2.5 py-1 text-white/70">Grátis</span>
         <span className="rounded-full border border-white/20 px-2.5 py-1 text-white/70">Competitivo</span>
-        <span className="rounded-full border border-white/20 px-2.5 py-1 text-white/70">Warfare</span>
+        <span className="rounded-full border border-white/20 px-2.5 py-1 text-white/70">Guerra Total</span>
       </div>
 
       <div className="mt-3 space-y-2">
         <OpCard
           live
-          mode="WARFARE"
+          mode="GUERRA"
           name="Operação Cerrado"
           info="Hoje · 14:00 · 96/200 operadores"
           price="GRÁTIS"
@@ -41,7 +41,7 @@ export function ScreenOps() {
           price="R$ 25"
         />
         <OpCard
-          mode="WARFARE"
+          mode="GUERRA"
           name="Domínio do Eixo"
           info="Dom · 08:00 · 143/300 operadores"
           price="GRÁTIS"

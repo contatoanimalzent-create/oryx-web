@@ -5,11 +5,11 @@
 const ITEMS = [
   "GPS ao vivo",
   "Missões",
-  "Squads",
+  "Exércitos",
   "Zonas",
   "Patentes",
   "Ranking",
-  "Warfare",
+  "Guerra Total",
   "Competitivo 5x5",
   "Voz por squad",
   "Offline-first",
