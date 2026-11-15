@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const DADOS: Array<[string, string, string]> = [
   ["Conta: e-mail, nome, senha, callsign, foto e bio", "Criar e manter sua conta e seu perfil de jogador", "Execução de contrato (art. 7º, V)"],
-  ["Aceite dos termos e confirmação de 18 anos ou mais", "Provar o que você aceitou e quando", "Obrigação legal e exercício regular de direitos (art. 7º, II e VI)"],
+  ["Aceite dos termos, faixa de idade (18+ ou 14 a 17) e autorização do responsável, quando menor", "Provar o que você aceitou e quando", "Obrigação legal e exercício regular de direitos (art. 7º, II e VI)"],
   ["Localização, velocidade e precisão do GPS", "Mostrar você no mapa do seu time e da organização durante a partida, inclusive com a tela bloqueada", "Execução de contrato (art. 7º, V)"],
   ["Voz no rádio do app", "Falar com seu time ao vivo. A voz não é gravada", "Execução de contrato (art. 7º, V)"],
   ["Contato de emergência e tipo sanguíneo (opcionais)", "Atendimento de emergência no evento", "Consentimento específico e proteção da vida (art. 11, I e II, e)"],
@@ -194,12 +194,24 @@ const SECTIONS: LegalSection[] = [
   },
   {
     id: "menores",
-    title: "Menores de idade",
+    title: "Adolescentes de 14 a 17 anos",
     body: (
-      <p>
-        O ORYX é só para maiores de 18 anos, como o próprio airsoft no Brasil. No cadastro você confirma a idade. Se
-        descobrirmos uma conta de menor, ela é excluída.
-      </p>
+      <>
+        <p>
+          O ORYX aceita jogadores a partir de 14 anos, a idade mínima que a lei permite para praticar airsoft (Decreto
+          11.615/2023, art. 34, § 3º). Menores de 14 não podem ter conta; se descobrirmos uma, ela é excluída.
+        </p>
+        <p>
+          De 14 a 17 anos, o cadastro só termina com a confirmação de que o pai, a mãe ou o responsável sabe e autoriza.
+          Tratamos os dados de adolescentes sempre no melhor interesse deles, como manda o art. 14 da LGPD:
+        </p>
+        <ul>
+          <li>coletamos o mesmo mínimo de qualquer jogador, nada a mais;</li>
+          <li>loja e carteira ficam bloqueadas até os 18 anos;</li>
+          <li>a posição na partida continua visível só para o próprio time e a organização;</li>
+          <li>o responsável pode pedir acesso, correção ou exclusão dos dados pelo e-mail de contato.</li>
+        </ul>
+      </>
     ),
   },
   {
