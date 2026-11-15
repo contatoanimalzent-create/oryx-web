@@ -92,8 +92,9 @@ const SECTIONS: LegalSection[] = [
     body: (
       <>
         <p>
-          Baixar e usar o app para jogar é grátis. Eventos podem ser gratuitos ou pagos: o preço é definido pelo organizador
-          e mostrado antes de você pagar. Organizadores podem usar o plano gratuito ou contratar planos pagos opcionais.
+          Usar o ORYX é grátis para jogadores e organizadores. Eventos podem ser gratuitos ou pagos: o preço do ingresso é
+          definido pelo organizador e mostrado antes de você pagar. Em evento pago, o ORYX fica com uma parte do ingresso,
+          informada ao organizador antes de ele publicar o evento.
         </p>
         <p>
           Pagamentos com cartão e boleto são processados pela Stripe. O ORYX não guarda o número do seu cartão. Na fatura

@@ -5,7 +5,7 @@ import { ButtonLink } from "@/components/ui/Button";
 export const metadata: Metadata = {
   title: "Para Organizadores, Produza operações táticas como profissional",
   description:
-    "Dashboard de comando ao vivo, criação de missões em minutos, integridade de partida e divulgação. Comece no plano gratuito.",
+    "Dashboard de comando ao vivo, criação de missões em minutos, integridade de partida e divulgação. Grátis para usar.",
   alternates: { canonical: "/organizadores" },
 };
 
@@ -73,12 +73,12 @@ export default function OrganizadoresPage() {
       <section className="py-24 lg:py-32 bg-[var(--color-bg-elevated)]/40 border-t border-[var(--color-border)]">
         <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-6xl font-black tracking-tight">
-            Zero custo. Zero risco.
+            Grátis para usar.
           </h2>
           <p className="mt-6 text-lg text-[var(--color-text-muted)] leading-relaxed">
-            Você não paga nada pra usar a plataforma. Pagamentos de ingresso
-            quando você vender pelo ORYX têm taxa padrão de processamento.
-            Sem mensalidade, sem fidelidade, sem letra miúda.
+            Você não paga nada pra usar a plataforma. Se o seu evento for pago,
+            o ORYX fica com uma parte do ingresso, e você vê o valor antes de
+            publicar. Sem mensalidade e sem fidelidade.
           </p>
           <div className="mt-10 flex justify-center">
             <ButtonLink href="mailto:contato@oryxcontrol.com?subject=Quero%20organizar%20com%20ORYX" variant="primary" size="xl">

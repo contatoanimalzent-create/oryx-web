@@ -73,9 +73,8 @@ export default function OperadoresPage() {
             Grátis para jogar.
           </h2>
           <p className="mt-6 text-lg text-[var(--color-text-muted)] leading-relaxed">
-            Baixar e usar o app para jogar não custa nada. Eventos pagos têm o
-            preço definido pelo organizador e mostrado antes de você pagar.
-            Recursos opcionais e compras na loja são à parte.
+            Baixar e usar o app não custa nada. Eventos pagos têm o preço do
+            ingresso definido pelo organizador e mostrado antes de você pagar.
           </p>
           <div className="mt-10 flex justify-center">
             <ButtonLink href="/baixar" variant="primary" size="xl">

@@ -39,10 +39,10 @@ export default function SobrePage() {
               sincronizados quando muitos operadores estão no campo.
             </p>
             <p className="mt-6 text-lg text-[var(--color-text-muted)] leading-relaxed">
-              Jogar é grátis. Organizador começa no plano gratuito e só paga
-              se quiser os planos maiores. A receita vem desses planos, de
-              recursos opcionais e de taxas quando há compra e venda dentro da
-              plataforma. Todo preço aparece antes de qualquer pagamento.
+              Usar o ORYX é grátis para quem joga e para quem organiza. O
+              produtor pode cobrar o ingresso do evento dele, e o ORYX fica
+              com uma parte desse ingresso. Todo preço aparece antes de
+              qualquer pagamento.
             </p>
           </div>
 
