@@ -27,7 +27,15 @@ const SECTIONS: LegalSection[] = [
     title: "Quem pode usar",
     body: (
       <ul>
-        <li>Só maiores de 18 anos. Você confirma isso no cadastro.</li>
+        <li>
+          A partir de 14 anos, a mesma idade que a lei permite para praticar airsoft (Decreto 11.615/2023, art. 34, § 3º).
+          Você informa a idade no cadastro.
+        </li>
+        <li>
+          De 14 a 17 anos, o pai, a mãe ou o responsável precisa saber e autorizar. Até os 18 anos, a loja e a carteira
+          ficam bloqueadas, porque comprar réplica e movimentar dinheiro exigem maioridade.
+        </li>
+        <li>Para ser organizador (produtor de evento) é preciso ter 18 anos ou mais.</li>
         <li>Os dados do cadastro precisam ser verdadeiros.</li>
         <li>A conta é pessoal. Você cuida da sua senha e responde pelo que for feito com ela.</li>
       </ul>

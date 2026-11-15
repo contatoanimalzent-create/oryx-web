@@ -11,6 +11,6 @@ export const COMPANY = {
   city: "Brasília, DF",
   email: "contato@oryxcontrol.com",
   /** Versão dos Termos e da Política. O app guarda qual versão cada pessoa aceitou. */
-  legalVersion: "2026-11-15",
+  legalVersion: "2026-11-15.2",
   legalUpdated: "15 de novembro de 2026",
 } as const;
