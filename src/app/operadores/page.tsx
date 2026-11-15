@@ -5,7 +5,7 @@ import { ButtonLink } from "@/components/ui/Button";
 export const metadata: Metadata = {
   title: "Para Operadores, Squad GPS, voz e ranking",
   description:
-    "ORYX pra quem joga: veja seu squad no mapa em tempo real, fale por canais hierárquicos, suba de patente e dispute ranking nacional. Grátis no Android.",
+    "ORYX pra quem joga: veja seu squad no mapa em tempo real, fale por canais hierárquicos, suba de patente e dispute ranking nacional. Grátis para jogar.",
   alternates: { canonical: "/operadores" },
 };
 
@@ -15,12 +15,12 @@ export default function OperadoresPage() {
       <section className="relative pt-32 pb-16 lg:pt-44 lg:pb-24">
         <div className="absolute inset-0 tactical-grid pointer-events-none" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-          <p className="tactical-bracket text-xs font-mono uppercase tracking-widest text-[var(--color-brand)]">
+          <p className="tactical-bracket text-xs font-mono uppercase tracking-widest text-[var(--color-brand-text)]">
             Para Operadores
           </p>
           <h1 className="mt-4 text-5xl md:text-7xl font-black tracking-tight leading-[0.95] max-w-4xl">
             Toda operação <br />
-            <span className="text-[var(--color-brand)]">tem um líder.</span>
+            <span className="text-[var(--color-brand-text)]">tem um líder.</span>
           </h1>
           <p className="mt-8 max-w-2xl text-lg text-[var(--color-text-muted)] leading-relaxed">
             ORYX te dá as ferramentas que comandantes reais usam: posição do
@@ -70,12 +70,12 @@ export default function OperadoresPage() {
       <section className="py-24 lg:py-32 bg-[var(--color-bg-elevated)]/40 border-t border-[var(--color-border)]">
         <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-6xl font-black tracking-tight">
-            Grátis. Sempre.
+            Grátis para jogar.
           </h2>
           <p className="mt-6 text-lg text-[var(--color-text-muted)] leading-relaxed">
-            Não cobramos nada pra você jogar. Receita vem de recursos premium
-            opcionais, itens digitais e taxas de transação quando houver compra
-            e venda dentro da plataforma.
+            Baixar e usar o app para jogar não custa nada. Eventos pagos têm o
+            preço definido pelo organizador e mostrado antes de você pagar.
+            Recursos opcionais e compras na loja são à parte.
           </p>
           <div className="mt-10 flex justify-center">
             <ButtonLink href="/baixar" variant="primary" size="xl">
@@ -101,7 +101,7 @@ function Item({
 }) {
   return (
     <article>
-      <div className="w-10 h-10 rounded-md bg-[var(--color-brand)]/10 border border-[var(--color-brand)]/30 flex items-center justify-center text-[var(--color-brand)]">
+      <div className="w-10 h-10 rounded-md bg-[var(--color-brand)]/10 border border-[var(--color-brand)]/30 flex items-center justify-center text-[var(--color-brand-text)]">
         <Icon size={18} />
       </div>
       <h3 className="mt-4 text-2xl font-bold">{title}</h3>

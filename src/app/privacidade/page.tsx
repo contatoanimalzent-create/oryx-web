@@ -1,53 +1,261 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { LegalPage, type LegalSection } from "@/components/legal/LegalPage";
+import { COMPANY } from "@/lib/company";
 
 export const metadata: Metadata = {
   title: "Política de Privacidade",
-  description: "Como o ORYX coleta, usa e protege seus dados (LGPD).",
+  description:
+    "Quais dados o ORYX coleta, para quê, com quem compartilha, por quanto tempo guarda e como você exerce seus direitos pela LGPD.",
   alternates: { canonical: "/privacidade" },
 };
 
+const DADOS: Array<[string, string, string]> = [
+  ["Conta: e-mail, nome, senha, callsign, foto e bio", "Criar e manter sua conta e seu perfil de jogador", "Execução de contrato (art. 7º, V)"],
+  ["Aceite dos termos e confirmação de 18 anos ou mais", "Provar o que você aceitou e quando", "Obrigação legal e exercício regular de direitos (art. 7º, II e VI)"],
+  ["Localização, velocidade e precisão do GPS", "Mostrar você no mapa do seu time e da organização durante a partida, inclusive com a tela bloqueada", "Execução de contrato (art. 7º, V)"],
+  ["Voz no rádio do app", "Falar com seu time ao vivo. A voz não é gravada", "Execução de contrato (art. 7º, V)"],
+  ["Contato de emergência e tipo sanguíneo (opcionais)", "Atendimento de emergência no evento", "Consentimento específico e proteção da vida (art. 11, I e II, e)"],
+  ["CPF, foto de documento e selfie (só quando você pede verificação ou saque)", "Confirmar sua identidade e evitar fraude", "Prevenção à fraude e obrigação legal (art. 11, II, a e g)"],
+  ["Inscrições, times, funções, missões, pontos, ranking, avaliações, mensagens e posts", "Fazer o jogo funcionar e mostrar seu histórico", "Execução de contrato (art. 7º, V)"],
+  ["Pagamentos e carteira: valores, datas e status", "Cobrar, reembolsar e cumprir regras fiscais. O número do cartão fica com a Stripe, nunca com a gente", "Execução de contrato e obrigação legal (art. 7º, II e V)"],
+  ["Sinais de integridade da partida (velocidade impossível, salto de GPS)", "Evitar trapaça. A decisão final é sempre de uma pessoa da organização", "Legítimo interesse (art. 7º, IX)"],
+  ["Dados técnicos: token de notificação, modelo do aparelho, relatório de erro", "Enviar avisos e corrigir falhas", "Legítimo interesse (art. 7º, IX)"],
+  ["Análise de uso: telas abertas e botões tocados", "Melhorar o app. Só se você autorizar, e você muda quando quiser", "Consentimento (art. 7º, I)"],
+];
+
+const FORNECEDORES: Array<[string, string, string]> = [
+  ["Amazon Web Services", "Servidores e banco de dados", "Estados Unidos"],
+  ["Stripe", "Pagamentos com cartão e boleto", "Estados Unidos e Brasil"],
+  ["Google Firebase", "Notificações no celular", "Estados Unidos"],
+  ["Mixpanel", "Análise de uso, só com seu consentimento", "Estados Unidos"],
+  ["Sentry", "Relatórios de erro do app", "Estados Unidos"],
+  ["Zoho", "E-mail de contato e suporte", "Índia e Estados Unidos"],
+  ["Cloudflare e Vercel", "Site e domínio", "Estados Unidos"],
+  ["Apple e Google", "Lojas de aplicativo", "Estados Unidos"],
+];
+
+function Tabela({ head, rows }: { head: string[]; rows: Array<[string, string, string]> }) {
+  return (
+    <div className="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            {head.map((h) => (
+              <th key={h} scope="col">
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr key={r[0]}>
+              <td>{r[0]}</td>
+              <td>{r[1]}</td>
+              <td>{r[2]}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+const SECTIONS: LegalSection[] = [
+  {
+    id: "quem-somos",
+    title: "Quem cuida dos seus dados",
+    body: (
+      <>
+        <p>
+          O controlador dos dados é o {COMPANY.product}, produto da {COMPANY.legalName}, em {COMPANY.city}. Para qualquer
+          assunto de privacidade, inclusive com o nosso encarregado de dados, escreva para{" "}
+          <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>.
+        </p>
+        <p>
+          Quando você se inscreve no evento de um organizador, ele também passa a tratar os dados necessários para o evento
+          acontecer (nome, callsign, função no time, posição durante a partida e, se você informou, o contato de emergência).
+          Nesse caso o organizador responde pelo uso que fizer desses dados fora do ORYX.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "dados",
+    title: "O que coletamos, para quê e com qual base legal",
+    body: (
+      <>
+        <p>Coletamos só o que o app precisa para funcionar. Bases legais da Lei Geral de Proteção de Dados (Lei 13.709/2018):</p>
+        <Tabela head={["Dado", "Para quê", "Base legal"]} rows={DADOS} />
+        <p>
+          Contato de emergência e tipo sanguíneo são dados de saúde. Você preenche se quiser, e eles só aparecem para a
+          organização e o atendimento médico do evento em que você está inscrito.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "localizacao",
+    title: "Localização e permissões do celular",
+    body: (
+      <>
+        <p>
+          A localização só é coletada quando você entra numa partida. Antes do pedido do sistema, o app mostra um aviso
+          explicando o uso. Durante a partida ela continua com a tela bloqueada ou o app fechado, para o seu time não te
+          perder. Quando você sai da partida, a coleta para.
+        </p>
+        <p>
+          Sua posição aparece só para o seu time e para a organização do evento. O time adversário nunca recebe sua posição.
+        </p>
+        <p>Outras permissões, sempre pedidas na hora em que você usa o recurso:</p>
+        <ul>
+          <li><strong>Câmera:</strong> ler QR code de check-in e de artefatos, e tirar fotos que você escolher enviar.</li>
+          <li><strong>Microfone:</strong> falar no rádio do time. A voz não é gravada.</li>
+          <li><strong>Bluetooth e NFC:</strong> confirmar que você está perto de um artefato do jogo (bomba, ogiva, objetivo).</li>
+          <li><strong>Notificações:</strong> avisos do evento, do time e da pista.</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: "compartilhamento",
+    title: "Com quem compartilhamos",
+    body: (
+      <>
+        <p>Não vendemos seus dados. Compartilhamos só o necessário:</p>
+        <ul>
+          <li><strong>Outros jogadores:</strong> callsign, patente, foto e ranking são públicos dentro do app.</li>
+          <li><strong>Seu time e a organização:</strong> posição durante a partida e sua função no time.</li>
+          <li><strong>Autoridades:</strong> quando a lei ou uma ordem judicial exigir.</li>
+          <li><strong>Fornecedores que operam o serviço</strong>, com contrato que os obriga a proteger os dados:</li>
+        </ul>
+        <Tabela head={["Fornecedor", "Para quê", "Onde"]} rows={FORNECEDORES} />
+      </>
+    ),
+  },
+  {
+    id: "internacional",
+    title: "Transferência para outros países",
+    body: (
+      <p>
+        Nossos servidores ficam nos Estados Unidos (Amazon Web Services) e alguns fornecedores da tabela acima também estão
+        fora do Brasil. Essas transferências seguem o art. 33 da LGPD, com cláusulas contratuais e medidas de segurança
+        equivalentes às exigidas aqui.
+      </p>
+    ),
+  },
+  {
+    id: "retencao",
+    title: "Por quanto tempo guardamos",
+    body: (
+      <ul>
+        <li><strong>Conta e perfil:</strong> enquanto a conta existir.</li>
+        <li>
+          <strong>Ao excluir a conta</strong> (Ajustes &gt; Excluir conta): e-mail, nome, callsign, foto, bio, contato de
+          emergência, tipo sanguíneo e documentos de verificação são apagados na hora. O histórico de partidas e compras fica
+          anônimo, sem ligação com você.
+        </li>
+        <li><strong>Pagamentos:</strong> pelo prazo exigido pela legislação fiscal (5 anos).</li>
+        <li><strong>Registros de acesso:</strong> 6 meses, como manda o Marco Civil da Internet (Lei 12.965/2014, art. 15).</li>
+        <li><strong>Análise de uso:</strong> até você retirar o consentimento.</li>
+      </ul>
+    ),
+  },
+  {
+    id: "direitos",
+    title: "Seus direitos e como usar",
+    body: (
+      <>
+        <p>Pelo art. 18 da LGPD você pode, a qualquer momento e sem custo:</p>
+        <ul>
+          <li>confirmar se tratamos seus dados e ter acesso a eles;</li>
+          <li>corrigir dados errados ou desatualizados;</li>
+          <li>pedir anonimização, bloqueio ou exclusão do que for desnecessário;</li>
+          <li>levar seus dados para outro serviço (portabilidade);</li>
+          <li>saber com quem compartilhamos;</li>
+          <li>retirar um consentimento e saber o que acontece se não der;</li>
+          <li>pedir revisão de decisão tomada só por sistema automático.</li>
+        </ul>
+        <p>
+          <strong>No app:</strong> Ajustes &gt; Privacidade &gt; Baixar meus dados entrega uma cópia completa; Ajustes &gt;
+          Excluir conta apaga sua conta; Ajustes &gt; Privacidade liga e desliga a análise de uso.{" "}
+          <strong>Por e-mail:</strong> <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>. Respondemos em até 15 dias.
+        </p>
+        <p>
+          Se não ficar satisfeito, você pode reclamar à Autoridade Nacional de Proteção de Dados (ANPD) em{" "}
+          <a href="https://www.gov.br/anpd" rel="noopener noreferrer" target="_blank">
+            gov.br/anpd
+          </a>
+          .
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "menores",
+    title: "Menores de idade",
+    body: (
+      <p>
+        O ORYX é só para maiores de 18 anos, como o próprio airsoft no Brasil. No cadastro você confirma a idade. Se
+        descobrirmos uma conta de menor, ela é excluída.
+      </p>
+    ),
+  },
+  {
+    id: "seguranca",
+    title: "Segurança",
+    body: (
+      <>
+        <p>
+          Senhas são guardadas cifradas (argon2), toda conexão usa HTTPS, o banco de dados fica numa rede privada sem acesso
+          pela internet e só pessoas autorizadas acessam a infraestrutura.
+        </p>
+        <p>
+          Nenhum sistema é perfeito. Se acontecer um incidente com risco para você, avisamos você e a ANPD, como manda o
+          art. 48 da LGPD.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "cookies",
+    title: "Cookies",
+    body: (
+      <p>
+        Este site não usa cookies de rastreamento nem de publicidade, e não carrega scripts de terceiros para medir visitas.
+        Por isso não pedimos aceite de cookies. Se isso mudar, o site vai pedir sua escolha antes, e esta página será
+        atualizada. No app, a análise de uso só liga com o seu sim.
+      </p>
+    ),
+  },
+  {
+    id: "mudancas",
+    title: "Mudanças nesta política",
+    body: (
+      <p>
+        Quando mudarmos algo importante, avisamos no app antes de valer. Cada versão tem data, e guardamos qual versão você
+        aceitou. Veja também os <Link href="/termos">Termos de uso</Link> e a{" "}
+        <Link href="/reembolso">Política de reembolso</Link>.
+      </p>
+    ),
+  },
+];
+
 export default function PrivacidadePage() {
   return (
-    <section className="pt-32 pb-24 lg:pt-44 mx-auto max-w-3xl px-6 lg:px-8 prose prose-invert">
-      <h1 className="text-4xl font-black">Política de Privacidade</h1>
-      <p className="text-sm text-[var(--color-text-dim)]">Última atualização: 2026 · LGPD compliant</p>
-
-      <h2 className="text-2xl font-bold mt-10">Dados que coletamos</h2>
-      <ul className="text-[var(--color-text-muted)]">
-        <li>Identificação: email, callsign, foto de perfil</li>
-        <li>Localização GPS, apenas durante eventos ativos com seu consentimento</li>
-        <li>Posição, velocidade, accuracy do GPS durante partidas</li>
-        <li>Eventos de uso do produto para analytics agregados</li>
-        <li>Relatórios técnicos de erro e estabilidade, sem dados sensíveis</li>
-      </ul>
-
-      <h2 className="text-2xl font-bold mt-10">Como usamos</h2>
-      <ul className="text-[var(--color-text-muted)]">
-        <li>Operar o serviço (matching de squad, voz, ranking)</li>
-        <li>Integridade da partida e detecção de padrões suspeitos</li>
-        <li>Comunicação (push notification de evento/squad)</li>
-        <li>Melhorar o produto (analytics agregado)</li>
-      </ul>
-
-      <h2 className="text-2xl font-bold mt-10">Compartilhamento</h2>
-      <p className="text-[var(--color-text-muted)]">
-        Não vendemos seus dados. Compartilhamos apenas com provedores
-        essenciais para hospedagem, pagamentos, analytics, notificações,
-        comunicação e estabilidade do serviço. Esses provedores operam sob
-        bases contratuais compatíveis com a LGPD.
-      </p>
-
-      <h2 className="text-2xl font-bold mt-10">Seus direitos (LGPD)</h2>
-      <p className="text-[var(--color-text-muted)]">
-        Você pode acessar, corrigir, portar ou apagar seus dados a qualquer
-        momento. Use Configurações → Privacidade no app, ou escreva pra
-        privacidade@oryxcontrol.com. Resposta em até 15 dias úteis.
-      </p>
-
-      <h2 className="text-2xl font-bold mt-10">Encarregado (DPO)</h2>
-      <p className="text-[var(--color-text-muted)]">
-        Animalz Group, privacidade@oryxcontrol.com, Brasília-DF, Brasil.
-      </p>
-    </section>
+    <LegalPage
+      title="Política de Privacidade"
+      intro={
+        <p>
+          Esta página explica, sem juridiquês, o que o ORYX faz com os seus dados no app e no site. Ela vale junto com os{" "}
+          <Link className="underline" href="/termos">
+            Termos de uso
+          </Link>
+          .
+        </p>
+      }
+      sections={SECTIONS}
+    />
   );
 }
