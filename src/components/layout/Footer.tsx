@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Instagram, Mail, MapPin } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
+import { COMPANY } from "@/lib/company";
 
 const COLS: Array<{ title: string; links: Array<{ label: string; href: string }> }> = [
   {
@@ -16,7 +17,6 @@ const COLS: Array<{ title: string; links: Array<{ label: string; href: string }>
     title: "Empresa",
     links: [
       { label: "Sobre", href: "/sobre" },
-      { label: "Blog", href: "/blog" },
       { label: "Tecnologia", href: "/#tecnologia" },
       { label: "Contato", href: "mailto:contato@oryxcontrol.com" },
     ],
@@ -26,6 +26,8 @@ const COLS: Array<{ title: string; links: Array<{ label: string; href: string }>
     links: [
       { label: "Termos de uso", href: "/termos" },
       { label: "Política de privacidade", href: "/privacidade" },
+      { label: "Política de reembolso", href: "/reembolso" },
+      { label: "Seus direitos (LGPD)", href: "/privacidade#direitos" },
     ],
   },
 ];
@@ -68,7 +70,7 @@ export function Footer() {
                   <li key={l.href}>
                     <Link
                       href={l.href}
-                      className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-brand)] transition-colors"
+                      className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-brand-text)] transition-colors"
                     >
                       {l.label}
                     </Link>
@@ -81,7 +83,8 @@ export function Footer() {
 
         <div className="mt-16 pt-8 border-t border-[var(--color-border)] flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
           <div className="text-xs text-[var(--color-text-dim)]">
-            © {new Date().getFullYear()} ORYX Control · Animalz Group · Brasília, DF
+            © {new Date().getFullYear()} {COMPANY.product} · {COMPANY.legalName}
+            {COMPANY.cnpj ? ` · CNPJ ${COMPANY.cnpj}` : ""} · {COMPANY.city} · {COMPANY.email}
           </div>
           <div className="flex items-center gap-2 text-xs text-[var(--color-text-dim)]">
             <MapPin size={12} />
@@ -107,7 +110,7 @@ function SocialLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="w-9 h-9 inline-flex items-center justify-center rounded-md border border-[var(--color-border-strong)] text-[var(--color-text-muted)] hover:border-[var(--color-brand)] hover:text-[var(--color-brand)] transition-colors"
+      className="w-9 h-9 inline-flex items-center justify-center rounded-md border border-[var(--color-border-strong)] text-[var(--color-text-muted)] hover:border-[var(--color-brand)] hover:text-[var(--color-brand-text)] transition-colors"
       {...rest}
     >
       {children}

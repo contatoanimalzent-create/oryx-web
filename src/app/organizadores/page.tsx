@@ -5,7 +5,7 @@ import { ButtonLink } from "@/components/ui/Button";
 export const metadata: Metadata = {
   title: "Para Organizadores, Produza operações táticas como profissional",
   description:
-    "Dashboard de comando ao vivo, criação de missões em minutos, integridade de partida e divulgação. Sem custo nenhum.",
+    "Dashboard de comando ao vivo, criação de missões em minutos, integridade de partida e divulgação. Comece no plano gratuito.",
   alternates: { canonical: "/organizadores" },
 };
 
@@ -15,12 +15,12 @@ export default function OrganizadoresPage() {
       <section className="relative pt-32 pb-16 lg:pt-44 lg:pb-24">
         <div className="absolute inset-0 tactical-grid pointer-events-none" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-          <p className="tactical-bracket text-xs font-mono uppercase tracking-widest text-[var(--color-brand)]">
+          <p className="tactical-bracket text-xs font-mono uppercase tracking-widest text-[var(--color-brand-text)]">
             Para Organizadores
           </p>
           <h1 className="mt-4 text-5xl md:text-7xl font-black tracking-tight leading-[0.95] max-w-4xl">
             Organize <br />
-            <span className="text-[var(--color-brand)]">como profissional.</span>
+            <span className="text-[var(--color-brand-text)]">como profissional.</span>
           </h1>
           <p className="mt-8 max-w-2xl text-lg text-[var(--color-text-muted)] leading-relaxed">
             ORYX te dá o painel que estúdios de milsim usam: criar evento em
@@ -49,7 +49,7 @@ export default function OrganizadoresPage() {
             <Item
               icon={Calendar}
               title="Criação de evento em minutos"
-              body="Setup completo (mapa, briefing, regras, lotes de ingresso, atribuição de squads) em menos de 30min. Modelos prontos pra CQB, Guerra Total e Sniper-only."
+              body="Mapa, briefing, regras, preço do ingresso, times e funções no mesmo painel. Você define o modo de jogo, as missões e os artefatos."
             />
             <Item
               icon={Users}
@@ -64,7 +64,7 @@ export default function OrganizadoresPage() {
             <Item
               icon={BarChart3}
               title="AAR + estatísticas pós-evento"
-              body="Replay 2D top-down da partida, MVP automático, clipes de momentos chave, ranking final. Compartilhe com seus participantes pra retenção."
+              body="Replay da partida no mapa, pontuação confirmada pelo servidor e ranking final. Cada jogador recebe o próprio resumo."
             />
           </div>
         </div>
@@ -103,7 +103,7 @@ function Item({
 }) {
   return (
     <article>
-      <div className="w-10 h-10 rounded-md bg-[var(--color-brand)]/10 border border-[var(--color-brand)]/30 flex items-center justify-center text-[var(--color-brand)]">
+      <div className="w-10 h-10 rounded-md bg-[var(--color-brand)]/10 border border-[var(--color-brand)]/30 flex items-center justify-center text-[var(--color-brand-text)]">
         <Icon size={18} />
       </div>
       <h3 className="mt-4 text-2xl font-bold">{title}</h3>

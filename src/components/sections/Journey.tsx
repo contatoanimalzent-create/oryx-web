@@ -40,7 +40,7 @@ export function Journey() {
     <section id="como-funciona" className="relative py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal>
-          <p className="tactical-bracket font-mono text-xs uppercase tracking-widest text-[var(--color-brand)]">
+          <p className="tactical-bracket font-mono text-xs uppercase tracking-widest text-[var(--color-brand-text)]">
             Como funciona
           </p>
           <h2 className="display-xl mt-4 max-w-3xl text-5xl sm:text-6xl">

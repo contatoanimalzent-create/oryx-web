@@ -34,7 +34,7 @@ export function Hero() {
       <div className="mx-auto grid max-w-7xl items-start gap-6 px-6 pb-10 pt-8 lg:grid-cols-[1.05fr_1fr] lg:px-8 lg:pb-14 lg:pt-12">
         {/* ── Texto ─────────────────────────────────────────────────── */}
         <div className="relative z-10">
-          <p className="status-live font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-brand)]">
+          <p className="status-live font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-brand-text)]">
             Comando tático pro seu airsoft
           </p>
 

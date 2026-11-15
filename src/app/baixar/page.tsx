@@ -23,7 +23,7 @@ export default function BaixarPage() {
       <div className="absolute inset-0 tactical-vignette pointer-events-none" />
 
       <div className="relative mx-auto max-w-3xl px-6 lg:px-8 text-center">
-        <p className="tactical-bracket text-xs font-mono uppercase tracking-widest text-[var(--color-brand)]">
+        <p className="tactical-bracket text-xs font-mono uppercase tracking-widest text-[var(--color-brand-text)]">
           Nas lojas oficiais
         </p>
         <h1 className="display-xl mt-4 text-5xl md:text-7xl">
@@ -78,7 +78,7 @@ export default function BaixarPage() {
                 key={perk}
                 className="flex items-center gap-3 text-sm text-[var(--color-text-muted)]"
               >
-                <Check size={16} className="text-[var(--color-brand)] shrink-0" />
+                <Check size={16} className="text-[var(--color-brand-text)] shrink-0" />
                 {perk}
               </li>
             ))}

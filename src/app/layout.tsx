@@ -109,9 +109,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
     >
       <body className="bg-[var(--color-bg)] text-[var(--color-text)] antialiased">
+        <a href="#conteudo" className="skip-link">
+          Pular para o conteúdo
+        </a>
         <SmoothScroll>
           <Nav />
-          <main>{children}</main>
+          <main id="conteudo" tabIndex={-1}>
+            {children}
+          </main>
           <Footer />
         </SmoothScroll>
         <StructuredData />

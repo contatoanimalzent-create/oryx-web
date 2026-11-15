@@ -13,12 +13,12 @@ export default function EventosPage() {
     <section className="relative pt-32 pb-24 lg:pt-44 min-h-[80vh]">
       <div className="absolute inset-0 tactical-grid pointer-events-none" />
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <p className="tactical-bracket text-xs font-mono uppercase tracking-widest text-[var(--color-brand)]">
+        <p className="tactical-bracket text-xs font-mono uppercase tracking-widest text-[var(--color-brand-text)]">
           Eventos
         </p>
         <h1 className="mt-4 text-5xl md:text-7xl font-black tracking-tight leading-[0.95]">
           Operações abertas <br />
-          <span className="text-[var(--color-brand)]">no Brasil.</span>
+          <span className="text-[var(--color-brand-text)]">no Brasil.</span>
         </h1>
 
         <div className="mt-16 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-elevated)] p-12 text-center">
@@ -32,7 +32,7 @@ export default function EventosPage() {
           <div className="mt-6 inline-flex items-center gap-2 text-sm text-[var(--color-text-dim)]">
             <MapPin size={14} />
             <a
-              className="text-[var(--color-brand)] hover:underline"
+              className="text-[var(--color-brand-text)] hover:underline"
               href="mailto:contato@oryxcontrol.com?subject=Quero%20cadastrar%20evento"
             >
               Cadastrar minha operação

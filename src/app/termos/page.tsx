@@ -1,55 +1,202 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { LegalPage, type LegalSection } from "@/components/legal/LegalPage";
+import { COMPANY } from "@/lib/company";
 
 export const metadata: Metadata = {
   title: "Termos de Uso",
-  description: "Termos de uso do ORYX (Animalz Group).",
+  description: "As regras de uso do ORYX: quem pode usar, o que cada um faz, pagamentos, segurança em campo e responsabilidades.",
   alternates: { canonical: "/termos" },
 };
 
+const SECTIONS: LegalSection[] = [
+  {
+    id: "o-que-e",
+    title: "O que é o ORYX",
+    body: (
+      <p>
+        O ORYX é um app de coordenação para eventos de airsoft: mapa do time em tempo real, rádio, missões, artefatos do
+        jogo, pontuação, ranking, inscrições e loja entre jogadores. Ele é oferecido pelo {COMPANY.product}, produto da{" "}
+        {COMPANY.legalName}, em {COMPANY.city}. Ao criar a conta você aceita estes Termos e a{" "}
+        <Link href="/privacidade">Política de Privacidade</Link>.
+      </p>
+    ),
+  },
+  {
+    id: "quem-pode",
+    title: "Quem pode usar",
+    body: (
+      <ul>
+        <li>Só maiores de 18 anos. Você confirma isso no cadastro.</li>
+        <li>Os dados do cadastro precisam ser verdadeiros.</li>
+        <li>A conta é pessoal. Você cuida da sua senha e responde pelo que for feito com ela.</li>
+      </ul>
+    ),
+  },
+  {
+    id: "papeis",
+    title: "Jogador, organizador e ORYX: quem faz o quê",
+    body: (
+      <>
+        <p>
+          <strong>O organizador</strong> (produtor do evento) cria o evento e decide local, data, preço, regras, times,
+          funções, missões e artefatos. Ele responde pela realização do evento, pela segurança do local, pelas regras de
+          campo, pelas licenças necessárias e pela devolução do valor quando cancelar.
+        </p>
+        <p>
+          <strong>O jogador</strong> segue as regras do organizador e as leis aplicáveis, usa equipamento de proteção e
+          respeita os outros jogadores.
+        </p>
+        <p>
+          <strong>O ORYX</strong> fornece a ferramenta: mostra informações, registra ações e calcula pontuação a partir do
+          que o servidor confirma. O ORYX não organiza o evento, não fiscaliza o campo e não é equipamento de segurança.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "seguranca",
+    title: "Segurança em campo",
+    body: (
+      <ul>
+        <li>Óculos ou máscara de proteção são obrigatórios em qualquer partida. Siga a regra de equipamento do organizador.</li>
+        <li>Não use o celular de forma que tire sua atenção de um risco real. Pare de jogar se precisar.</li>
+        <li>A sirene e os alertas do app ajudam a comunicação, mas não substituem o apito, o rádio e o juiz do evento.</li>
+        <li>Em emergência, chame o atendimento do evento e o 192 ou 193. O app pode falhar por sinal, bateria ou aparelho.</li>
+      </ul>
+    ),
+  },
+  {
+    id: "conduta",
+    title: "Regras de conduta",
+    body: (
+      <>
+        <p>Não é permitido:</p>
+        <ul>
+          <li>falsificar localização, usar programas para trapacear ou manipular o app;</li>
+          <li>assediar, ameaçar ou discriminar alguém em chat, voz, posts ou avaliações;</li>
+          <li>publicar conteúdo ilegal, de terceiros sem autorização ou imagem de alguém sem consentimento;</li>
+          <li>anunciar na loja itens proibidos por lei ou que você não tem;</li>
+          <li>criar avaliações falsas ou contas falsas.</li>
+        </ul>
+        <p>
+          O sistema aponta sinais suspeitos, mas a decisão é de uma pessoa. Violações podem levar a advertência, suspensão ou
+          exclusão da conta. Você pode contestar por <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "pagamentos",
+    title: "Inscrições, pagamentos e carteira",
+    body: (
+      <>
+        <p>
+          Baixar e usar o app para jogar é grátis. Eventos podem ser gratuitos ou pagos: o preço é definido pelo organizador
+          e mostrado antes de você pagar. Organizadores podem usar o plano gratuito ou contratar planos pagos opcionais.
+        </p>
+        <p>
+          Pagamentos com cartão e boleto são processados pela Stripe. O ORYX não guarda o número do seu cartão. Na fatura
+          aparece ORYXCONTROL.COM.
+        </p>
+        <p>
+          A carteira guarda saldo em reais para inscrições e compras dentro do app. Para sacar, pode ser pedida verificação de
+          identidade. Regras de cancelamento e devolução estão na <Link href="/reembolso">Política de reembolso</Link>.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "loja",
+    title: "Loja entre jogadores",
+    body: (
+      <p>
+        Na loja, a venda é entre o jogador que vende e o que compra. O vendedor responde pela descrição, pelo estado do item,
+        pela entrega e por cumprir a lei sobre o que vende. Réplicas de airsoft precisam seguir as regras do Exército sobre
+        comércio e transporte. Só quem recebeu o pedido pode avaliar o vendedor. O ORYX ajuda a resolver problemas, mas não é
+        dono dos itens anunciados.
+      </p>
+    ),
+  },
+  {
+    id: "conteudo",
+    title: "Seu conteúdo e o nosso",
+    body: (
+      <>
+        <p>
+          O que você publica (fotos, posts, avaliações, mensagens) continua seu. Você autoriza o ORYX a mostrar esse conteúdo
+          dentro do app, só para o funcionamento do serviço. Ao apagar o conteúdo ou a conta, ele sai do app.
+        </p>
+        <p>
+          Marca, nome, logotipo, design, código e sons do ORYX pertencem ao {COMPANY.legalName}. Não copie nem use sem
+          autorização.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "disponibilidade",
+    title: "Disponibilidade e mudanças no app",
+    body: (
+      <p>
+        Trabalhamos para o app funcionar o tempo todo, mas ele depende de internet, GPS, bateria e serviços de terceiros, e
+        pode ter falhas ou paradas para manutenção. Recursos podem mudar ou sair. Quando a mudança afetar algo pago, avisamos
+        antes.
+      </p>
+    ),
+  },
+  {
+    id: "responsabilidade",
+    title: "Responsabilidade",
+    body: (
+      <>
+        <p>
+          O ORYX responde pelos serviços que presta, nos termos do Código de Defesa do Consumidor. Não responde por acidentes,
+          lesões ou danos causados pela realização do evento, pelo campo, pelo equipamento ou pela conduta de jogadores e
+          organizadores, nem por negócios feitos entre jogadores na loja, salvo quando a falha for do próprio ORYX.
+        </p>
+        <p>Nada nestes Termos tira direitos que a lei garante a você como consumidor.</p>
+      </>
+    ),
+  },
+  {
+    id: "encerramento",
+    title: "Encerramento da conta",
+    body: (
+      <p>
+        Você pode excluir sua conta quando quiser em Ajustes &gt; Excluir conta. O ORYX pode suspender ou encerrar contas que
+        violem estes Termos ou a lei, explicando o motivo, salvo quando a lei proibir.
+      </p>
+    ),
+  },
+  {
+    id: "mudancas",
+    title: "Mudanças nestes Termos",
+    body: (
+      <p>
+        Quando mudarmos algo importante, avisamos no app antes de valer. Cada versão tem data, e guardamos qual versão você
+        aceitou.
+      </p>
+    ),
+  },
+  {
+    id: "lei",
+    title: "Lei e foro",
+    body: (
+      <p>
+        Valem as leis do Brasil. Se houver disputa, você pode escolher o foro da sua cidade, como garante o Código de Defesa
+        do Consumidor. Antes disso, fale com a gente: <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>.
+      </p>
+    ),
+  },
+];
+
 export default function TermosPage() {
   return (
-    <section className="pt-32 pb-24 lg:pt-44 mx-auto max-w-3xl px-6 lg:px-8 prose prose-invert">
-      <h1 className="text-4xl font-black">Termos de Uso</h1>
-      <p className="text-sm text-[var(--color-text-dim)]">Última atualização: 2026</p>
-
-      <h2 className="text-2xl font-bold mt-10">1. Aceitação</h2>
-      <p className="text-[var(--color-text-muted)]">
-        Ao usar o ORYX (app móvel, site oryxcontrol.com e serviços relacionados),
-        você concorda com estes Termos. Se não concordar, não use.
-      </p>
-
-      <h2 className="text-2xl font-bold mt-10">2. Cadastro</h2>
-      <p className="text-[var(--color-text-muted)]">
-        Você precisa ter 18 anos ou mais. Dados fornecidos devem ser
-        verdadeiros. Você é responsável pela segurança da sua senha e por
-        toda atividade na sua conta.
-      </p>
-
-      <h2 className="text-2xl font-bold mt-10">3. Conduta</h2>
-      <p className="text-[var(--color-text-muted)]">
-        Trapaças, localização falsa ou manipulação de integridade levam a banimento.
-        Comportamento abusivo em chat ou voz idem. Comunique violações
-        a contato@oryxcontrol.com.
-      </p>
-
-      <h2 className="text-2xl font-bold mt-10">4. Marketplace</h2>
-      <p className="text-[var(--color-text-muted)]">
-        Transações entre operadores no marketplace são facilitadas pelo
-        ORYX mas a relação contratual é entre comprador e vendedor.
-        Não nos responsabilizamos por defeitos ou descumprimento.
-      </p>
-
-      <h2 className="text-2xl font-bold mt-10">5. Limitação de responsabilidade</h2>
-      <p className="text-[var(--color-text-muted)]">
-        ORYX é uma ferramenta de coordenação. Não somos responsáveis por
-        acidentes em eventos de airsoft. Sempre siga as regras do
-        organizador, EPI obrigatório e legislação local.
-      </p>
-
-      <h2 className="text-2xl font-bold mt-10">6. Contato</h2>
-      <p className="text-[var(--color-text-muted)]">
-        contato@oryxcontrol.com, Animalz Group, Brasília-DF, Brasil.
-      </p>
-    </section>
+    <LegalPage
+      title="Termos de Uso"
+      intro={<p>As regras para usar o ORYX, escritas para qualquer pessoa entender. Leia antes de criar a conta.</p>}
+      sections={SECTIONS}
+    />
   );
 }

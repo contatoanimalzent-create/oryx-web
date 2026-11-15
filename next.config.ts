@@ -43,6 +43,11 @@ const config: NextConfig = {
       { source: "/app", destination: "/baixar", permanent: false },
       { source: "/download", destination: "/baixar", permanent: false },
       { source: "/jogar", destination: "/baixar", permanent: false },
+      // Blog saiu do ar (comparativo sem fonte verificável). Links antigos vão pra home.
+      { source: "/blog", destination: "/", permanent: true },
+      { source: "/blog/:slug*", destination: "/", permanent: true },
+      { source: "/privacy", destination: "/privacidade", permanent: true },
+      { source: "/terms", destination: "/termos", permanent: true },
     ];
   },
 };

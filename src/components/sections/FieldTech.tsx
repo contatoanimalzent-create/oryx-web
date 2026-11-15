@@ -38,7 +38,7 @@ export function FieldTech() {
         <div className="grid items-center gap-8 lg:grid-cols-[1fr_320px]">
           <div>
             <Reveal>
-              <p className="tactical-bracket font-mono text-xs uppercase tracking-widest text-[var(--color-brand)]">
+              <p className="tactical-bracket font-mono text-xs uppercase tracking-widest text-[var(--color-brand-text)]">
                 Engenharia de campo
               </p>
               <h2 className="display-xl mt-4 max-w-2xl text-5xl sm:text-6xl">
@@ -55,7 +55,7 @@ export function FieldTech() {
               {TECH.map((t, i) => (
                 <Reveal key={t.title} delay={i * 0.06}>
                   <div className="holo-panel h-full rounded-2xl p-5">
-                    <t.icon className="text-[var(--color-brand)]" size={22} />
+                    <t.icon className="text-[var(--color-brand-text)]" size={22} />
                     <h3 className="mt-3 font-semibold">{t.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-[var(--color-text-muted)]">
                       {t.desc}
